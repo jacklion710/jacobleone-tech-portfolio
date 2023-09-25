@@ -5,11 +5,10 @@ import {
     Text,
     Button,
     VStack,
-    List,
-    ListItem,
     Link,
     Container,
-    ChakraProvider
+    ChakraProvider,
+    Divider
   } from "@chakra-ui/react";
   import { FaLaptopCode, FaMobileAlt, FaBrain, FaCode } from "react-icons/fa";
   import Navbar from "../components/Navbar";
@@ -45,19 +44,36 @@ import {
                 <Navbar />
                 
                 <Container maxW="container.xl" flexGrow={1}>
-                    <Heading as="h1" size="2xl" mb={10} mt={10} textAlign="center">
+                    <Heading 
+                        as="h1" 
+                        size="2xl" 
+                        mb={10} 
+                        mt={10} 
+                        textAlign="center"
+                        position="relative"
+                        _after={{
+                            content: '""',
+                            display: 'block',
+                            position: 'absolute',
+                            bottom: '-10px', 
+                            left: '50%',
+                            transform: 'translateX(-50%)',
+                            width: '280px',  
+                            borderBottom: `1px solid currentColor`,  
+                        }}
+                    >
                         My Services
                     </Heading>
             
-                    <Flex wrap="wrap" justifyContent="center" gap={8}>
+                    <Flex wrap="wrap" justifyContent="center" gap={4}>
                         {services.map((service, index) => (
-                            <Box key={index} borderWidth="1px" borderRadius="lg" overflow="hidden" w="xs" p={5} m={3}>
+                            <Box key={index} borderWidth="5px" borderRadius="lg" overflow="hidden" w="xs" p={5} m={1} bg="gray.100" borderColor="black">
                                 <Flex justifyContent="center">
                                     <Box fontSize="3xl" mb={3}>
                                         {service.icon}
                                     </Box>
                                 </Flex>
-                                <Heading as="h2" size="lg" mb={4} textAlign="center">
+                                <Heading as="h2" size="lg" mb={1} textAlign="center">
                                     {service.title}
                                 </Heading>
                                 <Text mb={4} textAlign="center">{service.description}</Text>
@@ -65,19 +81,21 @@ import {
                         ))}
                     </Flex>
 
+                    <Divider my={10} w="50%" borderColor="black" mx="auto" />
+
                     <VStack mt={10} spacing={4} alignItems="center">
-                        <Text fontSize="xl" textAlign="center" fontWeight="medium">
+                        <Text fontSize="lg" textAlign="center" fontWeight="medium">
                             Interested in working with me? Get in touch!
                         </Text>
                         <Flex>
-                            <Button colorScheme="blue" size="lg" as={Link} href="/contact" mr={4}>
+                            <Button colorScheme="blue" size="med" as={Link} href="/Contact" mr={4} padding={2}>
                                 Contact
                             </Button>
-                            <Button colorScheme="green" size="lg" as={Link} href="/pages/projects">
+                            <Button colorScheme="green" size="med" as={Link} href="/Projects" padding={2}>
                                 Projects
                             </Button>
                         </Flex>
-                        <Text fontSize="lg">
+                        <Text fontSize="med">
                             Email me at <Link href="mailto:jacob0leone@gmail.com" color="blue.500" fontWeight="bold">jacob0leone@gmail.com</Link>
                         </Text>
                     </VStack>
