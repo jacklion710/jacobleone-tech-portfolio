@@ -64,7 +64,7 @@ function Navbar() {
 
 const DesktopNav = () => {
   return (
-    <Flex justifyContent="center" alignItems="center" flexGrow={1} h="100%">
+    <Flex justifyContent="space-between" alignItems="center" flexGrow={1} h="100%">
       <Stack 
         direction={'row'} 
         spacing={6}
