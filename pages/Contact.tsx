@@ -5,9 +5,8 @@ import {
     Text,
     Link,
     HStack,
-    VStack,
     IconButton,
-    Button,
+    Image,
     ChakraProvider,
     useColorModeValue
   } from "@chakra-ui/react";
@@ -15,7 +14,6 @@ import {
     FaEnvelope,
     FaLinkedin, 
     FaYoutube, 
-    FaPatreon, 
     FaGithub
   } from 'react-icons/fa';
   import Navbar from "../components/Navbar";
@@ -30,16 +28,22 @@ import {
       colorScheme: "blue"
     },
     {
+      href: "https://github.com/jacklion710",
+      label: "Github",
+      icon: <FaGithub />,
+      colorScheme: "gray"
+    },
+    {
       href: "https://www.youtube.com/channel/UCbTxhDz-oFPdbKl5-rpi4gQ",
       label: "Youtube",
       icon: <FaYoutube />,
       colorScheme: "red"
     },
     {
-      href: "https://github.com/jacklion710",
-      label: "Github",
-      icon: <FaGithub />,
-      colorScheme: "gray"
+      href: "mailto:jacob0leone@gmail.com",
+      label: "Email",
+      icon: <FaEnvelope />,
+      colorScheme: "green"
     }
   ];
   
@@ -74,17 +78,17 @@ import {
               position="relative"
             >
               <Heading 
-                size="xl" 
+                size="2xl" 
                 mb={4} 
                 position="relative"
                 _after={{
                   content: '""',
                   display: 'block',
                   position: 'absolute',
-                  bottom: '-10px',  // Adjust this value to move the border closer/farther from the text
+                  bottom: '-10px', 
                   left: '50%',
                   transform: 'translateX(-50%)',
-                  width: '290px',  // Adjust this width as per your requirements
+                  width: '400px', 
                   borderBottom: `1px solid `,
                 }}
               >
@@ -93,11 +97,6 @@ import {
               <Text mb={6}>
                 Want to ask a question or book me for a services? Reach out to me directly on any platform or send me an <Link href="mailto:jacob0leone@gmail.com" color="teal.500">email</Link>
               </Text>
-                <HStack spacing={4} justify="center" wrap="wrap" mb={40}>
-                  <Link href="mailto:jacob0leone@gmail.com">
-                    <IconButton aria-label="Email" icon={<FaEnvelope />} size="lg" colorScheme="teal" />
-                  </Link>
-                </HStack>
                 </Box>
                 <HStack spacing={4} justify="center" wrap="wrap" mb={4}>
                 {socialLinks.map(({ href, label, icon, colorScheme }) => (
@@ -114,6 +113,14 @@ import {
                     </Link>
                 ))}
                 </HStack>
+                <Image 
+                    src="/images/lasers.png" 
+                    alt="Description of the Image" 
+                    height="50vh"
+                    width="100%" 
+                    objectFit="cover"
+                    flexGrow={1} 
+                />
               </Flex>
             <Footer />
         </Flex>
