@@ -6,7 +6,6 @@ import {
     Link,
     HStack,
     IconButton,
-    Image,
     ChakraProvider,
     useColorModeValue
   } from "@chakra-ui/react";

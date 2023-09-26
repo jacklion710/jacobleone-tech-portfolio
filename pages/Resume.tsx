@@ -2,12 +2,10 @@ import {
   Box,
   Flex,
   Heading,
-  Text,
   VStack,
   Button,
   HStack,
   ChakraProvider,
-  useColorModeValue,
   Icon,
   useBoolean
 } from "@chakra-ui/react";
