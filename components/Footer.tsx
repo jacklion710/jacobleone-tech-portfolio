@@ -12,12 +12,6 @@ import {
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { ReactNode } from 'react'
 
-const Logo = (props: any) => {
-    const colorMode = useColorModeValue('light', 'dark');
-    const logoSrc = colorMode === 'light' ? '/assets/jack.lion_dark.png' : '/assets/jack.lion_light.png';
-    return <Image src={logoSrc} alt="Jack's Logo" w={8} h={8} {...props} />;
-};
-
 const SocialButton = ({
   children,
   label,
