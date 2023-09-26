@@ -8,7 +8,7 @@ const LandingPage = () => {
 
   return (
     <Center 
-      height="88vh" 
+      minHeight="88vh" 
       bg="gray.50" 
       bgImage="url('/images/Circuit.jpeg')"
       bgPos="center"
@@ -34,11 +34,11 @@ const LandingPage = () => {
             Jacob Leone
           </Heading>
           <VStack spacing={2}>
-            <AiFillRobot size="1.5em" />
+            <AiFillRobot size="1.5em" color="gray.700" />
             <Text fontSize={['lg', 'xl', '2xl']} color="gray.700">AI Specialist</Text>
           </VStack>
           <VStack spacing={2}>
-            <FaCode size="1.5em" />
+            <FaCode size="1.5em" color="gray.700" />
             <Text fontSize={['lg', 'xl', '2xl']} color="gray.700">Software Engineer</Text>
           </VStack>
           <Button 
