@@ -1,8 +1,6 @@
 import {
   Box,
   Flex,
-  Text,
-  Icon,
   IconButton,
   Stack,
   Image,
@@ -14,8 +12,6 @@ import React from 'react';
 import {
   HamburgerIcon,
   CloseIcon,
-  ChevronDownIcon,
-  ChevronRightIcon
 } from '@chakra-ui/icons';
 import dynamic from "next/dynamic";
 import NextLink from "next/link";
@@ -42,6 +38,7 @@ function Navbar() {
           display={{ base: 'flex', md: 'none' }}>
           <IconButton
             onClick={onToggle}
+            color={"teal.500"}
             icon={
               isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={12} h={12} />
             }
