@@ -120,6 +120,15 @@ import {
                     </Link>
                 ))}
                 </HStack>
+                <Box mt={4} maxW="1280px" w="100%" mx="auto" height="500px">
+                <iframe 
+                    width="100%" 
+                    height="600" 
+                    frameBorder="0" 
+                    src="https://www.shadertoy.com/embed/DlffWH?gui=true&t=10&paused=true&muted=false"
+                    allowFullScreen
+                />
+            </Box>
               </Flex>
             <Footer />
         </Flex>
