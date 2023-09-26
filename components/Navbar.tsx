@@ -93,22 +93,27 @@ const DesktopNav = () => {
 const MobileNav = () => {
   return (
     <Stack
+      direction="column"  // <-- Explicitly set the direction
+      flexDirection="column" // <-- This is an extra step to ensure the direction is correct
       bg={'black'}
       p={4}
-      spacing={6}  // <-- Introducing spacing between nav items
-      display={{ md: 'none' }}>
-      
+      spacing={4}  
+      display={{ md: 'none' }}
+      width="100%"  // <-- Ensure the stack takes the full width
+    >
       {NAV_ITEMS.map((navItem) => (
         <NextLink key={navItem.label ?? navItem.imageSrc} href={navItem.href ?? '#'} passHref>
           <ChakraLink
-            py={2}
-            fontSize={{ base: "xl" }}  // <-- Making text larger for prominence
-            fontWeight={navItem.imageSrc ? 'normal' : 'bold'}  // <-- Make text items bold
+            py={3}
+            fontSize={{ base: "lg" }}
+            fontWeight={navItem.imageSrc ? 'normal' : 'bold'}
             color='white'
-            _hover={{ textDecoration: 'underline', color: 'gray.300' }}  // <-- Hover effect
+            textAlign="center"  // <-- Optional: center the text and images
+            display="block"  // <-- Ensure each link takes the full width of its container
+            _hover={{ textDecoration: 'underline', color: 'gray.300' }}
           >
             {navItem.imageSrc ? (
-              <Image src={navItem.imageSrc} objectFit="cover" objectPosition="center top" w="50px" h="50px" borderRadius="50%" />
+              <Image src={navItem.imageSrc} objectFit="cover" objectPosition="center top" w="40px" h="40px" borderRadius="50%" mx="auto" />  // <-- Center the image
             ) : (
               navItem.label
             )}
