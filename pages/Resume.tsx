@@ -27,7 +27,7 @@ export default function Resume() {
   return (
     <ChakraProvider>
       <Helmet>
-        <title>Jacob Leone's Résumé and References | Résumé & References</title>
+        <title>Jacob Leones Résumé and References | Résumé & References</title>
         <meta name="description" content="Download Jacob Leone's up-to-date resume or view professional references that endorse Jacob's skills and expertise." />
         <meta name="keywords" content="Jacob Leone, Resume, References, Professional, Download, Skills, Endorsements" />
         <meta property="og:type" content="website" />

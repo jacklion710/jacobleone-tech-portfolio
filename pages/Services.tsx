@@ -42,7 +42,7 @@ import {
     return (
         <ChakraProvider>
             <Helmet>
-                <title>Jacob Leone's Services | Professional Tech Solutions</title>
+                <title>Jacob Leones Services | Professional Tech Solutions</title>
                 <meta name="description" content="Explore Jacob Leone's professional services, ranging from AI & Machine Learning, Software Development, Web Development, to Mobile App Creation. Get the best tech solutions tailored for your needs." />
                 <meta name="keywords" content="Jacob Leone, AI, Machine Learning, Software Development, Web Development, Mobile App Creation, Tech Services" />
                 <meta property="og:type" content="website" />
