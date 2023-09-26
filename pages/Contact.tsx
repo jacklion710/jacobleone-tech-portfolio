@@ -77,6 +77,7 @@ import {
               py={8}
               px={4}
               flexGrow={1}
+              overflowY="auto"
             >
             <Box 
               w="100%" 
