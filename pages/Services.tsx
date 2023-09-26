@@ -43,7 +43,7 @@ import {
             <Flex 
                 direction="column" 
                 minHeight="100vh"
-                bgImage="url('/images/circuit.jpeg')"
+                bgImage="url('/images/Circuit.jpeg')"
                 bgPos="center"
                 bgSize="cover"
                 bgRepeat="no-repeat"
