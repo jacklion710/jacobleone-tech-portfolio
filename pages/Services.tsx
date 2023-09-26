@@ -40,7 +40,14 @@ import {
   export default function Services() {
     return (
         <ChakraProvider>
-            <Flex direction="column" minHeight="100vh">
+            <Flex 
+                direction="column" 
+                minHeight="100vh"
+                bgImage="url('/images/circuit.jpeg')"
+                bgPos="center"
+                bgSize="cover"
+                bgRepeat="no-repeat"
+            >
                 <Navbar />
                 
                 <Container maxW="container.xl" flexGrow={1}>

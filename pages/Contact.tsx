@@ -61,7 +61,14 @@ import {
           {/* <meta property="og:url" content="https://jacklion.xyz/Direct" /> 
           <link rel="canonical" href="https://jacklion.xyz/Direct" /> */}
         </Helmet>
-          <Flex direction="column" minHeight="100vh">
+          <Flex 
+            direction="column"
+            minHeight="100vh"
+            // 2. Update the Flex container to include the bgImage and bgRepeat properties
+            bgImage={`/images/circuit.jpeg`}
+            bgRepeat="no-repeat"
+            bgSize="cover"
+          >
             <Navbar />
             <Flex
               direction="column"
@@ -113,14 +120,6 @@ import {
                     </Link>
                 ))}
                 </HStack>
-                <Image 
-                    src="/images/lasers.png" 
-                    alt="Description of the Image" 
-                    height="50vh"
-                    width="100%" 
-                    objectFit="cover"
-                    flexGrow={1} 
-                />
               </Flex>
             <Footer />
         </Flex>

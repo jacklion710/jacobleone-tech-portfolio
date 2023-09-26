@@ -59,7 +59,17 @@ import {
     
     return (
       <ChakraProvider>
-        <Flex direction="column" minHeight="100vh" bg={bgColor} color={color}>
+        <Flex 
+            direction="column" 
+            minHeight="100vh" 
+            bg={bgColor} 
+            color={color}
+            bgImage="url('/images/circuit.jpeg')" 
+            bgPos="center"
+            bgSize="cover"
+            bgRepeat="no-repeat"
+            bgAttachment="fixed"
+        >
             <Navbar />
 
             <VStack 

@@ -31,7 +31,17 @@ export default function Resume() {
         <meta name="description" content="Download my resume and view my professional references." />
       </Helmet>
       
-      <Flex direction="column" minHeight="100vh" bg={bg} color={color}>
+      <Flex 
+          direction="column" 
+          minHeight="100vh" 
+          bg={bg} 
+          color={color}
+          bgImage="url('/images/circuit.jpeg')" 
+          bgPos="center"
+          bgSize="cover"
+          bgRepeat="no-repeat"
+          bgAttachment="fixed"
+      >
         <Navbar />
 
         <VStack spacing={8} alignItems="center" justifyContent="center" flexGrow={1} py={10} px={4}>
@@ -63,6 +73,7 @@ export default function Resume() {
                 fontSize="lg"
                 p={8}  
                 rightIcon={<Icon as={FaExternalLinkAlt} boxSize={6} />} 
+                border="1px solid black"
                 _hover={{
                     transform: "scale(1.1)",
                     bg: "cyan.700",
@@ -77,9 +88,10 @@ export default function Resume() {
                   href="/docs/Jacob_Leone-References.pdf" 
                   download 
                   colorScheme="gray"
-                  fontSize="lg"  // Increase font size
-                  p={8}  // Increase padding
-                  rightIcon={<Icon as={FaExternalLinkAlt} boxSize={6} />}  // Increase icon size
+                  fontSize="lg"  
+                  p={8}
+                  rightIcon={<Icon as={FaExternalLinkAlt} boxSize={6} />}  
+                  border="1px solid black"
                   _hover={{
                       transform: "scale(1.1)",
                       bg: "cyan.700",
@@ -94,11 +106,13 @@ export default function Resume() {
             {/* View Selection Buttons */}
             <HStack spacing={4} mt={12}>
               <Button onClick={() => setViewingResume.on()} colorScheme={viewingResume ? "gray" : "white"}
-              color="black">
+              color="black"
+              border=".5px solid black">
                 View Resume
               </Button>
               <Button onClick={() => setViewingResume.off()} colorScheme={!viewingResume ? "gray" : "white"}
-              color="black">
+              color="black"
+              border=".5px solid black">
                 View References
               </Button>
             </HStack>
