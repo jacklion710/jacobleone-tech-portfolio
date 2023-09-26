@@ -4,8 +4,7 @@ import {
   Heading,
   Text,
   Link,
-  Flex,
-  VStack,
+  Flex
 } from '@chakra-ui/react';
 
 const ReferencesComponent: React.FC = () => {
