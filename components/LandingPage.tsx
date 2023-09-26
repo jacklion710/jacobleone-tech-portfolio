@@ -32,7 +32,7 @@ const LandingPage = () => {
               colorScheme="teal" 
               size="lg" 
               variant="outline" 
-              onClick={() => window.location.href="/portfolio"}
+              onClick={() => window.location.href="/Projects"}
           >
               Discover My Innovations
           </Button>
