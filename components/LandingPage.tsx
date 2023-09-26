@@ -1,9 +1,11 @@
-import { Flex, Heading, Text, VStack, Center, Button, Box } from "@chakra-ui/react";
+import { Flex, Heading, Text, VStack, Center, Button, Box, Collapse, useDisclosure } from "@chakra-ui/react";
 import { AiFillRobot } from 'react-icons/ai';
-import { FaCode } from 'react-icons/fa'; 
+import { FaCode, FaAngleDown, FaAngleUp } from 'react-icons/fa'; 
 import { Helmet } from "react-helmet";
 
 const LandingPage = () => {
+  const { isOpen, onToggle } = useDisclosure();
+
   return (
     <Center 
       height="88vh" 
@@ -47,7 +49,19 @@ const LandingPage = () => {
           >
               Discover My Innovations
           </Button>
-          <Text fontSize="lg"color="teal.500" textAlign="center" mb={1} maxW="700px">I am driven by an intrinsic passion for tackling both creative and technical challenges. As part of agile development teams, I thrive on collaborating towards our shared mission: delivering exceptional value to clients efficiently and effectively. Before diving into the tech arena, I pursued an intensive graduate program at a top-tier university, focusing on the convergence of artificial intelligence and psychology. This academic journey endowed me with a unique lens: approaching AI development from a human-centric perspective and deeply understanding the nuanced ways people interact with technology. Beyond my academic pursuits, I am a perpetual learner, drawing from experiences that span leadership, creativity, problem-solving, and shepherding projects from mere ideas to successful execution.</Text>
+          <Box textAlign="center" w="100%" my={4}>
+            <Text fontSize="lg" color="teal.500" mb={1} maxW="700px" textAlign="center" mx="auto">
+              I am driven by an intrinsic passion for tackling both creative and technical challenges. As part of agile development teams, I thrive on collaborating towards our shared mission: delivering exceptional value to clients efficiently and effectively...
+            </Text>
+            <Button variant="link" color="teal.500" onClick={onToggle} mt={2}>
+              {isOpen ? "Read Less" : "Read More"} {isOpen ? <FaAngleUp /> : <FaAngleDown />}
+            </Button>
+            <Collapse in={isOpen}>
+              <Text fontSize="lg" color="teal.500" mt={4} maxW="700px" textAlign="center" mx="auto">
+                Before diving into the tech arena, I pursued an intensive graduate program at a top-tier university, focusing on the convergence of artificial intelligence and psychology. This academic journey endowed me with a unique lens: approaching AI development from a human-centric perspective and deeply understanding the nuanced ways people interact with technology. Beyond my academic pursuits, I am a perpetual learner, drawing from experiences that span leadership, creativity, problem-solving, and shepherding projects from mere ideas to successful execution.
+              </Text>
+            </Collapse>
+          </Box>
         </VStack>
       </Box>
     </Center>
