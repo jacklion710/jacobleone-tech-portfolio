@@ -50,7 +50,6 @@ const ReferencesComponent: React.FC = () => {
         <Text color="white" mb={1}>Founder, President and Executive Director</Text>
         <Text color="white" mb={1}>Y Stem and Chess</Text>
         <Link href="mailto: devin@ystemandchess.com" color="white" mb={1}>devin@ystemandchess.com</Link>
-        <Link href="tel:" color="white" mb={1}>N/A</Link>
         <Text color="white">Relationship: Business Leader | Client</Text>
       </Flex>
 
