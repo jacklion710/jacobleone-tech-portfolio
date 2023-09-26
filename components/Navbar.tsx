@@ -73,6 +73,7 @@ const DesktopNav = () => {
               fontSize={{ base: "xl" }}
               fontWeight={navItem.imageSrc ? 'normal' : 'bold'}
               _hover={{ textDecoration: 'underline', color: 'gray.300' }} 
+              textShadow="0 0 5px teal, 0 0 10px teal, 0 0 15px teal, 0 0 20px teal" 
             >
               {navItem.imageSrc ? (
                 <Image src={navItem.imageSrc} objectFit="cover" objectPosition="center top" w="50px" h="50px" borderRadius="50%" /> 
@@ -90,13 +91,13 @@ const DesktopNav = () => {
 const MobileNav = () => {
   return (
     <Stack
-      direction="column"  // <-- Explicitly set the direction
-      flexDirection="column" // <-- This is an extra step to ensure the direction is correct
+      direction="column"  
+      flexDirection="column" 
       bg={'black'}
       p={4}
       spacing={4}  
       display={{ md: 'none' }}
-      width="100%"  // <-- Ensure the stack takes the full width
+      width="100%"  
     >
       {NAV_ITEMS.map((navItem) => (
         <NextLink key={navItem.label ?? navItem.imageSrc} href={navItem.href ?? '#'} passHref>
@@ -105,12 +106,13 @@ const MobileNav = () => {
             fontSize={{ base: "lg" }}
             fontWeight={navItem.imageSrc ? 'normal' : 'bold'}
             color='white'
-            textAlign="center"  // <-- Optional: center the text and images
-            display="block"  // <-- Ensure each link takes the full width of its container
+            textAlign="center"  
+            display="block"
             _hover={{ textDecoration: 'underline', color: 'gray.300' }}
+            textShadow="0 0 5px teal, 0 0 10px teal, 0 0 15px teal, 0 0 20px teal" // Updated glow effect for mobile
           >
             {navItem.imageSrc ? (
-              <Image src={navItem.imageSrc} objectFit="cover" objectPosition="center top" w="40px" h="40px" borderRadius="50%" mx="auto" />  // <-- Center the image
+              <Image src={navItem.imageSrc} objectFit="cover" objectPosition="center top" w="40px" h="40px" borderRadius="50%" mx="auto" />
             ) : (
               navItem.label
             )}
@@ -125,14 +127,14 @@ export default dynamic(() => Promise.resolve(Navbar), { ssr: false });
 
 interface NavItem {
   label?: string;
-  imageSrc?: string; // <-- Add this
+  imageSrc?: string; 
   children?: Array<NavItem>;
   href?: string;
 }
 
 const NAV_ITEMS: Array<NavItem> = [
   {
-    imageSrc: '/images/headshot.jpg',  // <-- Add this
+    imageSrc: '/images/headshot.jpg', 
     href: '/'
   },
   {
