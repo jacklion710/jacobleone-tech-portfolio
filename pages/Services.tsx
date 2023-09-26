@@ -85,7 +85,7 @@ import {
 
                     <VStack mt={10} spacing={4} alignItems="center">
                         <Text fontSize="lg" textAlign="center" fontWeight="medium">
-                            Interested in working with me? Get in touch!
+                            Have an idea for a project? Reach out anytime!
                         </Text>
                         <Flex>
                             <Button colorScheme="blue" size="med" as={Link} href="/Contact" mr={4} padding={2}>
