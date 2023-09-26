@@ -70,7 +70,50 @@ export default function Resume() {
               Résumé
           </Heading>
           <Box textAlign="center" display="flex" flexDirection="column" alignItems="center">
-            <HStack spacing={6}>
+          <VStack spacing={6}>
+            <HStack spacing={6} display={["none", "flex"]}>
+            <Button 
+                as="a" 
+                href="/docs/Jacob_Leone_Tech_2023.pdf" 
+                download
+                colorScheme="gray"
+                fontSize="lg"
+                bg="gray.200"
+                color="black"
+                p={8}  
+                rightIcon={<Icon as={FaExternalLinkAlt} boxSize={6} />} 
+                border="1px solid black"
+                _hover={{
+                    transform: "scale(1.1)",
+                    bg: "cyan.700",
+                    color: "gray.100"
+                }}
+                transition="0.5s"
+            >
+                Download Resume
+            </Button>
+                <Button 
+                  as="a" 
+                  href="/docs/Jacob_Leone-References.pdf" 
+                  download 
+                  colorScheme="gray"
+                  fontSize="lg" 
+                  bg="gray.200"
+                  color="black" 
+                  p={8}
+                  rightIcon={<Icon as={FaExternalLinkAlt} boxSize={6} />}  
+                  border="1px solid black"
+                  _hover={{
+                      transform: "scale(1.1)",
+                      bg: "cyan.700",
+                      color: "gray.100"
+                  }}
+                  transition="0.5s"
+              >
+                  Download References
+              </Button>
+            </HStack>
+            <VStack spacing={6} display={["flex", "none"]}>
             <Button 
                 as="a" 
                 href="/docs/Jacob_Leone_Tech_2023.pdf" 
@@ -107,7 +150,8 @@ export default function Resume() {
               >
                   Download References
               </Button>
-            </HStack>
+            </VStack>
+          </VStack>
 
             {/* View Selection Buttons */}
             <HStack spacing={4} mt={12}>
