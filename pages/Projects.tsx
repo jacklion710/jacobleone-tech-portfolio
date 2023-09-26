@@ -43,13 +43,7 @@ import {
         description: "A script for assisting DJs in preparing samples for CDJ compatibility.",
         imageUrl: "/images/cdj.jpeg",
         githubUrl: "https://github.com/jacklion710/CDJ_Audio_Compatibility_Converter"
-      },
-      {
-        title: "Max MSP Recommender System",
-        description: "User based recommender system implemented in my favorite visual programming environemnt.",
-        imageUrl: "/images/.jpeg",
-        githubUrl: ""
-      },
+      }
   ];
   
   export default function Projects() {
