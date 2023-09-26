@@ -13,6 +13,7 @@ import {
   import { FaLaptopCode, FaMobileAlt, FaBrain, FaCode } from "react-icons/fa";
   import Navbar from "../components/Navbar";
   import Footer from '../components/Footer';
+  import { Helmet } from "react-helmet";
 
   const services = [
     {
@@ -40,6 +41,16 @@ import {
   export default function Services() {
     return (
         <ChakraProvider>
+            <Helmet>
+                <title>Jacob Leone's Services | Professional Tech Solutions</title>
+                <meta name="description" content="Explore Jacob Leone's professional services, ranging from AI & Machine Learning, Software Development, Web Development, to Mobile App Creation. Get the best tech solutions tailored for your needs." />
+                <meta name="keywords" content="Jacob Leone, AI, Machine Learning, Software Development, Web Development, Mobile App Creation, Tech Services" />
+                <meta property="og:type" content="website" />
+                <meta property="og:title" content="Jacob Leone's Services | Professional Tech Solutions" />
+                <meta property="og:description" content="Explore Jacob Leone's professional services, ranging from AI & Machine Learning, Software Development, Web Development, to Mobile App Creation. Get the best tech solutions tailored for your needs." />
+                <meta property="og:url" content="https://jacobleone-tech.vercel.app/Services" />
+                <link rel="canonical" href="https://jacobleone-tech.vercel.app/Services" />
+            </Helmet>
             <Flex 
                 direction="column" 
                 minHeight="100vh"

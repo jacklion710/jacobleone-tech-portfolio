@@ -55,11 +55,11 @@ import {
     return (
       <ChakraProvider>
         <Helmet>
-          <title>Connect with Jacob Leone | Official Page</title>
+          <title>Connect with Jacob Leone | Contact</title>
           <meta name="description" content="Reach out to Jacob Leone on various platforms or send an email." />
           <meta name="keywords" content="Jacob Leone, Connect, Code, Services, Linkedin, Github, Contact" />
-          {/* <meta property="og:url" content="https://jacklion.xyz/Direct" /> 
-          <link rel="canonical" href="https://jacklion.xyz/Direct" /> */}
+          <meta property="og:url" content="https://jacobleone-tech.vercel.app/Contact" /> 
+          <link rel="canonical" href="https://jacobleone-tech.vercel.app/Contact" />
         </Helmet>
           <Flex 
             direction="column"

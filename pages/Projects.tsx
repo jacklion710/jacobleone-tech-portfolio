@@ -16,7 +16,8 @@ import {
   import { FaGithub } from "react-icons/fa";
   import Navbar from "../components/Navbar";
   import Footer from '../components/Footer';
-  
+  import { Helmet } from "react-helmet";
+
   const projects = [
     {
       title: "Full Stack Website",
@@ -53,6 +54,13 @@ import {
     
     return (
       <ChakraProvider>
+        <Helmet>
+          <title>Projects by Jacob Leone | Projects</title>
+          <meta name="description" content="Explore various projects undertaken by Jacob Leone. From full-stack websites to data cleaning scripts, delve into Jacob's portfolio here." />
+          <meta name="keywords" content="Jacob Leone, Projects, Full Stack, M8 Data Cleaner, Web Audio, CDJ Compatibility, Portfolio" />
+          <meta property="og:url" content="https://jacobleone-tech.vercel.app/Projects" /> 
+          <link rel="canonical" href="https://jacobleone-tech.vercel.app/Projects" />
+        </Helmet>
         <Flex 
             direction="column" 
             minHeight="100vh" 

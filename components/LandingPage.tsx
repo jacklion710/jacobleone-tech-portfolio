@@ -1,6 +1,7 @@
 import { Flex, Heading, Text, VStack, Center, Button, Box } from "@chakra-ui/react";
 import { AiFillRobot } from 'react-icons/ai';
 import { FaCode } from 'react-icons/fa'; 
+import { Helmet } from "react-helmet";
 
 const LandingPage = () => {
   return (
@@ -12,6 +13,16 @@ const LandingPage = () => {
       bgSize="cover"
       bgRepeat="no-repeat"
     >
+      <Helmet>
+        <title>Jacob Leone | AI Specialist & Software Engineer</title>
+        <meta name="description" content="Welcome to Jacob Leone's professional portfolio. Discover innovations by an AI Specialist and Software Engineer." />
+        <meta name="keywords" content="Jacob Leone, AI Specialist, Software Engineer, Tech Innovations" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Jacob Leone | AI Specialist & Software Engineer" />
+        <meta property="og:description" content="Welcome to Jacob Leone's professional portfolio. Discover innovations by an AI Specialist and Software Engineer." />
+        <meta property="og:url" content="https://jacobleone-tech.vercel.app/" />
+\        <link rel="canonical" href="https://jacobleone-tech.vercel.app/" />
+      </Helmet>
       <Box bgColor="rgba(230, 230, 230, 0.7)" p={6} borderRadius="md">
         <VStack spacing={6}>
           <Heading 

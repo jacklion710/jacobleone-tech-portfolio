@@ -27,8 +27,14 @@ export default function Resume() {
   return (
     <ChakraProvider>
       <Helmet>
-        <title>My Resume and References</title>
-        <meta name="description" content="Download my resume and view my professional references." />
+        <title>Jacob Leone's Résumé and References | Résumé & References</title>
+        <meta name="description" content="Download Jacob Leone's up-to-date resume or view professional references that endorse Jacob's skills and expertise." />
+        <meta name="keywords" content="Jacob Leone, Resume, References, Professional, Download, Skills, Endorsements" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Jacob Leone's Resume and References | Official Page" />
+        <meta property="og:description" content="Download Jacob Leone's up-to-date resume or view professional references that endorse Jacob's skills and expertise." />
+        <meta property="og:url" content="https://jacobleone-tech.vercel.app/Resume" />
+        <link rel="canonical" href="https://jacobleone-tech.vercel.app/Resume" />
       </Helmet>
       
       <Flex 
