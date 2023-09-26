@@ -65,7 +65,7 @@ import {
             direction="column"
             minHeight="100vh"
             // 2. Update the Flex container to include the bgImage and bgRepeat properties
-            bgImage={`/images/circuit.jpeg`}
+            bgImage={`/images/Circuit.jpeg`}
             bgRepeat="no-repeat"
             bgSize="cover"
           >

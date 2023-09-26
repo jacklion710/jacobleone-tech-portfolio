@@ -58,7 +58,7 @@ import {
             minHeight="100vh" 
             bg={bgColor} 
             color={color}
-            bgImage="url('/images/circuit.jpeg')" 
+            bgImage="url('/images/Circuit.jpeg')" 
             bgPos="center"
             bgSize="cover"
             bgRepeat="no-repeat"

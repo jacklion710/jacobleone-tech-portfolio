@@ -36,7 +36,7 @@ export default function Resume() {
           minHeight="100vh" 
           bg={bg} 
           color={color}
-          bgImage="url('/images/circuit.jpeg')" 
+          bgImage="url('/images/Circuit.jpeg')" 
           bgPos="center"
           bgSize="cover"
           bgRepeat="no-repeat"

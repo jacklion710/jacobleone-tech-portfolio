@@ -7,7 +7,7 @@ const LandingPage = () => {
     <Center 
       height="88vh" 
       bg="gray.50" 
-      bgImage="url('/images/circuit.jpeg')"
+      bgImage="url('/images/Circuit.jpeg')"
       bgPos="center"
       bgSize="cover"
       bgRepeat="no-repeat"
