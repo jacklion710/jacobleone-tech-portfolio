@@ -1,4 +1,6 @@
-import { Heading, Text, VStack, Center, Button, Box } from "@chakra-ui/react";
+import { Flex, Heading, Text, VStack, Center, Button, Box } from "@chakra-ui/react";
+import { AiFillRobot } from 'react-icons/ai';
+import { FaCode } from 'react-icons/fa'; 
 
 const LandingPage = () => {
   return (
@@ -18,19 +20,21 @@ const LandingPage = () => {
           >
             Jacob Leone
           </Heading>
-          <Text 
-            fontSize={['lg', 'xl', '2xl']} 
-            color="gray.700"
-          >
-            AI Specialist & Software Engineer.
-          </Text>
+          <VStack spacing={2}>
+            <AiFillRobot size="1.5em" />
+            <Text fontSize={['lg', 'xl', '2xl']} color="gray.700">AI Specialist</Text>
+          </VStack>
+          <VStack spacing={2}>
+            <FaCode size="1.5em" />
+            <Text fontSize={['lg', 'xl', '2xl']} color="gray.700">Software Engineer</Text>
+          </VStack>
           <Button 
               colorScheme="teal" 
               size="lg" 
               variant="outline" 
               onClick={() => window.location.href="/portfolio"}
           >
-              View My Work
+              Discover My Innovations
           </Button>
         </VStack>
       </Box>
