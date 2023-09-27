@@ -86,6 +86,8 @@ import {
                     mb={4} 
                     size="2xl"
                     position="relative"
+                    textShadow="0 0 5px teal, 0 0 10px teal, 0 0 15px teal, 0 0 20px teal"
+                    color="white"
                     _after={{
                         content: '""',
                         display: 'block',
@@ -95,6 +97,7 @@ import {
                         transform: 'translateX(-50%)',
                         width: '260px',
                         borderBottom: `1px solid currentColor`,
+                        borderColor: "black"
                     }}
                 >
                     My Projects

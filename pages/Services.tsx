@@ -69,6 +69,8 @@ import {
                         mt={10} 
                         textAlign="center"
                         position="relative"
+                        textShadow="0 0 5px teal, 0 0 10px teal, 0 0 15px teal, 0 0 20px teal"
+                        color="white"
                         _after={{
                             content: '""',
                             display: 'block',
@@ -77,7 +79,8 @@ import {
                             left: '50%',
                             transform: 'translateX(-50%)',
                             width: '280px',  
-                            borderBottom: `1px solid currentColor`,  
+                            borderBottom: `1px solid currentColor`,
+                            borderColor: "black" 
                         }}
                     >
                         My Services

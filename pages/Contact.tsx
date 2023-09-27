@@ -63,7 +63,6 @@ import {
           <Flex 
             direction="column"
             minHeight="100vh"
-            // 2. Update the Flex container to include the bgImage and bgRepeat properties
             bgImage={`/images/Circuit.jpeg`}
             bgRepeat="no-repeat"
             bgSize="cover"
@@ -88,6 +87,8 @@ import {
                 size="2xl" 
                 mb={4} 
                 position="relative"
+                textShadow="0 0 5px teal, 0 0 10px teal, 0 0 15px teal, 0 0 20px teal"
+                color="white"
                 _after={{
                   content: '""',
                   display: 'block',
@@ -97,6 +98,7 @@ import {
                   transform: 'translateX(-50%)',
                   width: '400px', 
                   borderBottom: `1px solid `,
+                  borderColor: "black" 
                 }}
               >
                 Connect with Me

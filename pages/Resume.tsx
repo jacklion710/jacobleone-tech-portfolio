@@ -54,6 +54,8 @@ export default function Resume() {
               size="2xl"
               position="relative"
               mb={5}
+              textShadow="0 0 5px teal, 0 0 10px teal, 0 0 15px teal, 0 0 20px teal"
+              color="white"          
               _after={{
                   content: '""',
                   display: 'block',
@@ -62,7 +64,8 @@ export default function Resume() {
                   left: '50%',
                   transform: 'translateX(-50%)',
                   width: '110%',  
-                  borderBottom: `1px solid currentColor`,  
+                  borderBottom: `1px solid currentColor`,
+                  borderColor: "black"   
               }}
           >
               Résumé
