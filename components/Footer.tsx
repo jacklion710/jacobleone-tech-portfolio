@@ -23,7 +23,7 @@ const SocialButton = ({
 }) => {
   return (
     <chakra.button
-      bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')}
+      bg={useColorModeValue('blackAlpha.500', 'blackAlpha.500')}
       rounded={'full'}
       w={8}
       h={8}
@@ -46,19 +46,18 @@ const SocialButton = ({
 export default function Footer() {
     return (
         <Box 
-          bg={useColorModeValue('gray.300', 'gray.900')}
-          color={useColorModeValue('gray.700', 'gray.200')}
+          bg={useColorModeValue('teal.400', 'teal.400')}
+          color={useColorModeValue('white', 'white')}
           width="100%"  
         >
           <Container
             as={Stack}
             maxW={'6xl'}
-            py={2}  // reduce padding for slimmer appearance
+            py={2}  
             direction={{ base: 'column', md: 'row' }}
-            spacing={2}  // reduce spacing for slimmer appearance
+            spacing={2}  
             justify={{ base: 'center', md: 'space-between' }}
             align={{ base: 'center', md: 'center' }}>
-            {/* Add more buttons */}
             <Text fontSize="sm">© 2023 Jacob Leone. All rights reserved</Text> 
             <Stack direction={'row'} spacing={4}>  
           
