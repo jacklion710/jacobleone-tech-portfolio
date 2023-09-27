@@ -40,10 +40,24 @@ import {
         deployUrl: "https://jacklion.xyz/av/RNBO/simple-sampler-dna"
       },
       {
+        title: "Web Portfolio for Commercial Music",
+        description: "A professional landing page for music business pursuits made with Next js and Chakra UI.",
+        imageUrl: "/images/music-portfolio.png",
+        githubUrl: "https://github.com/jacklion710/jacobleone-music-portfolio",
+        deployUrl: "https://jacobleone-music.vercel.app"
+      },
+      {
         title: "CDJ Compatibility Cleaner",
         description: "A script for assisting DJs in preparing samples for CDJ compatibility.",
         imageUrl: "/images/cdj.jpeg",
         githubUrl: "https://github.com/jacklion710/CDJ_Audio_Compatibility_Converter"
+      },
+      {
+        title: "Web Portfolio for Software Engineering",
+        description: "A professional landing page for engineering pursuits made with Next js and Chakra UI.",
+        imageUrl: "/images/tech-portfolio.png",
+        githubUrl: "https://github.com/jacklion710/jacobleone-tech-portfolio",
+        deployUrl: "https://jacobleone-tech.vercel.app"
       }
   ];
   
@@ -118,7 +132,7 @@ import {
                                   GitHub
                               </Button>
                           </Tooltip>
-                          {(project.title === "Full Stack Website" || project.title === "Interactive Web Audio Visual Experience") &&
+                          {(project.title === "Full Stack Website" || project.title === "Interactive Web Audio Visual Experience" || project.title === "Web Portfolio for Commercial Music" || project.title === "Web Portfolio for Software Engineering") &&
                             <Tooltip label="Visit Deployed Project" aria-label="Deployment link">
                                 <Button as={Link} href={project.deployUrl} isExternal colorScheme="teal" ml={2}>
                                     View Live
