@@ -125,7 +125,7 @@ import {
                 <Box mt={4} maxW="1280px" w="100%" mx="auto" height="500px" display="flex" justifyContent="center" alignItems="center">
                   <iframe 
                       width="90%" 
-                      height="300" 
+                      height="500" 
                       frameBorder="0" 
                       src="https://www.shadertoy.com/embed/DlffWH?gui=true&t=10&paused=true&muted=false"
                       allowFullScreen
