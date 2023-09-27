@@ -30,7 +30,7 @@ import {
       href: "https://github.com/jacklion710",
       label: "Github",
       icon: <FaGithub />,
-      colorScheme: "gray"
+      colorScheme: "purple"
     },
     {
       href: "https://www.youtube.com/channel/UCbTxhDz-oFPdbKl5-rpi4gQ",
