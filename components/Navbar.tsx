@@ -47,19 +47,25 @@ function Navbar() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
+        <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
-            <DesktopNav />
+              <DesktopNav isOpen={isOpen} />
+            </Flex>
           </Flex>
         </Flex>
       </Flex>
       <Collapse in={isOpen} animateOpacity>
-        <MobileNav />
+        <MobileNav isOpen={isOpen} />
       </Collapse>
     </Box>
   );
 }
 
-const DesktopNav = () => {
+interface DesktopNavProps {
+  isOpen: boolean;
+}
+
+const DesktopNav: React.FC<DesktopNavProps> = ({ isOpen }) => {
   return (
     <Flex justifyContent="space-between" alignItems="center" flexGrow={1} h="100%">
       <Stack 
@@ -76,7 +82,14 @@ const DesktopNav = () => {
               textShadow="0 0 5px teal, 0 0 10px teal, 0 0 15px teal, 0 0 20px teal" 
             >
               {navItem.imageSrc ? (
-                <Image src={navItem.imageSrc} objectFit="cover" objectPosition="center top" w="50px" h="50px" borderRadius="50%" /> 
+                <Image 
+                    src={navItem.imageSrc} 
+                    objectFit="cover" 
+                    objectPosition="center top" 
+                    w={isOpen ? "100px" : "50px"} 
+                    h={isOpen ? "100px" : "50px"} 
+                    borderRadius="50%" 
+                />
               ) : (
                 navItem.label
               )}
@@ -88,7 +101,11 @@ const DesktopNav = () => {
   );
 };
 
-const MobileNav = () => {
+interface MobileNavProps {
+  isOpen: boolean;
+}
+
+const MobileNav: React.FC<DesktopNavProps> = ({ isOpen }) => {
   return (
     <Stack
       direction="column"  
@@ -109,10 +126,18 @@ const MobileNav = () => {
             textAlign="center"  
             display="block"
             _hover={{ textDecoration: 'underline', color: 'gray.300' }}
-            textShadow="0 0 5px teal, 0 0 10px teal, 0 0 15px teal, 0 0 20px teal" // Updated glow effect for mobile
+            textShadow="0 0 5px teal, 0 0 10px teal, 0 0 15px teal, 0 0 20px teal" 
           >
             {navItem.imageSrc ? (
-              <Image src={navItem.imageSrc} objectFit="cover" objectPosition="center top" w="40px" h="40px" borderRadius="50%" mx="auto" />
+              <Image 
+                src={navItem.imageSrc} 
+                objectFit="cover" 
+                objectPosition="center top" 
+                w={isOpen ? "130px" : "40px"} 
+                h={isOpen ? "130px" : "40px"} 
+                borderRadius="50%" 
+                mx="auto" 
+              />
             ) : (
               navItem.label
             )}
