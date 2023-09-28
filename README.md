@@ -11,8 +11,6 @@ This is a personal portfolio project built using [Next.js](https://nextjs.org/) 
 - **[Chakra UI](https://chakra-ui.com/)**: A modern, modular and accessible component library that offers a set of high-quality React components.
 - **[React Icons](https://react-icons.github.io/react-icons/)**: A library to utilize popular icons from different icon packs in your React application.
 - **[React Helmet](https://github.com/nfl/react-helmet)**: A component that simplifies the management and manipulation of document head tags.
-  
-(⚠️ This is a basic overview; depending on the full range of technologies used in your project, you might want to add more here.)
 
 ## 🚀 Getting Started
 
