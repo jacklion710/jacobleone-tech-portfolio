@@ -14,6 +14,7 @@ import {
   import Navbar from "../components/Navbar";
   import Footer from '../components/Footer';
   import { Helmet } from "react-helmet";
+  import Head from 'next/head';
 
   const services = [
     {
@@ -41,6 +42,9 @@ import {
   export default function Services() {
     return (
         <ChakraProvider>
+            <Head>
+                <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
+            </Head>
             <Helmet>
                 <title>Jacob Leones Services | Professional Tech Solutions</title>
                 <meta name="description" content="Explore Jacob Leone's professional services, ranging from AI & Machine Learning, Software Development, Web Development, to Mobile App Creation. Get the best tech solutions tailored for your needs." />
@@ -58,6 +62,7 @@ import {
                 bgPos="center"
                 bgSize="cover"
                 bgRepeat="no-repeat"
+                style={{ fontFamily: '"Roboto Mono", monospace' }}
             >
                 <Navbar />
                 

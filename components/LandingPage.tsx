@@ -2,6 +2,7 @@ import { Flex, Heading, Text, VStack, Center, Button, Box, Collapse, useDisclosu
 import { AiFillRobot } from 'react-icons/ai';
 import { FaCode, FaAngleDown, FaAngleUp } from 'react-icons/fa'; 
 import { Helmet } from "react-helmet";
+import Head from 'next/head';
 
 const LandingPage = () => {
   const { isOpen, onToggle } = useDisclosure();
@@ -14,7 +15,11 @@ const LandingPage = () => {
       bgPos="center"
       bgSize="cover"
       bgRepeat="no-repeat"
+      style={{ fontFamily: '"Roboto Mono", monospace' }}
     >
+      <Head>
+          <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
+      </Head>
       <Helmet>
         <title>Jacob Leone | AI Specialist & Software Engineer</title>
         <meta name="description" content="Welcome to Jacob Leone's professional portfolio. Discover innovations by an AI Specialist and Software Engineer." />

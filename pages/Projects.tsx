@@ -17,6 +17,7 @@ import {
   import Navbar from "../components/Navbar";
   import Footer from '../components/Footer';
   import { Helmet } from "react-helmet";
+  import Head from 'next/head';
 
   const projects = [
     {
@@ -68,6 +69,9 @@ import {
     
     return (
       <ChakraProvider>
+        <Head>
+            <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
+        </Head>
         <Helmet>
           <title>Projects by Jacob Leone | Projects</title>
           <meta name="description" content="Explore various projects undertaken by Jacob Leone. From full-stack websites to data cleaning scripts, delve into Jacob's portfolio here." />
@@ -85,6 +89,7 @@ import {
             bgSize="cover"
             bgRepeat="no-repeat"
             bgAttachment="fixed"
+            style={{ fontFamily: '"Roboto Mono", monospace' }}
         >
             <Navbar />
 

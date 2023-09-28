@@ -15,6 +15,7 @@ import Footer from '../components/Footer';
 import { Helmet } from 'react-helmet';
 import ResumeComponent from "../components/ResumeComponent";
 import ReferencesComponent from "../components/ReferencesComponent";
+import Head from 'next/head';
 
 export default function Resume() {
   const bg = "white";
@@ -24,6 +25,9 @@ export default function Resume() {
 
   return (
     <ChakraProvider>
+      <Head>
+          <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
+      </Head>
       <Helmet>
         <title>Jacob Leones Résumé and References | Résumé & References</title>
         <meta name="description" content="Download Jacob Leone's up-to-date resume or view professional references that endorse Jacob's skills and expertise." />
@@ -45,6 +49,7 @@ export default function Resume() {
           bgSize="cover"
           bgRepeat="no-repeat"
           bgAttachment="fixed"
+          style={{ fontFamily: '"Roboto Mono", monospace' }}
       >
         <Navbar />
 

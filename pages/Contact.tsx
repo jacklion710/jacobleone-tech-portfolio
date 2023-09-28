@@ -18,7 +18,8 @@ import {
   import Navbar from "../components/Navbar";
   import Footer from '../components/Footer';
   import { Helmet } from 'react-helmet';
-  
+  import Head from 'next/head';
+
   const socialLinks = [
     {
       href: "https://open.spotify.com/artist/35foCh1HOk7XwvVzuiFmzc",
@@ -53,6 +54,9 @@ import {
   
     return (
       <ChakraProvider>
+        <Head>
+            <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
+        </Head>
         <Helmet>
           <title>Connect with Jacob Leone | Contact</title>
           <meta name="description" content="Reach out to Jacob Leone on various platforms or send an email." />
@@ -66,6 +70,7 @@ import {
             bgImage={`/images/Circuit.jpeg`}
             bgRepeat="no-repeat"
             bgSize="cover"
+            style={{ fontFamily: '"Roboto Mono", monospace' }}
           >
             <Navbar />
             <Flex
