@@ -1,4 +1,3 @@
-'use client'
 import {
   Box,
   chakra,
@@ -6,11 +5,10 @@ import {
   Stack,
   Text,
   useColorModeValue,
-  VisuallyHidden,
-  Image
-} from '@chakra-ui/react'
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { ReactNode } from 'react'
+  VisuallyHidden
+} from '@chakra-ui/react';
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'; // Step 1: Import FaEnvelope
+import { ReactNode } from 'react';
 
 const SocialButton = ({
   children,
@@ -44,28 +42,30 @@ const SocialButton = ({
 }
 
 export default function Footer() {
-    return (
-        <Box 
-          bg={useColorModeValue('teal.400', 'teal.400')}
-          color={useColorModeValue('white', 'white')}
-          width="100%"  
-        >
-          <Container
-            as={Stack}
-            maxW={'6xl'}
-            py={2}  
-            direction={{ base: 'column', md: 'row' }}
-            spacing={2}  
-            justify={{ base: 'center', md: 'space-between' }}
-            align={{ base: 'center', md: 'center' }}>
-            <Text fontSize="sm">© 2023 Jacob Leone. All rights reserved</Text> 
-            <Stack direction={'row'} spacing={4}>  
-          
+  return (
+    <Box 
+      bg={useColorModeValue('teal.400', 'teal.400')}
+      color={useColorModeValue('white', 'white')}
+      width="100%"  
+    >
+      <Container
+        as={Stack}
+        maxW={'6xl'}
+        py={2}
+        direction={{ base: 'column', md: 'row' }}
+        spacing={2}
+        justify={{ base: 'center', md: 'space-between' }}
+        align={{ base: 'center', md: 'center' }}>
+        <Text fontSize="sm">© 2023 Jacob Leone. All rights reserved</Text> 
+        <Stack direction={'row'} spacing={4}>
           <SocialButton label={'Github'} href={'https://github.com/jacklion710'}>
             <FaGithub />
           </SocialButton>
           <SocialButton label={'Linkedin'} href={'https://www.linkedin.com/in/jacob-leone/'}>
             <FaLinkedin />
+          </SocialButton>
+          <SocialButton label={'Email'} href={'mailto:your-email@example.com'}> {/* Step 2: Add email icon and mailto link */}
+            <FaEnvelope />
           </SocialButton>
         </Stack>
       </Container>
