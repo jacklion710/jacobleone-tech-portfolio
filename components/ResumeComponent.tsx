@@ -99,8 +99,8 @@ const ResumeComponent: React.FC = () => {
         <Text color="white" mb={1}>Development of robust AI systems suited for AuthentiKids business needs. Collaboration and management of a small team of developers, psychologists and business leaders.
         </Text>
         <Text color="white" mb={1}>
-        ▪ Spearheaded the development of robust software systems tailored for AuthentiKid's operational requirements, resulting
-        in new AI powered security too.
+        ▪ Spearheaded the development of robust software systems tailored for AuthentiKids operational requirements, resulting
+        in new AI powered security tools.
         </Text>
         <Text color="white" mb={1}>
         ▪ Managed a cross-functional team of developers, psychologists, and business leaders, fostering a collaborative environment
@@ -108,11 +108,6 @@ const ResumeComponent: React.FC = () => {
         </Text>
         <Text color="white" mb={1}>
         ▪ Oversaw comprehensive data collection initiatives and AI model training processes, ensuring optimal performance and accuracy.
-        </Text>
-
-        <Text color="white" mb={10}>
-        ▪ Spearheaded the development of robust software systems tailored for AuthentiKid's operational requirements, resulting
-        in new AI powered security too.
         </Text>
 
         <Text color="white" mb={1} fontSize="2xl">
