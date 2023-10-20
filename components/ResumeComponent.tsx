@@ -10,7 +10,7 @@ import {
   Divider
 } from '@chakra-ui/react';
 
-const ReferencesComponent: React.FC = () => {
+const ResumeComponent: React.FC = () => {
   return (
     <Box
       border="1px"
@@ -80,7 +80,7 @@ const ReferencesComponent: React.FC = () => {
 
         <Text color="white" mb={1} fontSize="2xl">
         Frameworks</Text>
-        <Text color="white" mb={1}>Next js, React, React-native, Firebase, Chakra UI, Tensorflow, Pytorch, P5 js, RNBO js
+        <Text color="white" mb={1}>Tensorflow, Pytorch, Pandas, Numpy, Sklearn, Matplotlib, Seaborn, React, React-Native, Chakra UI, Native-Base, Firebase, Next JS, Wavesurfer, RNBO JS
         </Text>
 
         <Text color="white" mb={1} fontSize="2xl">
@@ -95,6 +95,27 @@ const ReferencesComponent: React.FC = () => {
         </Heading>
 
         <Text color="white" mb={1} fontSize="2xl">
+        Team Lead & Software Architect, AuthentiKid | California • Idaho • Florida</Text>
+        <Text color="white" mb={1}>Development of robust AI systems suited for AuthentiKids business needs. Collaboration and management of a small team of developers, psychologists and business leaders.
+        </Text>
+        <Text color="white" mb={1}>
+        ▪ Spearheaded the development of robust software systems tailored for AuthentiKid's operational requirements, resulting
+        in new AI powered security too.
+        </Text>
+        <Text color="white" mb={1}>
+        ▪ Managed a cross-functional team of developers, psychologists, and business leaders, fostering a collaborative environment
+        and achieving a functional product.
+        </Text>
+        <Text color="white" mb={1}>
+        ▪ Oversaw comprehensive data collection initiatives and AI model training processes, ensuring optimal performance and accuracy.
+        </Text>
+
+        <Text color="white" mb={10}>
+        ▪ Spearheaded the development of robust software systems tailored for AuthentiKid's operational requirements, resulting
+        in new AI powered security too.
+        </Text>
+
+        <Text color="white" mb={1} fontSize="2xl">
         Graduate Research Trainee, National Science Foundation at FAU| Boca Raton, FL</Text>
         <Text color="white" mb={1}>Engaged in research, design and development for detection of ocular disease using CNNs and retinal photography.
         </Text>
@@ -104,7 +125,7 @@ const ReferencesComponent: React.FC = () => {
         <Text color="white" mb={1}>
         ▪ Collaborated with professors and other graduate students on performing research and designing experiments.
         </Text>
-        <Text color="white" mb={1}>
+        <Text color="white" mb={10}>
         ▪ Implemented a framework for a web based audio-visual solution.
         </Text>
 
@@ -115,8 +136,8 @@ const ReferencesComponent: React.FC = () => {
         <Text color="white" mb={1}>
         ▪ Production and fabrication of the company’s flagship products, the Vector and Spartan for industrial outdoor climate control.
         </Text>
-        <Text color="white" mb={1}>
-        ▪ Collaboratedwithcross-functionalteamsfortimelyproductionandassembledPCBprototypes.
+        <Text color="white" mb={10}>
+        ▪ Collaborated with cross-functional teams for timely production and assembled PCB prototypes.
         </Text>
 
         <Text color="white" mb={1} fontSize="2xl">
@@ -126,7 +147,7 @@ const ReferencesComponent: React.FC = () => {
         <Text color="white" mb={1}>
         ▪ Designed, developed and deployed a front and backend of a mobile app for hosting video content built to the technical needs and aesthetics tastes of the clients brand for both android and iOS devices.
         </Text>
-        <Text color="white" mb={1}>
+        <Text color="white" mb={10}>
         ▪ Web based AI content moderation with the overarching goal of safeguarding children online. Used synthetic data generation techniques, trained and optimized classificaiton models, deployed the model on the web and designed a front end for user interaction with the model online.
         </Text>
 
@@ -145,14 +166,6 @@ const ReferencesComponent: React.FC = () => {
         Sizes included 0402, 0603, 0805 SMT resistors, capacitors, diodes, ESD components.
         </Text>
 
-        <Text color="white" mb={1} fontSize="2xl">
-        Consumer Electronics Repair, uBreakiFix | Royal Palm, FL</Text>
-        <Text color="white" mb={1}>Responsible for processing customers electronics and diagnosing issues related to the device. Worked with co-workers to accommodate customers with fast turnarounds for electronic repairs.
-        </Text>
-        <Text color="white" mb={1}>
-        ▪ Diagnosed device issues, managed inventory, and repaired a range of electronic devices.
-        </Text>
-
         <Heading textAlign="left" color="white" fontSize="2xl" mb={2} mt={10}>
         Relevant Projects
         </Heading>
@@ -167,7 +180,7 @@ const ReferencesComponent: React.FC = () => {
         <Text color="white" mb={1}>
         ▪ Worked closely with professors and colleagues to research, design, and systematize the detection mechanism.
         </Text>
-        <Text color="white" mb={1}>
+        <Text color="white" mb={10}>
         ▪ Theresearchfindingsarependingpublication,aimingtoprovideinsightsintoonlinedrug-relatedactivities,Thispotentially
         aids law enforcement agencies.
         </Text>
@@ -193,7 +206,7 @@ const ReferencesComponent: React.FC = () => {
         <Text color="white" mb={1}>
         ▪ Worked closely with professors and colleagues to research, design, and systematize the detection mechanism.
         </Text>
-        <Text color="white" mb={1}>
+        <Text color="white" mb={10}>
         ▪ Created a responsive UI using typescript for user friendly web based audio-visual experiences.
         </Text>
 
@@ -264,4 +277,4 @@ const ReferencesComponent: React.FC = () => {
     );
 };
 
-export default ReferencesComponent;
+export default ResumeComponent;
