@@ -181,8 +181,8 @@ const ResumeComponent: React.FC = () => {
         ▪ Worked closely with professors and colleagues to research, design, and systematize the detection mechanism.
         </Text>
         <Text color="white" mb={10}>
-        ▪ Theresearchfindingsarependingpublication,aimingtoprovideinsightsintoonlinedrug-relatedactivities,Thispotentially
-        aids law enforcement agencies.
+        ▪ The research findings are pendin gpublication, aiming to provide insights into online drug-related activities. This can potentially
+        aid law enforcement agencies.
         </Text>
 
         <Text color="white" mb={1} fontSize="2xl">
