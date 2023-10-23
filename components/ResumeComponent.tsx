@@ -106,7 +106,7 @@ const ResumeComponent: React.FC = () => {
         ▪ Managed a cross-functional team of developers, psychologists, and business leaders, fostering a collaborative environment
         and achieving a functional product.
         </Text>
-        <Text color="white" mb={1}>
+        <Text color="white" mb={10}>
         ▪ Oversaw comprehensive data collection initiatives and AI model training processes, ensuring optimal performance and accuracy.
         </Text>
 
