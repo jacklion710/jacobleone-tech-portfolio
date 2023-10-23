@@ -64,7 +64,7 @@ const LandingPage = () => {
             </Button>
             <Collapse in={isOpen}>
               <Text fontSize="lg" color="black" mt={4} maxW="700px" textAlign="center" mx="auto">
-                Before diving into the tech arena, I pursued an intensive graduate program at a top-tier university, focusing on the convergence of artificial intelligence and psychology. This academic journey endowed me with a unique lens: approaching AI development from a human-centric perspective and deeply understanding the nuanced ways people interact with technology. Beyond my academic pursuits, I am a perpetual learner, drawing from experiences that span leadership, creativity, problem-solving, and shepherding projects from mere ideas to successful execution.
+                Before diving into the tech arena, I pursued an intensive graduate program at a top-tier university, focusing on the convergence of artificial intelligence and psychology. This academic journey endowed me with a unique lens: approaching AI development from a human first perspective and a deep understanding of the nuanced ways people interface with machines. Beyond my academic pursuits, I am a perpetual learner, drawing from experiences that span leadership, creativity, problem-solving, and architecting projects from mere ideas to successful execution.
               </Text>
             </Collapse>
           </Box>
