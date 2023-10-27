@@ -62,9 +62,9 @@ const ResumeComponent: React.FC = () => {
         </Flex>
         <LinkBox>
             <Text color="white" fontSize="xl" mb={10}>
-                <LinkOverlay href="https://www.linkedin.com/" isExternal>LinkedIn</LinkOverlay>
+                <Link href="https://www.linkedin.com/in/jacob-leone/" isExternal>LinkedIn</Link>
                 {" | "}
-                <LinkOverlay href="https://github.com/" isExternal>GitHub</LinkOverlay>
+                <Link href="https://github.com/" isExternal>GitHub</Link>
             </Text>
         </LinkBox>
 
