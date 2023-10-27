@@ -80,6 +80,7 @@ export default function Resume() {
             <HStack spacing={6} display={["none", "flex"]}>
             <Button 
                 as="a" 
+                w="50%"
                 href="/docs/Jacob_Leone_Tech_2023.pdf" 
                 download
                 colorScheme="gray"
@@ -127,6 +128,7 @@ export default function Resume() {
                 colorScheme="gray"
                 fontSize="lg"
                 p={8}  
+                w="100%"
                 rightIcon={<Icon as={FaExternalLinkAlt} boxSize={6} />} 
                 border="1px solid black"
                 _hover={{
