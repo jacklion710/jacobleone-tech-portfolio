@@ -9,8 +9,11 @@ import {
   LinkOverlay,
   Divider
 } from '@chakra-ui/react';
+import { useMediaQuery } from "@chakra-ui/react";
 
 const ResumeComponent: React.FC = () => {
+  const [isLargerThan48em] = useMediaQuery("(min-width: 48em)");
+
   return (
     <Box
       border="1px"
@@ -33,8 +36,30 @@ const ResumeComponent: React.FC = () => {
         w="full"
         px={5}
       >
-        <Text color="white" fontSize="xl" mb={5}>Lake Worth, FL | 561-789-3725 | jacob0leone@gmail.com</Text>
-
+        <Flex 
+          direction={{ base: "column", sm: "row" }} 
+          justifyContent="center" 
+          alignItems="center" 
+          mb={{ base: 2, md: 5 }} 
+          px={{ base: 3, sm: 0 }}
+          textAlign="center"
+          wrap="nowrap"
+        >
+          <Text color="white" fontSize={{ base: "md", md: "xl" }} whiteSpace="nowrap">
+            Lake Worth, FL {isLargerThan48em ? "|" : ""}
+          </Text>
+          <Text 
+            color="white" 
+            fontSize={{ base: "md", md: "xl" }} 
+            whiteSpace="nowrap"
+            mx={1}
+          >
+            561-789-3725 {isLargerThan48em ? "|" : ""}
+          </Text>
+          <Text color="white" fontSize={{ base: "md", md: "xl" }} whiteSpace="nowrap">
+            jacob0leone@gmail.com
+          </Text>
+        </Flex>
         <LinkBox>
             <Text color="white" fontSize="xl" mb={10}>
                 <LinkOverlay href="https://www.linkedin.com/" isExternal>LinkedIn</LinkOverlay>
@@ -197,9 +222,6 @@ const ResumeComponent: React.FC = () => {
         </LinkBox>
         <Text color="white" mb={1}>        
         ▪ Integration between RNBO.js, webaudio and p5.js for an interactive web based experience involving interactive audio and visual elements on a web browser.
-        </Text>
-        <Text color="white" mb={1}>
-        ▪ Worked closely with professors and colleagues to research, design, and systematize the detection mechanism.
         </Text>
         <Text color="white" mb={10}>
         ▪ Created a responsive UI using typescript for user friendly web based audio-visual experiences.
