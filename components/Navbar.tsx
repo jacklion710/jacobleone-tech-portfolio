@@ -40,7 +40,7 @@ function Navbar() {
             onClick={onToggle}
             color={"teal.500"}
             icon={
-              isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={12} h={12} />
+              isOpen ? <CloseIcon w={12} h={9} /> : <HamburgerIcon w={12} h={12} />
             }
             variant={'ghost'}
             aria-label={'Toggle Navigation'}
