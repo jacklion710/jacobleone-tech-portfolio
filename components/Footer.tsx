@@ -7,7 +7,7 @@ import {
   useColorModeValue,
   VisuallyHidden
 } from '@chakra-ui/react';
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'; // Step 1: Import FaEnvelope
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'; 
 import { ReactNode } from 'react';
 
 const SocialButton = ({
