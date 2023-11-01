@@ -1,7 +1,7 @@
 # Jacob Leone's Portfolio
 
 ## Deployment:
-https://jacobleone-tech.vercel.app
+https://www.jacobleone.tech
 
 This is a personal portfolio project built using [Next.js](https://nextjs.org/) and bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). The website showcases Jacob's professional achievements, skills, and projects.
 
