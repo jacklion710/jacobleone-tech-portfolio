@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 const LandingPage = () => {
   const { isOpen, onToggle } = useDisclosure();
-  const imageSize = useBreakpointValue({ base: 150, sm: 120, md: 140, lg: 310, xl: 180 });
+  const imageSize = useBreakpointValue({ base: 230, sm: 120, md: 180, lg: 310, xl: 180 });
 
   return (
     <Center 
