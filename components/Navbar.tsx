@@ -108,9 +108,15 @@ function Navbar() {
         >
           {/* Icons for Desktop and Wide Views */}
           <Stack direction="row" spacing={3} mr={4} display={{ base: isOpen ? 'flex' : 'none', md: 'flex' }} className="desktop-icons">
-            <FaGithub className="nav-icon1" color="teal" bg="black" size="1.5em" />
-            <FaLinkedin className="nav-icon1" color="teal" bg="black" size="1.5em" />
-            <FaEnvelope className="nav-icon1" color="teal" bg="black" size="1.5em" />
+              <a href="https://github.com/jacklion710" target="_blank" rel="noopener noreferrer">
+                  <FaGithub className="nav-icon1" color="teal" bg="black" size="1.5em" />
+              </a>
+              <a href="https://www.linkedin.com/in/jacob-leone-78a602278/" target="_blank" rel="noopener noreferrer">
+                  <FaLinkedin className="nav-icon1" color="teal" bg="black" size="1.5em" />
+              </a>
+              <a href="mailto:jacob0leone@gmail.com">
+                  <FaEnvelope className="nav-icon1" color="teal" bg="black" size="1.5em" />
+              </a>
           </Stack>
 
           <motion.div 
@@ -266,16 +272,22 @@ const MobileNav: React.FC<MobileNavProps> = ({ onToggle, isOpen }) => {
 
       {/* Icons Above the Contact Button for Mobile with nav-icon1 animation style */}
       {isOpen && (
-        <Stack  direction="row" justifyContent="center" spacing={3} display={{ base: isOpen ? 'flex' : 'none', md: 'flex' }} className="desktop-icons">
-          <motion.div variants={iconVariants} initial="hidden" animate={isOpen ? 'visible' : 'hidden'} transition={transitionOptions}>
-            <FaGithub className="nav-icon1" color="teal" bg="black" size="1.5em" />
-          </motion.div>
-          <motion.div variants={iconVariants} initial="hidden" animate={isOpen ? 'visible' : 'hidden'} transition={transitionOptions}>
-            <FaLinkedin className="nav-icon1" color="teal" bg="black" size="1.5em" />
-          </motion.div>
-          <motion.div variants={iconVariants} initial="hidden" animate={isOpen ? 'visible' : 'hidden'} transition={transitionOptions}>
-            <FaEnvelope className="nav-icon1" color="teal" bg="black" size="1.5em" />
-          </motion.div>
+        <Stack direction="row" justifyContent="center" spacing={3} display={{ base: isOpen ? 'flex' : 'none', md: 'flex' }} className="desktop-icons">
+            <motion.div variants={iconVariants} initial="hidden" animate={isOpen ? 'visible' : 'hidden'} transition={transitionOptions}>
+                <a href="https://github.com/jacklion710" target="_blank" rel="noopener noreferrer">
+                    <FaGithub className="nav-icon1" color="teal" bg="black" size="1.5em" />
+                </a>
+            </motion.div>
+            <motion.div variants={iconVariants} initial="hidden" animate={isOpen ? 'visible' : 'hidden'} transition={transitionOptions}>
+                <a href="https://www.linkedin.com/in/jacob-leone-78a602278/" target="_blank" rel="noopener noreferrer">
+                    <FaLinkedin className="nav-icon1" color="teal" bg="black" size="1.5em" />
+                </a>
+            </motion.div>
+            <motion.div variants={iconVariants} initial="hidden" animate={isOpen ? 'visible' : 'hidden'} transition={transitionOptions}>
+                <a href="mailto:jacob0leone@gmail.com">
+                    <FaEnvelope className="nav-icon1" color="teal" bg="black" size="1.5em" />
+                </a>
+            </motion.div>
         </Stack>
       )}
       {/* Contact Button */}
