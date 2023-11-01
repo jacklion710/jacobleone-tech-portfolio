@@ -266,7 +266,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ onToggle, isOpen }) => {
 
       {/* Icons Above the Contact Button for Mobile with nav-icon1 animation style */}
       {isOpen && (
-        <Stack  direction="row" justifyContent="center" spacing={3} mr={4} display={{ base: isOpen ? 'flex' : 'none', md: 'flex' }} className="desktop-icons">
+        <Stack  direction="row" justifyContent="center" spacing={3} display={{ base: isOpen ? 'flex' : 'none', md: 'flex' }} className="desktop-icons">
           <motion.div variants={iconVariants} initial="hidden" animate={isOpen ? 'visible' : 'hidden'} transition={transitionOptions}>
             <FaGithub className="nav-icon1" color="teal" bg="black" size="1.5em" />
           </motion.div>
