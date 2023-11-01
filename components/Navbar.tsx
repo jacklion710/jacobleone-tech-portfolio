@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import NextLink from "next/link";
 import { motion } from 'framer-motion';
 import './navbarStyles.css';
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'; 
 
 const MotionBox = chakra(motion.div);
 
@@ -38,7 +39,7 @@ function Navbar() {
         bg={'black'}
         color={'white'}
         h="100px"
-        minH={'150px'}
+        minH={'120px'}
         py={{ base: 4 }}
         px={{ base: 4 }}
         borderStyle={'solid'}
@@ -63,7 +64,7 @@ function Navbar() {
                 id="nav-icon1"
                 onClick={onToggle}
                 className={isOpen ? "open" : ""}
-                style={{ marginTop: '40px' }}
+                style={{ marginTop: '25px' }}
               >
                 <span></span>
                 <span></span>
@@ -85,8 +86,8 @@ function Navbar() {
                       src='/images/headshot.jpg' 
                       alt="Headshot" 
                       borderRadius="50%"
-                      w="110px" 
-                      h="110px" 
+                      w="100px" 
+                      h="100px" 
                       objectFit="cover"
                       objectPosition="center top"
                       style={{
@@ -103,7 +104,15 @@ function Navbar() {
           display="flex"
           justifyContent="flex-end"
           alignItems="center"
+          flexDirection={{ base: 'column-reverse', md: 'row' }}
         >
+          {/* Icons for Desktop and Wide Views */}
+          <Stack direction="row" spacing={3} mr={4} display={{ base: isOpen ? 'flex' : 'none', md: 'flex' }} className="desktop-icons">
+            <FaGithub className="nav-icon1" color="teal" bg="black" size="1.5em" />
+            <FaLinkedin className="nav-icon1" color="teal" bg="black" size="1.5em" />
+            <FaEnvelope className="nav-icon1" color="teal" bg="black" size="1.5em" />
+          </Stack>
+
           <motion.div 
             variants={contactButtonVariants}
             transition={{ duration: 0.2 }}
@@ -192,6 +201,16 @@ interface MobileNavProps {
   onToggle: () => void;
 }
 
+const iconVariants = {
+  hidden: { x: 50, opacity: 0 },
+  visible: { x: 0, opacity: 1 }
+};
+
+const transitionOptions = {
+  duration: 1., 
+  ease: "easeInOut"
+};
+
 const MobileNav: React.FC<MobileNavProps> = ({ onToggle, isOpen }) => {
   return (
     <Flex
@@ -207,12 +226,13 @@ const MobileNav: React.FC<MobileNavProps> = ({ onToggle, isOpen }) => {
       pt={12}
       zIndex={11}
     >
+      
       {/* Close Button */}
       <div
         id="nav-icon1"
         onClick={onToggle}
         className={isOpen ? "open" : ""}
-        style={{ marginTop: '40px' }}
+        style={{ marginTop: '25px' }}
       >
         <span></span>
         <span></span>
@@ -243,7 +263,21 @@ const MobileNav: React.FC<MobileNavProps> = ({ onToggle, isOpen }) => {
             ))}
         </Stack>
       </Flex>
-  
+
+      {/* Icons Above the Contact Button for Mobile with nav-icon1 animation style */}
+      {isOpen && (
+        <Stack  direction="row" justifyContent="center" spacing={3} mr={4} display={{ base: isOpen ? 'flex' : 'none', md: 'flex' }} className="desktop-icons">
+          <motion.div variants={iconVariants} initial="hidden" animate={isOpen ? 'visible' : 'hidden'} transition={transitionOptions}>
+            <FaGithub className="nav-icon1" color="teal" bg="black" size="1.5em" />
+          </motion.div>
+          <motion.div variants={iconVariants} initial="hidden" animate={isOpen ? 'visible' : 'hidden'} transition={transitionOptions}>
+            <FaLinkedin className="nav-icon1" color="teal" bg="black" size="1.5em" />
+          </motion.div>
+          <motion.div variants={iconVariants} initial="hidden" animate={isOpen ? 'visible' : 'hidden'} transition={transitionOptions}>
+            <FaEnvelope className="nav-icon1" color="teal" bg="black" size="1.5em" />
+          </motion.div>
+        </Stack>
+      )}
       {/* Contact Button */}
       <motion.div 
         initial="hidden"
