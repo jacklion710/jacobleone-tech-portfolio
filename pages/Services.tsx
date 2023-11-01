@@ -46,14 +46,15 @@ import {
                 <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
             </Head>
             <Helmet>
-                <title>Jacob Leones Services | Professional Tech Solutions</title>
-                <meta name="description" content="Explore Jacob Leone's professional services, ranging from AI & Machine Learning, Software Development, Web Development, to Mobile App Creation. Get the best tech solutions tailored for your needs." />
-                <meta name="keywords" content="Jacob Leone, AI, Machine Learning, Software Development, Web Development, Mobile App Creation, Tech Services" />
+                <title>Jacob Leones Professional Tech Services</title>
+                <meta name="description" content="Discover the range of tech services offered by Jacob Leone, including AI & Machine Learning, Web Development, Software Development, and Mobile App Creation. Get tailored solutions for your specific needs." />
+                <meta name="keywords" content="Jacob Leone, AI & Machine Learning, Software Development, Web Development, Mobile App Creation, Professional Services, Tech Solutions" />
                 <meta property="og:type" content="website" />
-                <meta property="og:title" content="Jacob Leone's Services | Professional Tech Solutions" />
-                <meta property="og:description" content="Explore Jacob Leone's professional services, ranging from AI & Machine Learning, Software Development, Web Development, to Mobile App Creation. Get the best tech solutions tailored for your needs." />
-                <meta property="og:url" content="https://jacobleone-tech.vercel.app/Services" />
-                <link rel="canonical" href="https://jacobleone-tech.vercel.app/Services" />
+                <meta property="og:title" content="Jacob Leones Tech Services" />
+                <meta property="og:description" content="Explore Jacob Leones specialized tech services, designed to provide optimal solutions in various domains including AI, web development, software creation, and mobile app design." />
+                <meta property="og:url" content="https://jacobleone.tech/Services" />
+                <link rel="canonical" href="https://jacobleone.tech/Services" />
+                <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet"/>
             </Helmet>
             <Flex 
                 direction="column" 

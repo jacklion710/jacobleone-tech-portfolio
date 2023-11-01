@@ -73,11 +73,15 @@ import {
             <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
         </Head>
         <Helmet>
-          <title>Projects by Jacob Leone | Projects</title>
-          <meta name="description" content="Explore various projects undertaken by Jacob Leone. From full-stack websites to data cleaning scripts, delve into Jacob's portfolio here." />
-          <meta name="keywords" content="Jacob Leone, Projects, Full Stack, M8 Data Cleaner, Web Audio, CDJ Compatibility, Portfolio" />
-          <meta property="og:url" content="https://jacobleone-tech.vercel.app/Projects" /> 
-          <link rel="canonical" href="https://jacobleone-tech.vercel.app/Projects" />
+            <title>Jacob Leones Tech Projects | Showcase</title>
+            <meta name="description" content="Dive deep into Jacob Leones innovative projects. From full-stack web applications, data cleaner scripts, audio-visual experiences to software portfolios, discover the depth and breadth of Jacobs tech expertise." />
+            <meta name="keywords" content="Jacob Leone, Projects, Full Stack Website, M8 Data Cleaner, Web Audio Visual Experience, CDJ Compatibility Cleaner, Web Portfolios, Tech Innovations" />
+            <meta property="og:type" content="website" />
+            <meta property="og:title" content="Jacob Leones Tech Portfolio | Projects Showcase" />
+            <meta property="og:description" content="Explore Jacob Leones diverse projects that highlight his expertise in various domains of tech. Discover his contributions and innovations firsthand." />
+            <meta property="og:url" content="https://jacobleone.tech/Projects" />
+            <link rel="canonical" href="https://jacobleone.tech/Projects" />
+            <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet"/>
         </Helmet>
         <Flex 
             direction="column" 

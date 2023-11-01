@@ -58,11 +58,15 @@ import {
             <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
         </Head>
         <Helmet>
-          <title>Connect with Jacob Leone | Contact</title>
-          <meta name="description" content="Reach out to Jacob Leone on various platforms or send an email." />
-          <meta name="keywords" content="Jacob Leone, Connect, Code, Services, Linkedin, Github, Contact" />
-          <meta property="og:url" content="https://jacobleone-tech.vercel.app/Contact" /> 
-          <link rel="canonical" href="https://jacobleone-tech.vercel.app/Contact" />
+            <title>Connect with Jacob Leone | Contact & Collaboration</title>
+            <meta name="description" content="Want to collaborate or ask a question? Get in touch with Jacob Leone through various platforms including LinkedIn, GitHub, YouTube, or directly via email." />
+            <meta name="keywords" content="Jacob Leone, Contact, Collaboration, LinkedIn, GitHub, YouTube, Email, Tech Services" />
+            <meta property="og:type" content="website" />
+            <meta property="og:title" content="Connect with Jacob Leone | Contact & Collaboration" />
+            <meta property="og:description" content="Reach out to Jacob Leone for collaboration, inquiries, or any questions. Connect through multiple platforms or send a direct email." />
+            <meta property="og:url" content="https://jacobleone.tech/Contact" />
+            <link rel="canonical" href="https://jacobleone.tech/Contact" />
+            <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet"/>
         </Helmet>
           <Flex 
             direction="column"

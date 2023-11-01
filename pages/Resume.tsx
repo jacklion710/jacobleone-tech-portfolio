@@ -29,15 +29,16 @@ export default function Resume() {
           <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
       </Head>
       <Helmet>
-        <title>Jacob Leones Résumé and References | Résumé & References</title>
-        <meta name="description" content="Download Jacob Leone's up-to-date resume or view professional references that endorse Jacob's skills and expertise." />
-        <meta name="keywords" content="Jacob Leone, Resume, References, Professional, Download, Skills, Endorsements" />
+        <title>Jacob Leones Official Resume and Professional References</title>
+        <meta name="description" content="Discover Jacob Leones detailed resume outlining his tech expertise, achievements, and experiences. Also, access authentic references vouching for Jacobs professional competencies." />
+        <meta name="keywords" content="Jacob Leone, Resume, Professional References, Tech Skills, Career, Achievements, Experience, Download" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Jacob Leone's Resume and References | Official Page" />
-        <meta property="og:description" content="Download Jacob Leone's up-to-date resume or view professional references that endorse Jacob's skills and expertise." />
-        <meta property="og:url" content="https://jacobleone-tech.vercel.app/Resume" />
-        <link rel="canonical" href="https://jacobleone-tech.vercel.app/Resume" />
-      </Helmet>
+        <meta property="og:title" content="Jacob Leones Official Resume and Professional References" />
+        <meta property="og:description" content="Discover Jacob Leones detailed resume and explore professional references attesting to his expertise in the tech domain." />
+        <meta property="og:url" content="https://jacobleone.tech/Resume" />
+        <link rel="canonical" href="https://jacobleone.tech/Resume" />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet"/>
+    </Helmet>
       
       <Flex 
           direction="column" 

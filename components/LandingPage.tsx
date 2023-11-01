@@ -23,14 +23,15 @@ const LandingPage = () => {
           <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
       </Head>
       <Helmet>
-        <title>Jacob Leone | AI Specialist & Software Engineer</title>
-        <meta name="description" content="Welcome to Jacob Leone's professional portfolio. Discover innovations by an AI Specialist and Software Engineer." />
-        <meta name="keywords" content="Jacob Leone, AI Specialist, Software Engineer, Tech Innovations" />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Jacob Leone | AI Specialist & Software Engineer" />
-        <meta property="og:description" content="Welcome to Jacob Leone's professional portfolio. Discover innovations by an AI Specialist and Software Engineer." />
-        <meta property="og:url" content="https://jacobleone-tech.vercel.app/" />
-\        <link rel="canonical" href="https://jacobleone-tech.vercel.app/" />
+          <title>Jacob Leone | AI Specialist & Software Engineer</title>
+          <meta name="description" content="Dive into the world of Jacob Leone, an AI Specialist & Software Engineer, driven by passion and creativity. Discover the convergence of artificial intelligence and psychology from a unique human-first perspective." />
+          <meta name="keywords" content="Jacob Leone, AI Specialist, Software Engineer, Artificial Intelligence, Psychology, Innovations, Technical Challenges, Collaboration, Tech Arena" />
+          <meta property="og:type" content="website" />
+          <meta property="og:title" content="Jacob Leone | AI Specialist & Software Engineer" />
+          <meta property="og:description" content="Welcome to Jacob Leones tech arena. Immerse yourself in the innovative world of an AI Specialist and Software Engineer who approaches challenges from a unique, human-first perspective." />
+          <meta property="og:url" content="https://jacobleone.tech/" />
+          <link rel="canonical" href="https://jacobleone.tech/" />
+          <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet"/>
       </Helmet>
       <Box bgColor="rgba(230, 230, 230, 0.7)" p={6} borderRadius="md">
         <VStack spacing={6}>
