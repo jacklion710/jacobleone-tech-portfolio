@@ -286,10 +286,6 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   {
-    imageSrc: '/images/headshot.jpg',
-    href: '/'
-  },
-  {
     label: 'Projects',
     href: '/Projects'
   },
