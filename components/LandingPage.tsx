@@ -1,11 +1,13 @@
-import { Flex, Heading, Text, VStack, Center, Button, Box, Collapse, useDisclosure } from "@chakra-ui/react";
+import { useBreakpointValue, Text, VStack, Center, Button, Box, Collapse, useDisclosure } from "@chakra-ui/react";
 import { AiFillRobot } from 'react-icons/ai';
 import { FaCode, FaAngleDown, FaAngleUp } from 'react-icons/fa'; 
 import { Helmet } from "react-helmet";
 import Head from 'next/head';
+import Image from 'next/image';
 
 const LandingPage = () => {
   const { isOpen, onToggle } = useDisclosure();
+  const imageSize = useBreakpointValue({ base: 150, sm: 120, md: 140, lg: 310, xl: 180 });
 
   return (
     <Center 
@@ -32,13 +34,15 @@ const LandingPage = () => {
       </Helmet>
       <Box bgColor="rgba(230, 230, 230, 0.7)" p={6} borderRadius="md">
         <VStack spacing={6}>
-        <Heading 
-            fontSize={['2xl', '3xl', '4xl', '5xl']} 
-            color="white"
-            textShadow="0 0 5px teal, 0 0 10px teal, 0 0 15px teal, 0 0 20px teal"
-        >
-            Jacob Leone
-        </Heading>
+        <Image 
+            src="/vectors/Tech_Typography_Vectorized(white).svg" 
+            alt="Jacob Leone" 
+            height={imageSize} 
+            width={imageSize} 
+            style={{
+                filter: "drop-shadow(0 0 3px teal) drop-shadow(0 0 6px teal)"
+            }}
+          />
           <VStack spacing={2}>
             <AiFillRobot size="1.5em" color="gray.700" />
             <Text fontSize={['lg', 'xl', '2xl']} color="gray.700">AI Specialist</Text>
@@ -57,7 +61,7 @@ const LandingPage = () => {
           </Button>
           <Box textAlign="center" w="100%" my={4}>
             <Text fontSize="lg" color="black" mb={1} maxW="700px" textAlign="center" mx="auto">
-              I am driven by an intrinsic passion for tackling both creative and technical challenges. As part of agile development teams, I thrive on collaborating towards our shared mission: delivering exceptional value to clients efficiently and effectively...
+              Driven by an intrinsic passion for tackling creative and technical challenges and as member of agile development teams, I thrive on collaboration towards a shared mission: delivering exceptional value to clients efficiently...
             </Text>
             <Button variant="link" color="teal.500" onClick={onToggle} mt={2}>
               {isOpen ? "Read Less" : "Read More"} {isOpen ? <FaAngleUp /> : <FaAngleDown />}
