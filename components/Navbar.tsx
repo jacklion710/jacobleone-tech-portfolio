@@ -15,7 +15,7 @@ const navItemVariants = {
 };
 
 const navItemTransition = {
-  visible: { duration: 1. },
+  visible: { duration: .1 },
   exit: { duration: 0.1 }  
 };
 
@@ -26,7 +26,7 @@ const contactButtonVariants = {
 };
 
 const contactButtonTransition = {
-  visible: { duration: 1.25 },
+  visible: { duration: .1 },
   exit: { duration: 0.1 }  
 };
 
@@ -234,7 +234,7 @@ const iconVariants = {
 };
 
 const iconTransition = {
-  visible: { duration: .3 },
+  visible: { duration: .1 },
   exit: { duration: 0.1 }  
 };
 
