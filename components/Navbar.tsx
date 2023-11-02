@@ -218,6 +218,10 @@ const transitionOptions = {
 };
 
 const MobileNav: React.FC<MobileNavProps> = ({ onToggle, isOpen }) => {
+  const isLandscape = useBreakpointValue({ base: 'portrait', sm: 'landscape' }) === 'landscape';
+  const marginTopValue = useBreakpointValue({ base: "100px", sm: "50px" });
+  const iconMarginTop = useBreakpointValue({ base: "200px", sm: "80px" });
+
   return (
     <Flex
       position="fixed"
@@ -229,94 +233,108 @@ const MobileNav: React.FC<MobileNavProps> = ({ onToggle, isOpen }) => {
       flexDirection="column"
       justifyContent="flex-start"
       alignItems="center"
-      pt={12}
+      pt={isLandscape ? 12 : 12} 
       zIndex={11}
     >
-      
-      {/* Close Button */}
-      <div
-        id="nav-icon1"
-        onClick={onToggle}
-        className={isOpen ? "open" : ""}
-        style={{ marginTop: '25px' }}
+      {/* Fixed Content */}
+      <Flex 
+        flexDirection="column" 
+        w="100%" 
+        position={isLandscape ? 'fixed' : 'relative'}
+        zIndex={12}
+        bg="black"
       >
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-
-      <Flex flexDirection="column" alignItems="center" justifyContent="center" mb={10} flexGrow={1}> 
-        <Stack spacing={12} textAlign="center">
-           {NAV_ITEMS.map((navItem, index) => (
-                <NextLink key={navItem.label ?? navItem.imageSrc} href={navItem.href ?? '#'} passHref>
-                    <motion.div 
-                        initial="hidden"
-                        animate={isOpen ? "visible" : "hidden"}
-                        variants={navItemVariants}
-                        transition={{ duration: 0.3, delay: 0.3 + index * 0.1 }}
-                    >
-                        <ChakraLink
-                            fontSize={{ base: "3xl" }}
-                            fontWeight={navItem.imageSrc ? 'normal' : 'bold'}
-                            color='white'
-                            textShadow="0 0 3px teal, 0 0 6px teal, 0 0 9px teal"  // Add this line for the glow
-                            _hover={{ textDecoration: 'underline', color: 'gray.300', textShadow: 'none' }}
-                        >
-                            {navItem.label}
-                        </ChakraLink>
-                    </motion.div>
-                </NextLink>
-            ))}
-        </Stack>
+        {/* Close Button */}
+        <div
+          id="nav-icon1"
+          onClick={onToggle}
+          className={isOpen ? "open" : ""}
+          style={{ marginTop: isLandscape ? '25px' : '12px' }}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </Flex>
 
-      {/* Icons Above the Contact Button for Mobile with nav-icon1 animation style */}
-      {isOpen && (
-        <Stack direction="row" justifyContent="center" spacing={3} display={{ base: isOpen ? 'flex' : 'none', md: 'flex' }} className="desktop-icons">
-            <motion.div variants={iconVariants} initial="hidden" animate={isOpen ? 'visible' : 'hidden'} transition={transitionOptions}>
-                <a href="https://github.com/jacklion710" target="_blank" rel="noopener noreferrer">
-                    <FaGithub className="nav-icon1" color="teal" bg="black" size="1.5em" />
-                </a>
-            </motion.div>
-            <motion.div variants={iconVariants} initial="hidden" animate={isOpen ? 'visible' : 'hidden'} transition={transitionOptions}>
-                <a href="https://www.linkedin.com/in/jacob-leone-78a602278/" target="_blank" rel="noopener noreferrer">
-                    <FaLinkedin className="nav-icon1" color="teal" bg="black" size="1.5em" />
-                </a>
-            </motion.div>
-            <motion.div variants={iconVariants} initial="hidden" animate={isOpen ? 'visible' : 'hidden'} transition={transitionOptions}>
-                <a href="mailto:jacob0leone@gmail.com">
-                    <FaEnvelope className="nav-icon1" color="teal" bg="black" size="1.5em" />
-                </a>
-            </motion.div>
-        </Stack>
-      )}
-      {/* Contact Button */}
-      <motion.div 
-        initial="hidden"
-        animate={isOpen ? "visible" : "hidden"}
-        variants={contactButtonVariants}
-        transition={{ duration: 0.4, delay: .4 }}
-        style={{ marginTop: '150px' }}
+      {/* Scrollable Content */}
+      <Box 
+        mt={isLandscape ? '80px' : 0}
+        overflowY={isLandscape ? "auto" : "visible"}
+        h={isLandscape ? 'calc(100vh - 80px)' : 'auto'}
+        w="100%"
       >
-        <NextLink href="/Contact" passHref>
-          <ChakraLink
-              position="absolute"
-              bottom={6}
-              left="50%"
-              transform="translateX(-50%)"
-              px={6}
-              py={5}
-              bg="teal.500"
-              color="white"
-              fontSize="2xl"
-              fontWeight="bold"
-              borderRadius="md"
-              _hover={{ bg: 'teal.600' }}
+        <Flex flexDirection="column" alignItems="center" justifyContent="center" mb={10}> 
+          <Stack spacing={50} textAlign="center" mt={marginTopValue}>
+            {NAV_ITEMS.map((navItem, index) => (
+              <NextLink key={navItem.label ?? navItem.imageSrc} href={navItem.href ?? '#'} passHref>
+                  <motion.div 
+                      initial="hidden"
+                      animate={isOpen ? "visible" : "hidden"}
+                      variants={navItemVariants}
+                      transition={{ duration: 0.3, delay: 0.3 + index * 0.1 }}
+                  >
+                      <ChakraLink
+                          fontSize={{ base: "3xl" }}
+                          fontWeight={navItem.imageSrc ? 'normal' : 'bold'}
+                          color='white'
+                          textShadow="0 0 3px teal, 0 0 6px teal, 0 0 9px teal"
+                          _hover={{ textDecoration: 'underline', color: 'gray.300', textShadow: 'none' }}
+                      >
+                          {navItem.label}
+                      </ChakraLink>
+                  </motion.div>
+              </NextLink>
+            ))}
+          </Stack>
+        </Flex>
+
+        {/* Icons */}
+        {isOpen && (
+            <Stack direction="row" justifyContent="center" spacing={3} mt={iconMarginTop} display={{ base: isOpen ? 'flex' : 'none', md: 'flex' }} className="desktop-icons">
+              <motion.div variants={iconVariants} initial="hidden" animate={isOpen ? 'visible' : 'hidden'} transition={transitionOptions}>
+                  <a href="https://github.com/jacklion710" target="_blank" rel="noopener noreferrer">
+                      <FaGithub className="nav-icon1" color="teal" bg="black" size="1.5em" />
+                  </a>
+              </motion.div>
+              <motion.div variants={iconVariants} initial="hidden" animate={isOpen ? 'visible' : 'hidden'} transition={transitionOptions}>
+                  <a href="https://www.linkedin.com/in/jacob-leone-78a602278/" target="_blank" rel="noopener noreferrer">
+                      <FaLinkedin className="nav-icon1" color="teal" bg="black" size="1.5em" />
+                  </a>
+              </motion.div>
+              <motion.div variants={iconVariants} initial="hidden" animate={isOpen ? 'visible' : 'hidden'} transition={transitionOptions}>
+                  <a href="mailto:jacob0leone@gmail.com">
+                      <FaEnvelope className="nav-icon1" color="teal" bg="black" size="1.5em" />
+                  </a>
+              </motion.div>
+          </Stack>
+        )}
+
+        {/* Contact Button */}
+        <Flex justifyContent="center" width="100%" mt={50}>
+          <motion.div 
+            initial="hidden"
+            animate={isOpen ? "visible" : "hidden"}
+            variants={contactButtonVariants}
+            transition={{ duration: 0.4, delay: .4 }}
           >
-              Contact
-          </ChakraLink>
-        </NextLink>
-      </motion.div>
+          <NextLink href="/Contact" passHref>
+            <ChakraLink
+                px={6}
+                py={5}
+                bg="teal.500"
+                color="white"
+                fontSize="2xl"
+                fontWeight="bold"
+                borderRadius="md"
+                _hover={{ bg: 'teal.600' }}
+            >
+                Contact
+            </ChakraLink>
+          </NextLink>
+        </motion.div>
+        </Flex>
+      </Box>
     </Flex>
   );
 };
