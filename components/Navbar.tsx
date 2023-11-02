@@ -245,16 +245,17 @@ const MobileNav: React.FC<MobileNavProps> = ({ onToggle, isOpen }) => {
         bg="black"
       >
         {/* Close Button */}
-        <div
-          id="nav-icon1"
-          onClick={onToggle}
-          className={isOpen ? "open" : ""}
-          style={{ marginTop: isLandscape ? '25px' : '12px' }}
+        <Box
+            as="div"
+            id="nav-icon1"
+            onClick={onToggle}
+            className={isOpen ? "open" : ""}
+            mt={isLandscape ? '-15px' : '-15px'}
         >
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+            <span></span>
+            <span></span>
+            <span></span>
+        </Box>
       </Flex>
 
       {/* Scrollable Content */}
