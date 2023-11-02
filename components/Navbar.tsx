@@ -1,5 +1,5 @@
 import React from 'react';
-import { chakra, Box, Flex, Stack, Collapse, Link as ChakraLink, useDisclosure, Image } from '@chakra-ui/react';
+import { useBreakpointValue, chakra, Box, Flex, Stack, Collapse, Link as ChakraLink, useDisclosure, Image } from '@chakra-ui/react';
 import dynamic from "next/dynamic";
 import NextLink from "next/link";
 import { motion } from 'framer-motion';
@@ -58,7 +58,7 @@ function Navbar() {
           {/* Hamburger Icon */}
           <Flex
               ml={{ base: -2 }}
-              display={{ base: 'flex', md: 'none' }}
+              display={{ base: 'flex', lg: 'none' }}
           >
               <div
                 id="nav-icon1"
@@ -73,7 +73,7 @@ function Navbar() {
           </Flex>
   
           {/* Desktop Navigation */}
-          <Flex display={{ base: 'none', md: 'flex' }}>
+          <Flex display={{ base: 'none', lg: 'flex' }}>
             <DesktopNav isOpen={isOpen} />
           </Flex>
         </Flex>
