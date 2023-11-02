@@ -2,7 +2,7 @@ import React from 'react';
 import { useBreakpointValue, chakra, Box, Flex, Stack, Collapse, Link as ChakraLink, useDisclosure, Image } from '@chakra-ui/react';
 import dynamic from "next/dynamic";
 import NextLink from "next/link";
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import './navbarStyles.css';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'; 
 
@@ -10,12 +10,24 @@ const MotionBox = chakra(motion.div);
 
 const navItemVariants = {
   hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0 }
+  visible: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: 50 }
+};
+
+const navItemTransition = {
+  visible: { duration: 1. },
+  exit: { duration: 0.1 }  
 };
 
 const contactButtonVariants = {
   hidden: { y: 100, opacity: 0 },
-  visible: { y: 0, opacity: 1 }
+  visible: { y: 0, opacity: 1 },
+  exit: { y: 100, opacity: 0 }
+};
+
+const contactButtonTransition = {
+  visible: { duration: 1.25 },
+  exit: { duration: 0.1 }  
 };
 
 function Navbar() {
@@ -157,9 +169,17 @@ function Navbar() {
         onClick={onToggle} 
       />
     
-      <Collapse in={isOpen}>
+    <AnimatePresence>
+      {isOpen && (
+        <MotionBox 
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+        >
           <MobileNav onToggle={onToggle} isOpen={isOpen} />
-      </Collapse>
+        </MotionBox>
+      )}
+    </AnimatePresence>
     </Box>
   );
 }
@@ -209,7 +229,13 @@ interface MobileNavProps {
 
 const iconVariants = {
   hidden: { x: 50, opacity: 0 },
-  visible: { x: 0, opacity: 1 }
+  visible: { x: 0, opacity: 1 },
+  exit: { x: 50, opacity: 0 }
+};
+
+const iconTransition = {
+  visible: { duration: .3 },
+  exit: { duration: 0.1 }  
 };
 
 const transitionOptions = {
@@ -272,8 +298,9 @@ const MobileNav: React.FC<MobileNavProps> = ({ onToggle, isOpen }) => {
                   <motion.div 
                       initial="hidden"
                       animate={isOpen ? "visible" : "hidden"}
+                      exit="exit"
                       variants={navItemVariants}
-                      transition={{ duration: 0.3, delay: 0.3 + index * 0.1 }}
+                      transition={navItemTransition}
                   >
                       <ChakraLink
                           fontSize={{ base: "3xl" }}
@@ -293,20 +320,38 @@ const MobileNav: React.FC<MobileNavProps> = ({ onToggle, isOpen }) => {
         {/* Icons */}
         {isOpen && (
             <Stack direction="row" justifyContent="center" spacing={3} mt={iconMarginTop} display={{ base: isOpen ? 'flex' : 'none', md: 'flex' }} className="desktop-icons">
-              <motion.div variants={iconVariants} initial="hidden" animate={isOpen ? 'visible' : 'hidden'} transition={transitionOptions}>
-                  <a href="https://github.com/jacklion710" target="_blank" rel="noopener noreferrer">
-                      <FaGithub className="nav-icon1" color="teal" bg="black" size="1.5em" />
-                  </a>
+              <motion.div 
+                variants={iconVariants}
+                initial="hidden"
+                animate={isOpen ? 'visible' : 'hidden'}
+                exit="exit"
+                transition={iconTransition}
+              >
+                <a href="https://github.com/jacklion710" target="_blank" rel="noopener noreferrer">
+                    <FaGithub className="nav-icon1" color="teal" bg="black" size="1.5em" />
+                </a>
               </motion.div>
-              <motion.div variants={iconVariants} initial="hidden" animate={isOpen ? 'visible' : 'hidden'} transition={transitionOptions}>
-                  <a href="https://www.linkedin.com/in/jacob-leone-78a602278/" target="_blank" rel="noopener noreferrer">
-                      <FaLinkedin className="nav-icon1" color="teal" bg="black" size="1.5em" />
-                  </a>
+              <motion.div 
+                variants={iconVariants}
+                initial="hidden"
+                animate={isOpen ? 'visible' : 'hidden'}
+                exit="exit"
+                transition={iconTransition}
+              >
+                <a href="https://www.linkedin.com/in/jacob-leone-78a602278/" target="_blank" rel="noopener noreferrer">
+                    <FaLinkedin className="nav-icon1" color="teal" bg="black" size="1.5em" />
+                </a>
               </motion.div>
-              <motion.div variants={iconVariants} initial="hidden" animate={isOpen ? 'visible' : 'hidden'} transition={transitionOptions}>
-                  <a href="mailto:jacob0leone@gmail.com">
-                      <FaEnvelope className="nav-icon1" color="teal" bg="black" size="1.5em" />
-                  </a>
+              <motion.div 
+                variants={iconVariants}
+                initial="hidden"
+                animate={isOpen ? 'visible' : 'hidden'}
+                exit="exit"
+                transition={iconTransition}
+              >
+                <a href="mailto:jacob0leone@gmail.com">
+                    <FaEnvelope className="nav-icon1" color="teal" bg="black" size="1.5em" />
+                </a>
               </motion.div>
           </Stack>
         )}
@@ -316,8 +361,9 @@ const MobileNav: React.FC<MobileNavProps> = ({ onToggle, isOpen }) => {
           <motion.div 
             initial="hidden"
             animate={isOpen ? "visible" : "hidden"}
+            exit="exit"
             variants={contactButtonVariants}
-            transition={{ duration: 0.4, delay: .4 }}
+            transition={contactButtonTransition}
           >
           <NextLink href="/Contact" passHref>
             <ChakraLink
