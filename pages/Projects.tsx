@@ -100,10 +100,10 @@ import {
             <VStack 
                 spacing={10} 
                 alignItems="center" 
-                justifyContent="flex-start"  // Keep content aligned to the top
+                justifyContent="flex-start"
                 flexGrow={1} 
                 py={10} 
-                px={4}
+                px={{ base: 4, md: 10 }}
             >
                 <Heading 
                     mb={4} 
@@ -127,23 +127,23 @@ import {
                 </Heading>
               
                 <Flex alignItems="center" justifyContent="center" flexGrow={1} w="full">
-                <SimpleGrid columns={[1, 2, 3]} spacing={10} w="full">
+                <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={10} w="full">
                     {projects.map((project, index) => (
-                    <Box key={index} p={5} borderWidth="1px" borderRadius="md" borderColor={borderColor} shadow="lg" transition="transform .2s" _hover={{ transform: 'scale(1.05)' }}>
+                    <Box key={index} p={{ base: 3, md: 5 }} borderWidth="1px" borderRadius="md" borderColor={borderColor} shadow="lg" transition="transform .2s" _hover={{ transform: 'scale(1.05)' }}>
                         <AspectRatio ratio={4 / 3}>
                         <Image src={project.imageUrl} alt={project.title} borderRadius="md" mb={4} objectFit="cover" />
                         </AspectRatio>
                         <Heading size="md" my={2} textAlign="center">{project.title}</Heading>
                         <Text mb={4} noOfLines={2}>{project.description}</Text>
-                        <Flex justifyContent="center" mt={3} wrap="wrap">
+                        <Flex justifyContent="center" mt={3} wrap="wrap" direction={{ base: "column", md: "row" }}>
                           <Tooltip label="Visit GitHub Repository" aria-label="GitHub link">
-                              <Button as={Link} href={project.githubUrl} leftIcon={<FaGithub />} isExternal colorScheme="blue" mr={2}>
+                              <Button as={Link} href={project.githubUrl} leftIcon={<FaGithub />} isExternal colorScheme="blue" mb={{ base: 2, md: 0 }} mr={{ md: 2 }}>
                                   GitHub
                               </Button>
                           </Tooltip>
                           {(project.title === "Full Stack Website" || project.title === "Interactive Web Audio Visual Experience" || project.title === "Web Portfolio for Commercial Music" || project.title === "Web Portfolio for Software Engineering") &&
                             <Tooltip label="Visit Deployed Project" aria-label="Deployment link">
-                                <Button as={Link} href={project.deployUrl} isExternal colorScheme="teal" ml={2}>
+                                <Button as={Link} href={project.deployUrl} isExternal colorScheme="teal" ml={{ md: 2 }}>
                                     View Live
                                 </Button>
                             </Tooltip>
