@@ -25,14 +25,14 @@ export default function Resume() {
   const sectionBg = "gray.100";
   const fadeIn = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 1.33 } }
+    visible: { opacity: 1, transition: { duration: 1 } }
   };
 
   const [navbarRef, navbarInView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [headingRef, headingInView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [downloadButtonsRef, downloadButtonsInView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [viewButtonsRef, viewButtonsInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [conditionalComponentRef, conditionalComponentInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [conditionalComponentRef, conditionalComponentInView] = useInView({ triggerOnce: true, threshold: 0.5 });
   const [footerRef, footerInView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [viewingResume, setViewingResume] = useBoolean(true);
 
