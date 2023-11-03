@@ -16,12 +16,26 @@ import { Helmet } from 'react-helmet';
 import ResumeComponent from "../components/ResumeComponent";
 import ReferencesComponent from "../components/ReferencesComponent";
 import Head from 'next/head';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 export default function Resume() {
   const bg = "white";
   const color = "black";
   const sectionBg = "gray.100";
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 1.33 } }
+  };
+
+  const [navbarRef, navbarInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [headingRef, headingInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [downloadButtonsRef, downloadButtonsInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [viewButtonsRef, viewButtonsInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [conditionalComponentRef, conditionalComponentInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [footerRef, footerInView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [viewingResume, setViewingResume] = useBoolean(true);
+
 
   return (
     <ChakraProvider>
@@ -52,9 +66,12 @@ export default function Resume() {
           bgAttachment="fixed"
           style={{ fontFamily: '"Roboto Mono", monospace' }}
       >
-        <Navbar />
+        <motion.div ref={navbarRef} initial="hidden" animate={navbarInView ? "visible" : "hidden"} variants={fadeIn}>
+            <Navbar />
+        </motion.div>
 
         <VStack spacing={8} alignItems="center" justifyContent="center" flexGrow={1} py={10} px={4}>
+        <motion.div ref={headingRef} initial="hidden" animate={headingInView ? "visible" : "hidden"} variants={fadeIn}>
           <Heading 
               as="h1" 
               size="2xl"
@@ -73,33 +90,36 @@ export default function Resume() {
                   borderBottom: `1px solid currentColor`,
                   borderColor: "black"   
               }}
-          >
-              Résumé
-          </Heading>
+            >
+                Résumé
+            </Heading>
+          </motion.div>
           <Box textAlign="center" display="flex" flexDirection="column" alignItems="center">
           <VStack spacing={6}>
+            <motion.div ref={downloadButtonsRef} initial="hidden" animate={downloadButtonsInView ? "visible" : "hidden"} variants={fadeIn}>
+
             <HStack spacing={6} display={["none", "flex"]}>
-            <Button 
-                as="a" 
-                w="50%"
-                href="/docs/Jacob_Leone_Tech_2023.pdf" 
-                download
-                colorScheme="gray"
-                fontSize="lg"
-                bg="gray.200"
-                color="black"
-                p={8}  
-                rightIcon={<Icon as={FaExternalLinkAlt} boxSize={6} />} 
-                border="1px solid black"
-                _hover={{
-                    transform: "scale(1.1)",
-                    bg: "cyan.700",
-                    color: "gray.100"
-                }}
-                transition="0.5s"
-            >
-                Download Resume
-            </Button>
+              <Button 
+                  as="a" 
+                  w="50%"
+                  href="/docs/Jacob_Leone_Tech_2023.pdf" 
+                  download
+                  colorScheme="gray"
+                  fontSize="lg"
+                  bg="gray.200"
+                  color="black"
+                  p={8}  
+                  rightIcon={<Icon as={FaExternalLinkAlt} boxSize={6} />} 
+                  border="1px solid black"
+                  _hover={{
+                      transform: "scale(1.1)",
+                      bg: "cyan.700",
+                      color: "gray.100"
+                  }}
+                  transition="0.5s"
+              >
+                  Download Resume
+              </Button>
                 <Button 
                   as="a" 
                   href="/docs/Jacob_Leone-References.pdf" 
@@ -117,10 +137,11 @@ export default function Resume() {
                       color: "gray.100"
                   }}
                   transition="0.5s"
-              >
-                  Download References
-              </Button>
-            </HStack>
+                >
+                    Download References
+                </Button>
+              </HStack>
+            </motion.div>
             <VStack spacing={6} display={["flex", "none"]}>
             <Button 
                 as="a" 
@@ -163,30 +184,35 @@ export default function Resume() {
           </VStack>
 
             {/* View Selection Buttons */}
-            <HStack spacing={4} mt={12}>
-              <Button onClick={() => setViewingResume.on()} colorScheme={viewingResume ? "gray" : "white"}
-              color="black"
-              border=".5px solid black">
-                View Resume
-              </Button>
-              <Button onClick={() => setViewingResume.off()} colorScheme={!viewingResume ? "gray" : "white"}
-              color="black"
-              border=".5px solid black">
-                View References
-              </Button>
-            </HStack>
+            <motion.div ref={viewButtonsRef} initial="hidden" animate={viewButtonsInView ? "visible" : "hidden"} variants={fadeIn}>
+              <HStack spacing={4} mt={12}>
+                <Button onClick={() => setViewingResume.on()} colorScheme={viewingResume ? "gray" : "white"}
+                color="black"
+                border=".5px solid black">
+                  View Resume
+                </Button>
+                <Button onClick={() => setViewingResume.off()} colorScheme={!viewingResume ? "gray" : "white"}
+                color="black"
+                border=".5px solid black">
+                  View References
+                </Button>
+              </HStack>
+            </motion.div>
           </Box>
 
           {/* Conditional Rendering */}
-          {viewingResume ? (
-            <ResumeComponent />
-          ) : (
-            <ReferencesComponent />
-          )}
-
+          <motion.div ref={conditionalComponentRef} initial="hidden" animate={conditionalComponentInView ? "visible" : "hidden"} variants={fadeIn}>
+            {viewingResume ? (
+              <ResumeComponent />
+            ) : (
+              <ReferencesComponent />
+            )}
+          </motion.div>
         </VStack>
 
-        <Footer />
+        <motion.div ref={viewButtonsRef} initial="hidden" animate={viewButtonsInView ? "visible" : "hidden"} variants={fadeIn}>
+          <Footer />
+        </motion.div>
       </Flex>
     </ChakraProvider>
   );
