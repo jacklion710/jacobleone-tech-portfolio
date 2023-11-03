@@ -20,7 +20,8 @@ import {
   import Head from 'next/head';
   import { motion } from 'framer-motion';
   import { useInView } from 'react-intersection-observer';
-  
+  import React, { useRef } from 'react';
+
   const projects = [
     {
       title: "Full Stack Website",
@@ -72,8 +73,17 @@ import {
     const [navbarRef, navbarInView] = useInView({ triggerOnce: true, threshold: 0.1 });
     const [headerRef, headerInView] = useInView({ triggerOnce: true, threshold: 0.1 });
     const [footerRef, footerInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+    // Define two separate arrays to store refs and inView booleans
     const projectRefs = projects.map(() => useInView({ triggerOnce: true, threshold: 0.1 }));
+    const projectInViews = [];  // store inView booleans
+    const projectRefObjects = [];  // store ref objects
 
+    // Populate the arrays with values from useInView
+    projects.forEach(() => {
+        const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+        projectRefObjects.push(ref);
+        projectInViews.push(inView);
+    });
     const fadeIn = {
       hidden: { opacity: 0 },
       visible: { opacity: 1, transition: { duration: .77 } }
