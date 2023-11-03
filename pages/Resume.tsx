@@ -32,7 +32,6 @@ export default function Resume() {
   const [headingRef, headingInView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [downloadButtonsRef, downloadButtonsInView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [viewButtonsRef, viewButtonsInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [conditionalComponentRef, conditionalComponentInView] = useInView({ triggerOnce: true, threshold: 0.5 });
   const [footerRef, footerInView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [viewingResume, setViewingResume] = useBoolean(true);
 
@@ -210,13 +209,11 @@ export default function Resume() {
           </Box>
 
           {/* Conditional Rendering */}
-          <motion.div ref={conditionalComponentRef} initial="hidden" animate={conditionalComponentInView ? "visible" : "hidden"} variants={fadeIn} >
-            {viewingResume ? (
-              <ResumeComponent />
-            ) : (
-              <ReferencesComponent />
-            )}
-          </motion.div>
+          {viewingResume ? (
+            <ResumeComponent />
+          ) : (
+            <ReferencesComponent />
+          )}
         </VStack>
 
         <motion.div ref={footerRef} initial="hidden" animate={footerInView ? "visible" : "hidden"} variants={fadeIn}>
