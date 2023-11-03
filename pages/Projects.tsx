@@ -77,6 +77,7 @@ import {
     const projectRefs = projects.map(() => useInView({ triggerOnce: true, threshold: 0.1 }));
     const projectInViews = [];  // store inView booleans
     const projectRefObjects = [];  // store ref objects
+    const projectInViewStates = projects.map(() => useInView({ triggerOnce: true, threshold: 0.1 }));
 
     // Populate the arrays with values from useInView
     projects.forEach(() => {
@@ -147,8 +148,14 @@ import {
                 <motion.div ref={projectsInView} initial="hidden" animate={projectsVisible ? "visible" : "hidden"} variants={fadeIn}>
 
                 <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={10} w="full">
-                    {projects.map((project, index) => (
-                      <motion.div ref={projectRefs[index][0]} initial="hidden" animate={projectRefs[index][1] ? "visible" : "hidden"} variants={fadeIn}>
+                  {projects.map((project, index) => (
+                      <motion.div 
+                          ref={projectInViewStates[index][0]} 
+                          initial="hidden" 
+                          animate={projectInViewStates[index][1] ? "visible" : "hidden"} 
+                          variants={fadeIn}
+                          key={index}
+                      >
 
                     <Box key={index} p={{ base: 3, md: 5 }} borderWidth="1px" borderRadius="md" borderColor={borderColor} shadow="lg" transition="transform .2s" _hover={{ transform: 'scale(1.05)' }}>
                         <AspectRatio ratio={4 / 3}>
