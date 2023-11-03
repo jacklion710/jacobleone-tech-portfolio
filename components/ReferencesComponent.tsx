@@ -12,13 +12,14 @@ const ReferencesComponent: React.FC = () => {
     <Box
       border="1px"
       borderColor="gray.200"
-      w="full"
+      w="100%"
       borderRadius="xl"
       p={7}
       bg="gray.900"
       display="flex"
       flexDirection="column"
       alignItems="center"
+      mx="auto"
     >
       <Heading color="white" fontSize="4xl" mb={3}>Jacob Leone</Heading>
       <Heading color="white" fontSize="3xl" mb={3}>References</Heading>
@@ -29,7 +30,6 @@ const ReferencesComponent: React.FC = () => {
         mb={3}
         mt={5}
         w="full"
-        px={5}
       >
         <Heading color="white" fontSize="2xl" mb={2}>Borko Fuhrt</Heading>
         <Text color="white" mb={1}>Professor and Director</Text>
@@ -51,6 +51,15 @@ const ReferencesComponent: React.FC = () => {
         <Link href="mailto: devin@ystemandchess.com" color="white" mb={1}>devin@ystemandchess.com</Link>
         <Text color="white">Relationship: Business Leader | Client</Text>
       </Flex>
+
+        <Heading textAlign="center" color="white" fontSize="2xl" mb={10} mt={10}>
+            ...
+        </Heading>
+
+        <Heading textAlign="center" color="white" fontSize="2xl" mb={2} mt={2}>
+            About me
+        </Heading>
+        <Text color="white" textAlign="center" mb={1}>I am driven by an intrinsic passion for tackling both creative and technical challenges. As part of agile development teams, I thrive on collaborating towards our shared mission: delivering exceptional value to clients efficiently and effectively. Before diving into the tech arena, I pursued an intensive graduate program at a top-tier university, focusing on the convergence of artificial intelligence and psychology. This academic journey endowed me with a unique lens: approaching AI development from a human-centric perspective and deeply understanding the nuanced ways people interact with technology. Beyond my academic pursuits, I am a perpetual learner, drawing from experiences that span leadership, creativity, problem-solving, and shepherding projects from mere ideas to successful execution.</Text>
 
     </Box>
   );
