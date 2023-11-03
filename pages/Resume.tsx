@@ -53,7 +53,6 @@ export default function Resume() {
         <link rel="canonical" href="https://jacobleone.tech/Resume" />
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet"/>
     </Helmet>
-      
       <Flex 
           direction="column" 
           minHeight="100vh" 
@@ -70,7 +69,7 @@ export default function Resume() {
             <Navbar />
         </motion.div>
 
-        <VStack spacing={8} alignItems="center" justifyContent="center" flexGrow={1} py={10} px={4}>
+        <VStack spacing={8} alignItems="center" justifyContent="center" flexGrow={1} py={10} px={4} w="full">
         <motion.div ref={headingRef} initial="hidden" animate={headingInView ? "visible" : "hidden"} variants={fadeIn}>
           <Heading 
               as="h1" 
@@ -194,7 +193,7 @@ export default function Resume() {
                       minWidth="170px"
                       maxWidth="170px"
                   >
-                      View Resume
+                      View Résumé
                   </Button>
                   <Button 
                       onClick={() => setViewingResume.off()} 
@@ -211,7 +210,7 @@ export default function Resume() {
           </Box>
 
           {/* Conditional Rendering */}
-          <motion.div ref={conditionalComponentRef} initial="hidden" animate={conditionalComponentInView ? "visible" : "hidden"} variants={fadeIn}>
+          <motion.div ref={conditionalComponentRef} initial="hidden" animate={conditionalComponentInView ? "visible" : "hidden"} variants={fadeIn} >
             {viewingResume ? (
               <ResumeComponent />
             ) : (
