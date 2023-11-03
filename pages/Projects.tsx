@@ -73,18 +73,8 @@ import {
     const [navbarRef, navbarInView] = useInView({ triggerOnce: true, threshold: 0.1 });
     const [headerRef, headerInView] = useInView({ triggerOnce: true, threshold: 0.1 });
     const [footerRef, footerInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-    // Define two separate arrays to store refs and inView booleans
-    const projectRefs = projects.map(() => useInView({ triggerOnce: true, threshold: 0.1 }));
-    const projectInViews = [];  // store inView booleans
-    const projectRefObjects = [];  // store ref objects
-    const projectInViewStates = projects.map(() => useInView({ triggerOnce: true, threshold: 0.1 }));
+    const projectInViewStates = projects.map(() => useRef(null));
 
-    // Populate the arrays with values from useInView
-    projects.forEach(() => {
-        const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
-        projectRefObjects.push(ref);
-        projectInViews.push(inView);
-    });
     const fadeIn = {
       hidden: { opacity: 0 },
       visible: { opacity: 1, transition: { duration: .77 } }
@@ -150,9 +140,9 @@ import {
                 <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={10} w="full">
                   {projects.map((project, index) => (
                       <motion.div 
-                          ref={projectInViewStates[index][0]} 
+                          ref={projectInViewStates[index]}
                           initial="hidden" 
-                          animate={projectInViewStates[index][1] ? "visible" : "hidden"} 
+                          animate={projectInViewStates[index] ? "visible" : "hidden"} 
                           variants={fadeIn}
                           key={index}
                       >
