@@ -72,7 +72,7 @@ import {
 
     const fadeIn = {
       hidden: { opacity: 0 },
-      visible: { opacity: 1, transition: { duration: .77 } }
+      visible: { opacity: 1, transition: { duration: 1.33 } }
     };
 
     const [navbarRef, navbarInView] = useInView({ triggerOnce: true, threshold: 0.1 });
