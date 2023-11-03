@@ -107,7 +107,7 @@ import React, { useState, useEffect } from 'react';
                                 borderColor: "black" 
                             }}
                         >
-                            My Services
+                            Services
                         </Heading>
                     </motion.div>
                     <Flex wrap="wrap" justifyContent="center" gap={4}>

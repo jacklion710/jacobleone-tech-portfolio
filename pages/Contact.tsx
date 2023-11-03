@@ -150,7 +150,7 @@ import { useState, useRef } from 'react';
           <Box w="100%" maxW="600px" textAlign="center" position="relative">
             <motion.div ref={ref} initial="hidden" animate={inView ? "visible" : "hidden"} variants={fadeIn}>
               <Heading size="2xl" mb={4} position="relative" textShadow="0 0 5px teal, 0 0 10px teal, 0 0 15px teal, 0 0 20px teal" color="white">
-                Connect with Me
+                Connect
               </Heading>
               <Text mb={6}>
                 Want to ask a question or book me for a service? Use the form below or reach out directly on any platform.

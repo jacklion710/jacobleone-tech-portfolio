@@ -130,7 +130,7 @@ import {
                             borderColor: "black"
                         }}
                     >
-                        My Projects
+                        Projects
                     </Heading>
                     </motion.div>
                     <Flex alignItems="center" justifyContent="center" flexGrow={1} w="full">
