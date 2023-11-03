@@ -9,12 +9,14 @@ import {
     Container,
     ChakraProvider,
     Divider
-  } from "@chakra-ui/react";
-  import { FaLaptopCode, FaMobileAlt, FaBrain, FaCode } from "react-icons/fa";
-  import Navbar from "../components/Navbar";
-  import Footer from '../components/Footer';
-  import { Helmet } from "react-helmet";
-  import Head from 'next/head';
+} from "@chakra-ui/react";
+import { FaLaptopCode, FaMobileAlt, FaBrain, FaCode } from "react-icons/fa";
+import Navbar from "../components/Navbar";
+import Footer from '../components/Footer';
+import { Helmet } from "react-helmet";
+import Head from 'next/head';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
   const services = [
     {
@@ -40,6 +42,17 @@ import {
   ];
   
   export default function Services() {
+    const fadeIn = {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1, transition: { duration: 1.33 } }
+    };
+    
+    const [ctaRef, ctaInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+    const [navbarRef, navbarInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+    const [footerRef, footerInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+    const serviceRefs = services.map(() => useInView({ triggerOnce: true, threshold: 0.1 }));
+    const [headingRef, headingInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+
     return (
         <ChakraProvider>
             <Head>
@@ -65,36 +78,42 @@ import {
                 bgRepeat="no-repeat"
                 style={{ fontFamily: '"Roboto Mono", monospace' }}
             >
-                <Navbar />
+                <motion.div ref={navbarRef} initial="hidden" animate={navbarInView ? "visible" : "hidden"} variants={fadeIn}>
+                    <Navbar />
+                </motion.div>
                 
                 <Container maxW="container.xl" flexGrow={1}>
-                    <Heading 
-                        as="h1" 
-                        size="2xl" 
-                        mb={10} 
-                        mt={10} 
-                        textAlign="center"
-                        position="relative"
-                        textShadow="0 0 5px teal, 0 0 10px teal, 0 0 15px teal, 0 0 20px teal"
-                        color="white"
-                        _after={{
-                            content: '""',
-                            display: 'block',
-                            position: 'absolute',
-                            bottom: '-10px', 
-                            left: '50%',
-                            transform: 'translateX(-50%)',
-                            width: '280px',  
-                            borderBottom: `1px solid currentColor`,
-                            borderColor: "black" 
-                        }}
-                    >
-                        My Services
-                    </Heading>
-            
+                    <motion.div ref={headingRef} initial="hidden" animate={headingInView ? "visible" : "hidden"} variants={fadeIn}>
+
+                        <Heading 
+                            as="h1" 
+                            size="2xl" 
+                            mb={10} 
+                            mt={10} 
+                            textAlign="center"
+                            position="relative"
+                            textShadow="0 0 5px teal, 0 0 10px teal, 0 0 15px teal, 0 0 20px teal"
+                            color="white"
+                            _after={{
+                                content: '""',
+                                display: 'block',
+                                position: 'absolute',
+                                bottom: '-10px', 
+                                left: '50%',
+                                transform: 'translateX(-50%)',
+                                width: '280px',  
+                                borderBottom: `1px solid currentColor`,
+                                borderColor: "black" 
+                            }}
+                        >
+                            My Services
+                        </Heading>
+                    </motion.div>
                     <Flex wrap="wrap" justifyContent="center" gap={4}>
                         {services.map((service, index) => (
-                            <Box key={index} borderWidth="5px" borderRadius="lg" overflow="hidden" w="xs" p={5} m={1} bg="gray.100" borderColor="black">
+                            <motion.div ref={serviceRefs[index][0]} initial="hidden" animate={serviceRefs[index][1] ? "visible" : "hidden"} variants={fadeIn}>
+
+                            <Box key={index} borderWidth="5px" borderRadius="lg" overflow="hidden" w="xs" p={5} m={1} bg="gray.100" borderColor="black" boxSizing="border-box" height={{ md: "300px" }}>
                                 <Flex justifyContent="center">
                                     <Box fontSize="3xl" mb={3}>
                                         {service.icon}
@@ -105,11 +124,13 @@ import {
                                 </Heading>
                                 <Text mb={4} textAlign="center">{service.description}</Text>
                             </Box>
+                        </motion.div>
                         ))}
                     </Flex>
 
                     <Divider my={10} w="50%" borderColor="black" mx="auto" />
 
+                    <motion.div ref={ctaRef} initial="hidden" animate={ctaInView ? "visible" : "hidden"} variants={fadeIn}>
                     <VStack mt={10} spacing={4} alignItems="center">
                         <Text fontSize="lg" textAlign="center" fontWeight="medium">
                             Have an idea for a project? Reach out anytime!
@@ -126,9 +147,13 @@ import {
                             Email me at <Link href="mailto:jacob0leone@gmail.com" color="blue.500" fontWeight="bold">jacob0leone@gmail.com</Link>
                         </Text>
                     </VStack>
+                    </motion.div>
+
                 </Container>
 
-                <Footer />
+                <motion.div ref={footerRef} initial="hidden" animate={footerInView ? "visible" : "hidden"} variants={fadeIn}>
+                    <Footer />
+                </motion.div>
             </Flex>
         </ChakraProvider>
     );
