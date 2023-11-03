@@ -30,7 +30,9 @@ const ReferencesComponent: React.FC = () => {
     >
       <motion.div ref={head} initial="hidden" animate={headView ? "visible" : "hidden"} variants={fadeIn}>
         <Heading color="white" fontSize="4xl" mb={3}>Jacob Leone</Heading>
-        <Heading color="white" fontSize="3xl" mb={3}>References</Heading>
+        <Flex direction="column" alignItems="center" w="full">
+          <Heading color="white" fontSize="3xl" mb={3}>References</Heading>
+        </Flex>
       </motion.div>
       
       <Flex
@@ -41,13 +43,13 @@ const ReferencesComponent: React.FC = () => {
         w="full"
       >
         <motion.div ref={ref1} initial="hidden" animate={inView1 ? "visible" : "hidden"} variants={fadeIn}>
-          <Flex direction="column" alignItems="center">
+          <Flex direction="column" alignItems="center" w="full">
             <Heading color="white" fontSize="2xl" mb={2}>Borko Fuhrt</Heading>
             <Text color="white" mb={1}>Professor and Director</Text>
-            <Text color="white" mb={1}>NSF Industry / University Cooperative Research Center</Text>
+            <Text color="white" mb={1} textAlign="center" >NSF Industry / University Cooperative Research Center</Text>
             <Link href="mailto: bfurht@fau.edu" color="white" mb={1}>bfurht@fau.edu</Link>
             <Link href="tel:5612973180" color="white" mb={1}>561-297-3180</Link>
-            <Text color="white">Relationship: Professor | Mentor</Text>
+            <Text color="white" textAlign="center" >Relationship: Professor | Mentor</Text>
           </Flex>
         </motion.div>
           
@@ -58,17 +60,17 @@ const ReferencesComponent: React.FC = () => {
             <Text color="white" mb={1}>Vector Climate / Cleva Tech</Text>
             <Link href="mailto: larrycanipe@vectorclimate.com" color="white" mb={1}>larrycanipe@vectorclimate.com</Link>
             <Link href="tel:5616545279" color="white" mb={1}>561-654-5279</Link>
-            <Text color="white">Relationship: Former Employer | Mentor</Text>
+            <Text color="white" textAlign="center" >Relationship: Former Employer | Mentor</Text>
           </Flex>
         </motion.div>
           
         <motion.div ref={ref3} initial="hidden" animate={inView1 ? "visible" : "hidden"} variants={fadeIn}>
           <Flex direction="column" alignItems="center">
             <Heading color="white" fontSize="2xl" mb={2} mt={10}>Devin Nakano</Heading>
-            <Text color="white" mb={1}>Founder, President and Executive Director</Text>
+            <Text color="white" mb={1} textAlign="center" >Founder, President and Executive Director</Text>
             <Text color="white" mb={1}>Y Stem and Chess</Text>
             <Link href="mailto: devin@ystemandchess.com" color="white" mb={1}>devin@ystemandchess.com</Link>
-            <Text color="white">Relationship: Business Leader | Client</Text>
+            <Text color="white" textAlign="center" >Relationship: Business Leader | Client</Text>
           </Flex>
         </motion.div>
 

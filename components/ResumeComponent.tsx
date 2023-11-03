@@ -88,7 +88,9 @@ const ResumeComponent: React.FC = () => {
           </LinkBox>
 
           <motion.div ref={refAboutDivider} initial="hidden" animate={inViewAboutDivider ? "visible" : "hidden"} variants={fadeIn}>
-            <Divider my={0} w="50%" borderColor="white" />
+            <Flex direction="column" alignItems="center" w="full">
+              <Divider my={0} w="50%" borderColor="white" />
+            </Flex>
           </motion.div>
         </motion.div>
       </Flex>
