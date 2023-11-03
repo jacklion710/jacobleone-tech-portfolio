@@ -77,7 +77,7 @@ import {
 
     const [navbarRef, navbarInView] = useInView({ triggerOnce: true, threshold: 0.1 });
     const [headingRef, headingInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-    const [projectsGridRef, projectsGridInView] = useInView({ triggerOnce: true, threshold: 0.3 });
+    const [projectsGridRef, projectsGridInView] = useInView({ triggerOnce: true, threshold: 0.06 });
     const [footerRef, footerInView] = useInView({ triggerOnce: true, threshold: 0.1 });
     
     return (

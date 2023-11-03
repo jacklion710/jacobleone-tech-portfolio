@@ -45,15 +45,14 @@ import React, { useState, useEffect } from 'react';
   export default function Services() {
     const fadeIn = {
         hidden: { opacity: 0 },
-        visible: { opacity: 1, transition: { duration: 1 } }
+        visible: { opacity: 1, transition: { duration: .8 } }
     };
     
     const [ctaRef, ctaInView] = useInView({ triggerOnce: true, threshold: 0.1 });
     const [navbarRef, navbarInView] = useInView({ triggerOnce: true, threshold: 0.1 });
     const [footerRef, footerInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-    const [servicesRef, servicesInView] = useInView({ triggerOnce: true, threshold: 0.05 });
+    const [servicesRef, servicesInView] = useInView({ triggerOnce: true, threshold: 0.000001 });
     const [headingRef, headingInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-
 
     return (
         <ChakraProvider>
