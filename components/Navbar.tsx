@@ -393,6 +393,7 @@ interface NavItem {
   imageSrc?: string;
   children?: Array<NavItem>;
   href?: string;
+  altText?: string;  
 }
 
 const NAV_ITEMS: Array<NavItem> = [

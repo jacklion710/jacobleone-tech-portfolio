@@ -113,9 +113,9 @@ import React, { useState, useEffect } from 'react';
                     </motion.div>
                     <Flex wrap="wrap" justifyContent="center" gap={4}>
                         {services.map((service, index) => (
-                        <motion.div ref={servicesRef} initial="hidden" animate={servicesInView ? "visible" : "hidden"} variants={fadeIn}>
+                        <motion.div key={index} ref={servicesRef} initial="hidden" animate={servicesInView ? "visible" : "hidden"} variants={fadeIn}>
 
-                            <Box key={index} borderWidth="5px" borderRadius="lg" overflow="hidden" w="xs" p={5} m={1} bg="gray.100" borderColor="black" boxSizing="border-box" height={{ md: "300px" }}>
+                            <Box borderWidth="5px" borderRadius="lg" overflow="hidden" w="xs" p={5} m={1} bg="gray.100" borderColor="black" boxSizing="border-box" height={{ md: "300px" }}>
                                 <Flex justifyContent="center">
                                     <Box fontSize="3xl" mb={3}>
                                         {service.icon}
