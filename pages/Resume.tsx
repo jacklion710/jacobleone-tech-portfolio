@@ -185,18 +185,28 @@ export default function Resume() {
 
             {/* View Selection Buttons */}
             <motion.div ref={viewButtonsRef} initial="hidden" animate={viewButtonsInView ? "visible" : "hidden"} variants={fadeIn}>
-              <HStack spacing={4} mt={12}>
-                <Button onClick={() => setViewingResume.on()} colorScheme={viewingResume ? "gray" : "white"}
-                color="black"
-                border=".5px solid black">
-                  View Resume
-                </Button>
-                <Button onClick={() => setViewingResume.off()} colorScheme={!viewingResume ? "gray" : "white"}
-                color="black"
-                border=".5px solid black">
-                  View References
-                </Button>
-              </HStack>
+                <HStack spacing={4} mt={12}>
+                  <Button 
+                      onClick={() => setViewingResume.on()} 
+                      colorScheme={viewingResume ? "gray" : "white"}
+                      color="black"
+                      border=".5px solid black"
+                      minWidth="170px"
+                      maxWidth="170px"
+                  >
+                      View Resume
+                  </Button>
+                  <Button 
+                      onClick={() => setViewingResume.off()} 
+                      colorScheme={!viewingResume ? "gray" : "white"}
+                      color="black"
+                      border=".5px solid black"
+                      minWidth="170px"
+                      maxWidth="170px"
+                  >
+                      View References
+                  </Button>
+                </HStack>
             </motion.div>
           </Box>
 
@@ -210,7 +220,7 @@ export default function Resume() {
           </motion.div>
         </VStack>
 
-        <motion.div ref={viewButtonsRef} initial="hidden" animate={viewButtonsInView ? "visible" : "hidden"} variants={fadeIn}>
+        <motion.div ref={footerRef} initial="hidden" animate={footerInView ? "visible" : "hidden"} variants={fadeIn}>
           <Footer />
         </motion.div>
       </Flex>
