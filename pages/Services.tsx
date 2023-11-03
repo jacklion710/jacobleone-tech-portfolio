@@ -50,8 +50,8 @@ import { useInView } from 'react-intersection-observer';
     const [ctaRef, ctaInView] = useInView({ triggerOnce: true, threshold: 0.1 });
     const [navbarRef, navbarInView] = useInView({ triggerOnce: true, threshold: 0.1 });
     const [footerRef, footerInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+    const serviceRefs = services.map(() => useInView({ triggerOnce: true, threshold: 0.1 }));
     const [headingRef, headingInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-    const serviceInViewStates = services.map(() => useInView({ triggerOnce: true, threshold: 0.1 }));
 
     return (
         <ChakraProvider>
@@ -111,13 +111,7 @@ import { useInView } from 'react-intersection-observer';
                     </motion.div>
                     <Flex wrap="wrap" justifyContent="center" gap={4}>
                         {services.map((service, index) => (
-                            <motion.div 
-                                ref={serviceInViewStates[index][0]} 
-                                initial="hidden" 
-                                animate={serviceInViewStates[index][1] ? "visible" : "hidden"} 
-                                variants={fadeIn}
-                                key={index}
-                            >
+                            <motion.div ref={serviceRefs[index][0]} initial="hidden" animate={serviceRefs[index][1] ? "visible" : "hidden"} variants={fadeIn}>
 
                             <Box key={index} borderWidth="5px" borderRadius="lg" overflow="hidden" w="xs" p={5} m={1} bg="gray.100" borderColor="black" boxSizing="border-box" height={{ md: "300px" }}>
                                 <Flex justifyContent="center">
