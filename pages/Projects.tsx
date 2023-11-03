@@ -18,7 +18,9 @@ import {
   import Footer from '../components/Footer';
   import { Helmet } from "react-helmet";
   import Head from 'next/head';
-
+  import { motion } from 'framer-motion';
+  import { useInView } from 'react-intersection-observer';
+  
   const projects = [
     {
       title: "Full Stack Website",
@@ -66,6 +68,16 @@ import {
     const bgColor = useColorModeValue("white", "gray.800");
     const color = useColorModeValue("gray.700", "gray.50");
     const borderColor = useColorModeValue("gray.200", "gray.600");
+    const [projectsInView, projectsVisible] = useInView({ triggerOnce: true, threshold: 0.1 });
+    const [navbarRef, navbarInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+    const [headerRef, headerInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+    const [footerRef, footerInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+    const projectRefs = projects.map(() => useInView({ triggerOnce: true, threshold: 0.1 }));
+
+    const fadeIn = {
+      hidden: { opacity: 0 },
+      visible: { opacity: 1, transition: { duration: .77 } }
+  };
     
     return (
       <ChakraProvider>
@@ -84,27 +96,22 @@ import {
             <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet"/>
         </Helmet>
         <Flex 
-            direction="column" 
-            minHeight="100vh" 
-            bg={bgColor} 
-            color={color}
-            bgImage="url('/images/Circuit.jpeg')" 
+            direction="column"
+            minHeight="100vh"
+            bg="gray.50"
+            bgImage="url('/images/Circuit.jpeg')"
             bgPos="center"
             bgSize="cover"
             bgRepeat="no-repeat"
             bgAttachment="fixed"
             style={{ fontFamily: '"Roboto Mono", monospace' }}
         >
-            <Navbar />
+            <motion.div ref={navbarRef} initial="hidden" animate={navbarInView ? "visible" : "hidden"} variants={fadeIn}>
+                <Navbar />
+            </motion.div>
 
-            <VStack 
-                spacing={10} 
-                alignItems="center" 
-                justifyContent="flex-start"
-                flexGrow={1} 
-                py={10} 
-                px={{ base: 4, md: 10 }}
-            >
+            <VStack spacing={10} alignItems="center" justifyContent="flex-start" flexGrow={1} py={10} px={{ base: 4, md: 10 }}>
+            <motion.div ref={headerRef} initial="hidden" animate={headerInView ? "visible" : "hidden"} variants={fadeIn}>
                 <Heading 
                     mb={4} 
                     size="2xl"
@@ -125,10 +132,14 @@ import {
                 >
                     My Projects
                 </Heading>
-              
+              </motion.div>
                 <Flex alignItems="center" justifyContent="center" flexGrow={1} w="full">
+                <motion.div ref={projectsInView} initial="hidden" animate={projectsVisible ? "visible" : "hidden"} variants={fadeIn}>
+
                 <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={10} w="full">
                     {projects.map((project, index) => (
+                      <motion.div ref={projectRefs[index][0]} initial="hidden" animate={projectRefs[index][1] ? "visible" : "hidden"} variants={fadeIn}>
+
                     <Box key={index} p={{ base: 3, md: 5 }} borderWidth="1px" borderRadius="md" borderColor={borderColor} shadow="lg" transition="transform .2s" _hover={{ transform: 'scale(1.05)' }}>
                         <AspectRatio ratio={4 / 3}>
                         <Image src={project.imageUrl} alt={project.title} borderRadius="md" mb={4} objectFit="cover" />
@@ -142,23 +153,24 @@ import {
                               </Button>
                           </Tooltip>
                           {(project.title === "Full Stack Website" || project.title === "Interactive Web Audio Visual Experience" || project.title === "Web Portfolio for Commercial Music" || project.title === "Web Portfolio for Software Engineering") &&
-                            <Tooltip label="Visit Deployed Project" aria-label="Deployment link">
-                                <Button as={Link} href={project.deployUrl} isExternal colorScheme="teal" ml={{ md: 2 }}>
-                                    View Live
-                                </Button>
-                            </Tooltip>
+                          <Tooltip label="Visit Deployed Project" aria-label="Deployment link">
+                              <Button as={Link} href={project.deployUrl} isExternal colorScheme="teal" ml={{ md: 2 }}>
+                                  View Live
+                              </Button>
+                          </Tooltip>
                         }
                       </Flex>
                     </Box>
+                    </motion.div>
                   ))}
                   </SimpleGrid>
+                </motion.div>
               </Flex>
-  
-          </VStack>
-  
-          <Footer />
+            </VStack>
+          <motion.div ref={footerRef} initial="hidden" animate={footerInView ? "visible" : "hidden"} variants={fadeIn}>
+              <Footer />
+          </motion.div>
       </Flex>
-  </ChakraProvider>
-    );
-  }
-  
+    </ChakraProvider>
+  );
+}
