@@ -7,8 +7,9 @@ const ReferencesComponent: React.FC = () => {
   const fadeIn = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { duration: 1.33 } }
-  };
+  }
 
+  const [head, headView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [ref1, inView1] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [ref2, inView2] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [ref3, inView3] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -27,8 +28,10 @@ const ReferencesComponent: React.FC = () => {
       alignItems="center"
       mx="auto"
     >
-      <Heading color="white" fontSize="4xl" mb={3}>Jacob Leone</Heading>
-      <Heading color="white" fontSize="3xl" mb={3}>References</Heading>
+      <motion.div ref={head} initial="hidden" animate={headView ? "visible" : "hidden"} variants={fadeIn}>
+        <Heading color="white" fontSize="4xl" mb={3}>Jacob Leone</Heading>
+        <Heading color="white" fontSize="3xl" mb={3}>References</Heading>
+      </motion.div>
       
       <Flex
         direction="column"
