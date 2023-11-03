@@ -17,6 +17,7 @@ import { Helmet } from "react-helmet";
 import Head from 'next/head';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import React, { useState, useEffect } from 'react';
 
   const services = [
     {
@@ -50,8 +51,9 @@ import { useInView } from 'react-intersection-observer';
     const [ctaRef, ctaInView] = useInView({ triggerOnce: true, threshold: 0.1 });
     const [navbarRef, navbarInView] = useInView({ triggerOnce: true, threshold: 0.1 });
     const [footerRef, footerInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-    const serviceRefs = services.map(() => useInView({ triggerOnce: true, threshold: 0.1 }));
+    const [servicesRef, servicesInView] = useInView({ triggerOnce: true, threshold: 0.1 });
     const [headingRef, headingInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+
 
     return (
         <ChakraProvider>
@@ -111,7 +113,7 @@ import { useInView } from 'react-intersection-observer';
                     </motion.div>
                     <Flex wrap="wrap" justifyContent="center" gap={4}>
                         {services.map((service, index) => (
-                            <motion.div ref={serviceRefs[index][0]} initial="hidden" animate={serviceRefs[index][1] ? "visible" : "hidden"} variants={fadeIn}>
+                        <motion.div ref={servicesRef} initial="hidden" animate={servicesInView ? "visible" : "hidden"} variants={fadeIn}>
 
                             <Box key={index} borderWidth="5px" borderRadius="lg" overflow="hidden" w="xs" p={5} m={1} bg="gray.100" borderColor="black" boxSizing="border-box" height={{ md: "300px" }}>
                                 <Flex justifyContent="center">
