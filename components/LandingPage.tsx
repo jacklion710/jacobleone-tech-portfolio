@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet";
 import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
+import Head from 'next/head';
 
 const LandingPage = () => {
   const { isOpen, onToggle } = useDisclosure();
@@ -30,6 +31,11 @@ const LandingPage = () => {
       bgRepeat="no-repeat"
       style={{ fontFamily: '"Roboto Mono", monospace' }}
     >
+      <Head>
+        <title>Jacob Leone | AI Specialist & Software Engineer</title>
+        <meta name="description" content="Dive into the world of Jacob Leone, an AI Specialist & Software Engineer, driven by passion and creativity. Discover the convergence of artificial intelligence and psychology from a unique human-first perspective." />
+      </Head>
+      {/* Figure out why google search returns Untitled */}
       <Helmet>
         <title>Jacob Leone | AI Specialist & Software Engineer</title>
         <meta name="description" content="Dive into the world of Jacob Leone, an AI Specialist & Software Engineer, driven by passion and creativity. Discover the convergence of artificial intelligence and psychology from a unique human-first perspective." />
