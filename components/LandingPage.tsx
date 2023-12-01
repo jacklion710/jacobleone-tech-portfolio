@@ -2,7 +2,6 @@ import { useBreakpointValue, Text, VStack, Center, Button, Box, Collapse, useDis
 import { AiFillRobot } from 'react-icons/ai';
 import { FaCode, FaAngleDown, FaAngleUp } from 'react-icons/fa'; 
 import { Helmet } from "react-helmet";
-import Head from 'next/head';
 import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
@@ -31,9 +30,6 @@ const LandingPage = () => {
       bgRepeat="no-repeat"
       style={{ fontFamily: '"Roboto Mono", monospace' }}
     >
-      <Head>
-          <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
-      </Head>
       <Helmet>
           <title>Jacob Leone | AI Specialist & Software Engineer</title>
           <meta name="description" content="Dive into the world of Jacob Leone, an AI Specialist & Software Engineer, driven by passion and creativity. Discover the convergence of artificial intelligence and psychology from a unique human-first perspective." />
