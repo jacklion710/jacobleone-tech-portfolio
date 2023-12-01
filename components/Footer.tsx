@@ -64,7 +64,7 @@ export default function Footer() {
           <SocialButton label={'Linkedin'} href={'https://www.linkedin.com/in/jacob-leone/'}>
             <FaLinkedin />
           </SocialButton>
-          <SocialButton label={'Email'} href={'mailto:your-email@example.com'}> {/* Step 2: Add email icon and mailto link */}
+          <SocialButton label={'Email'} href={'mailto:jacob0leone@gmail.com'}> {/* Step 2: Add email icon and mailto link */}
             <FaEnvelope />
           </SocialButton>
         </Stack>
