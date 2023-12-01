@@ -33,12 +33,12 @@ const LandingPage = () => {
     >
       <Head>
         <title>Jacob Leone | AI Specialist & Software Engineer</title>
-        <meta name="description" content="Dive into the world of Jacob Leone, an AI Specialist & Software Engineer, driven by passion and creativity. Discover the convergence of artificial intelligence and psychology from a unique human-first perspective." />
+        <meta name="description" content="Dive into the world of Jacob Leone, an AI Specialist & Software Engineer, driven by passion and creativity." />
       </Head>
       {/* Figure out why google search returns Untitled */}
       <Helmet>
         <title>Jacob Leone | AI Specialist & Software Engineer</title>
-        <meta name="description" content="Dive into the world of Jacob Leone, an AI Specialist & Software Engineer, driven by passion and creativity. Discover the convergence of artificial intelligence and psychology from a unique human-first perspective." />
+        <meta name="description" content="Dive into the world of Jacob Leone, an AI Specialist & Software Engineer, driven by passion and creativity. " />
         <meta name="keywords" content="Jacob Leone, AI Specialist, Software Engineer, Artificial Intelligence, Psychology, Innovations, Technical Challenges, Collaboration, Tech Arena" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Jacob Leone | AI & Software Engineer" />
