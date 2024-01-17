@@ -40,7 +40,7 @@ import {
         title: "JSON Web Token Demo",
         description: "An exploration of JWT technology with an interactive UI",
         imageUrl: "/images/jwt.png",
-        githubUrl: "https://github.com/jacklion710/jwt-user-authtps://github.com/jacklion710/jacklions-website",
+        githubUrl: "https://github.com/jacklion710/jwt-user-auth",
         deployUrl: "https://jwt-user-auth.vercel.app"
     },
     {
@@ -173,7 +173,7 @@ import {
                                                 GitHub
                                             </Button>
                                         </Tooltip>
-                                        {(project.title === "Full Stack Website" || project.title === "Interactive Web Audio Visual Experience" || project.title === "Web Portfolio for Commercial Music" || project.title === "Web Portfolio for Software Engineering") &&
+                                        {(project.title === "Full Stack Website" || project.title === "JSON Web Token Demo" || project.title === "ChakraUI SVG Filter" || project.title === "Interactive Web Audio Visual Experience" || project.title === "Web Portfolio for Commercial Music" || project.title === "Web Portfolio for Software Engineering") &&
                                             <Tooltip label="Visit Deployed Project" aria-label="Deployment link">
                                                 <Button as={Link} href={project.deployUrl} isExternal colorScheme="teal" ml={{ md: 2 }}>
                                                     View Live
