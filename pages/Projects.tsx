@@ -25,7 +25,7 @@ import {
   const projects = [
     {
       title: "Full Stack Website",
-      description: "Personal website for my music gallery. Users can book services, and make a profile",
+      description: "Personal website for my music gallery. User authentication, professional landing page, and interactive experiences",
       imageUrl: "/images/jacks_site.png",
       githubUrl: "https://github.com/jacklion710/jacklions-website",
       deployUrl: "https://jacklion.xyz"
@@ -35,6 +35,20 @@ import {
       description: "A script that optimizes sample libraries for use on the M8 tracker hardware",
       imageUrl: "/images/m8.jpeg",
       githubUrl: "https://github.com/jacklion710/m8_data_cleaner"
+    },
+    {
+        title: "JSON Web Token Demo",
+        description: "An exploration of JWT technology with an interactive UI",
+        imageUrl: "/images/jwt.png",
+        githubUrl: "https://github.com/jacklion710/jwt-user-authtps://github.com/jacklion710/jacklions-website",
+        deployUrl: "https://jwt-user-auth.vercel.app"
+    },
+    {
+        title: "ChakraUI SVG Filter",
+        description: "Reusable component for filling vector graphics with a solid color of choice by wrapping Chakra-UIs Image component.",
+        imageUrl: "/images/svg-filter.png",
+        githubUrl: "https://github.com/jacklion710/simple-chakra-svg-filter",
+        deployUrl: "https://simple-chakra-svg-filter.vercel.app"
     },
     {
         title: "Interactive Web Audio Visual Experience",
@@ -62,7 +76,7 @@ import {
         imageUrl: "/images/tech-portfolio.png",
         githubUrl: "https://github.com/jacklion710/jacobleone-tech-portfolio",
         deployUrl: "https://jacobleone-tech.vercel.app"
-      }
+      },
   ];
   
   export default function Projects() {
