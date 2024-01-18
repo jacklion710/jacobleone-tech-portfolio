@@ -122,21 +122,21 @@ const ResumeComponent: React.FC = () => {
 
           <Text color="white" mb={1} fontSize="2xl">
           Programming Languages</Text>
-          <Text color="white" mb={1}>C/C++, GLSL, HTML, Python, JavaScript, typescript, R</Text>
+          <Text color="white" mb={1}>C/C++, GLSL, HTML, CSS, Python, JavaScript, TypeScript, Swift, R</Text>
 
           <Text color="white" mb={1} fontSize="2xl">
           Tools & Technologies</Text>
-          <Text color="white" mb={1}>Docker, Postman, Colab, Microsoft Office Suite (Word, Excel, PowerPoint), Max MSP, VSCode, Pycharm, Soldering, DSP, Raspberry Pi, DAWs</Text>
-
-          <Text color="white" mb={1} fontSize="2xl">
-          Frameworks</Text>
-          <Text color="white" mb={1}>Tensorflow, Pytorch, Pandas, Numpy, Sklearn, Matplotlib, Seaborn, React, React-Native, Chakra UI, Native-Base, Firebase, Next JS, Wavesurfer, RNBO JS
-          </Text>
+          <Text color="white" mb={1}>AWS, Docker, Postman, AI, node, VSCode, PCB, DSP, Raspberry Pi</Text>
 
           <Text color="white" mb={1} fontSize="2xl">
           Operating Systems</Text>
-          <Text color="white" mb={1}>Linux Ubuntu, Windows10, MacOS
+          <Text color="white" mb={1}>Linux Ubuntu, Windows10, MacOS</Text>
+
+          <Text color="white" mb={1} fontSize="2xl">
+          Frameworks</Text>
+          <Text color="white" mb={1}>Tensorflow, Pytorch, Pandas, Numpy, Sklearn, Seaborn, React, Chakra UI, Firebase, Next JS
           </Text>
+
         </motion.div>
 
         </Box>
@@ -148,7 +148,7 @@ const ResumeComponent: React.FC = () => {
 
           <Text color="white" mb={1} fontSize="2xl">
           Team Lead & Software Architect, AuthentiKid | California • Idaho • Florida</Text>
-          <Text color="white" mb={1}>Development of robust AI systems suited for AuthentiKids business needs. Collaboration and management of a small team of developers, psychologists and business leaders.
+          <Text color="white" mb={1}>Development of robust AI systems suited for AuthentiKids business needs. Collaboration and management of a small team of developers, psychologists and business leaders
           </Text>
           <Text color="white" mb={1}>
           ▪ Spearheaded the development of robust software systems tailored for AuthentiKids operational requirements, resulting
@@ -159,7 +159,7 @@ const ResumeComponent: React.FC = () => {
           and achieving a functional product.
           </Text>
           <Text color="white" mb={10}>
-          ▪ Oversaw comprehensive data collection initiatives and AI model training processes, ensuring optimal performance and accuracy.
+          ▪ Overseeing comprehensive data collection initiatives and AI model training processes, ensuring optimal performance and accuracy.
           </Text>
 
           <Text color="white" mb={1} fontSize="2xl">
@@ -189,7 +189,7 @@ const ResumeComponent: React.FC = () => {
 
           <Text color="white" mb={1} fontSize="2xl">
           Freelance Software Engineering, Self | Lake Worth, FL</Text>
-          <Text color="white" mb={1}>Independant contract work with a focus on software development. Services include web development, AI engineering and mobile applications.
+          <Text color="white" mb={1}>Independant contract work with a focus on software development. Services include web applications, AI engineering and mobile applications.
           </Text>
           <Text color="white" mb={1}>
           ▪ Designed, developed and deployed a front and backend of a mobile app for hosting video content built to the technical needs and aesthetics tastes of the clients brand for both android and iOS devices.
@@ -199,18 +199,20 @@ const ResumeComponent: React.FC = () => {
           </Text>
 
           <Text color="white" mb={1} fontSize="2xl">
-          PCB Design & Assembly, Steven Leone; PE LLC| Lake Worth, FL</Text>
-          <Text color="white" mb={1}>Responsible for PCB assembly duties involving prototyping, unit test and functional test assigned by Project Manager.
+          PCB Design & Assembly, Vector Climate| Pompano Beach, FL</Text>
+          <Text color="white" mb={1}>Worked with Vector Climate Labs to assist in the production and develop of the companies advanced mobile cooling systems.
           </Text>
           <Text color="white" mb={1}>
-          ▪ Practiced standardized procedures for following schematics, spec and BOM sheets, which leads to efficient production of clients designs for timely product releases.
+          ▪ Production and fabrication of the company’s flagship products, the Vector and Spartan for industrial outdoor climate control.
+          </Text>
+          <Text color="white" mb={1}>
+          ▪ Responsible for PCB assembly duties involving prototyping, unit test and functional test assigned by Project Manager.
           </Text>
           <Text color="white" mb={1}>
           ▪ Engaged in onsite coordination, progress, planning, closeout, & quality control to add support to project development.
           </Text>
           <Text color="white" mb={1}>
-          ▪ Soldering SMT and Thru Hole components on: PCBs, IC’s, microcontrollers, power electronics, FETs, diodes and resistors.
-          Sizes included 0402, 0603, 0805 SMT resistors, capacitors, diodes, ESD components.
+          ▪ Soldering SMT and Thru Hole components on: PCBs, IC’s, microcontrollers, power electronics, FETs, diodes and resistors.  Sizes included 0402, 0603, 0805 SMT resistors, capacitors, diodes, ESD components.
           </Text>
         </motion.div>
 
@@ -220,8 +222,46 @@ const ResumeComponent: React.FC = () => {
           </Heading>
 
           <Text color="white" mb={1} fontSize="2xl">
-          Object Detection System on Social Media | Deep Learning</Text>
-          <Text color="white" mb={1}>The goal of this project was to implement Convolutional Neural Network for detection of opiate related activity on Instagram.
+          Online Deep Learning Based Age Authentication | AI Web App</Text>
+          <Text color="white" mb={1}>A web app for classifying users predicted age online for business and client security.
+          </Text>
+          <Text color="white" mb={1}>        
+          ▪ Trained on synthetic quiz data from hundreds of simulated participants with personas for each age class.
+          </Text>
+          <Text color="white" mb={1}>
+          ▪ Person-centric tokens for issuing authentication  tokens to user to validate their age with JSON Web Tokens. Private business servers can verify client tokens issued by the software.
+          </Text>
+          <Text color="white" mb={10}>
+          ▪ Deep neural net trained to classify users age based on quiz answer inputs locally using Tensorflow.
+          </Text>
+          <Text color="white" mb={10}>
+          ▪ Inferencing done on the web with Tensorflow JS. The model is trained in python and converted into tfjs format.
+          </Text>
+          <Text color="white" mb={10}>
+          ▪ Software and model are deployed on AWS as a network of servers.
+          </Text>
+
+          <Text color="white" mb={1} fontSize="2xl">
+          Full Stack Website | Front End & Back End</Text>
+          <Text color="white" mb={1}>
+          Designed, built and tested a full stack web platform for my immersive music & art based side project
+          </Text>
+          <LinkBox>
+          <Text color="white" mb={1}>
+                  Deployment: <LinkOverlay as={Link} href="https://obscuritymusic.net" isExternal>https://obscuritymusic.net</LinkOverlay>
+              </Text>
+          </LinkBox>
+          <Text color="white" mb={1}>        
+          ▪ Chakra UI and CSS styles for front end design. Animations and reactivity with framer motion and intercept observer. Interactive Audiovisual puzzles with P5 and RNBO.
+          </Text>
+          <Text color="white" mb={10}>
+          ▪ Firebase on the back end for user authentication with email, document reads & writes and profile image storage.
+          </Text>
+
+          <Text color="white" mb={1} fontSize="2xl">   
+          Object Detection¬ System on Social Media  | Deep Learning</Text>
+          <Text color="white" mb={1}>
+          The goal of this project was to implement Convolutional Neural Network for detection of opiate related activity on Instagram.
           </Text>
           <Text color="white" mb={1}>        
           ▪ Designed a Convolutional Neural Network (CNN) leveraging computer vision techniques. Used web scraping post-training to analyze a vast number of images across the platform.
@@ -229,52 +269,6 @@ const ResumeComponent: React.FC = () => {
           <Text color="white" mb={1}>
           ▪ Worked closely with professors and colleagues to research, design, and systematize the detection mechanism.
           </Text>
-          <Text color="white" mb={10}>
-          ▪ The research findings are pendin gpublication, aiming to provide insights into online drug-related activities. This can potentially
-          aid law enforcement agencies.
-          </Text>
-
-          <Text color="white" mb={1} fontSize="2xl">
-          Web Based Audio-visual Platform | Web Audio & Graphics</Text>
-          <Text color="white" mb={1}>
-          ▪ Designed, built and tested CRUD web platform for my immersive art based side project. Including frameworks like Next.js, React, Chakra UI, Firebase, P5.js, RNBO.js and web audio.
-          </Text>
-          <LinkBox>
-          <Text color="white" mb={1}>
-                  Repo: <LinkOverlay as={Link} href="https://github.com/jacklion710/jacklions-website" isExternal>https://github.com/jacklion710/jacklions-website</LinkOverlay>
-              </Text>
-          </LinkBox>
-          <LinkBox>
-          <Text color="white" mb={1}>
-                  Site: <LinkOverlay as={Link} href="https://jacklion.xyz" isExternal>https://jacklion.xyz</LinkOverlay>
-              </Text>
-          </LinkBox>
-          <Text color="white" mb={1}>        
-          ▪ Integration between RNBO.js, webaudio and p5.js for an interactive web based experience involving interactive audio and visual elements on a web browser.
-          </Text>
-          <Text color="white" mb={10}>
-          ▪ Created a responsive UI using typescript for user friendly web based audio-visual experiences.
-          </Text>
-
-          <Text color="white" mb={1} fontSize="2xl">   
-          MIDI Delay Plugin Development | Audio Development</Text>
-          <Text color="white" mb={1}>
-          Developed a unique algorithm for delaying signals in real-time using circular buffers as a function of a tuned MIDI note input in Max MSP.
-          </Text>
-          <Text color="white" mb={1}>        
-          ▪ Built a plugin for use in electronic music production.
-          </Text>
-          <Text color="white" mb={1}>
-          ▪ Implementation of user feedback before a product release.
-          </Text>
-          <Text color="white" mb={1}>
-          ▪ Published devices online via gumroad.com:
-          </Text>
-          <LinkBox>
-          <Text color="white" mb={1}>
-                  <LinkOverlay as={Link} href="https://jacklion.gumroad.com/l/tunedelay?layout=profile" isExternal>https://jacklion.gumroad.com/l/tunedelay?layout=profile</LinkOverlay>
-              </Text>
-          </LinkBox>
         </motion.div>
 
         <motion.div ref={refRelevantCoursework} initial="hidden" animate={inViewRelevantCoursework ? "visible" : "hidden"} variants={fadeIn}>
