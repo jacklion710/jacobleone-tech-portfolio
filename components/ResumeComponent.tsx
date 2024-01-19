@@ -134,7 +134,7 @@ const ResumeComponent: React.FC = () => {
 
           <Text color="white" mb={1} fontSize="2xl">
           Frameworks</Text>
-          <Text color="white" mb={1}>Tensorflow, Pytorch, Pandas, Numpy, Sklearn, Seaborn, React, Chakra UI, Firebase, Next JS
+          <Text color="white" mb={1}>Tensorflow, Pytorch, Pandas, Numpy, Sklearn, Seaborn, React, Chakra UI, Firebase, Next JS, Jest
           </Text>
 
         </motion.div>
