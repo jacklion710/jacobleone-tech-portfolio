@@ -45,6 +45,13 @@ import {
         deployUrl: "https://jwt-user-auth.vercel.app"
     },
     {
+        title: "Redux Study",
+        description: "An exploration of the redux package for sharing states across entire runtime environments",
+        imageUrl: "/images/redux.png",
+        githubUrl: "https://github.com/jacklion710/redux-study",
+        deployUrl: "https://redux-study-zeta.vercel.app"
+    },
+    {
         title: "ChakraUI SVG Filter",
         description: "Reusable component for filling vector graphics with a solid color of choice by wrapping Chakra-UIs Image component.",
         imageUrl: "/images/svg-filter.png",
@@ -180,7 +187,7 @@ import {
                                                 GitHub
                                             </Button>
                                         </Tooltip>
-                                        {(project.title === "Full Stack Website" || project.title === "JSON Web Token Demo" || project.title === "ChakraUI SVG Filter" || project.title === "Interactive Web Audio Visual Experience" || project.title === "Web Portfolio for Commercial Music" || project.title === "Web Portfolio for Software Engineering" || project.title === "Motion Playground") &&
+                                        {(project.title === "Full Stack Website" || project.title === "JSON Web Token Demo" || project.title === "ChakraUI SVG Filter" || project.title === "Interactive Web Audio Visual Experience" || project.title === "Web Portfolio for Commercial Music" || project.title === "Web Portfolio for Software Engineering" || project.title === "Motion Playground" || project.title === "Redux Study") &&
                                             <Tooltip label="Visit Deployed Project" aria-label="Deployment link">
                                                 <Button as={Link} href={project.deployUrl} isExternal colorScheme="teal" ml={{ md: 2 }}>
                                                     View Live
