@@ -31,11 +31,12 @@ import {
       deployUrl: "https://jacklion.xyz"
     },
     {
-      title: "M8 Data Cleaner",
-      description: "A script that optimizes sample libraries for use on the M8 tracker hardware",
-      imageUrl: "/images/m8.jpeg",
-      githubUrl: "https://github.com/jacklion710/m8_data_cleaner"
-    },
+        title: "Motion Playground",
+        description: "Collection of reusable animation modules, designed to simplify the process of implementing",
+        imageUrl: "/images/motion-playground.png",
+        githubUrl: "https://github.com/jacklion710/framer-motion-playground",
+        deployUrl: "https://framer-motion-playground-swart.vercel.app "
+      },
     {
         title: "JSON Web Token Demo",
         description: "An exploration of JWT technology with an interactive UI",
@@ -50,6 +51,12 @@ import {
         githubUrl: "https://github.com/jacklion710/simple-chakra-svg-filter",
         deployUrl: "https://simple-chakra-svg-filter.vercel.app"
     },
+    {
+        title: "M8 Data Cleaner",
+        description: "A script that optimizes sample libraries for use on the M8 tracker hardware",
+        imageUrl: "/images/m8.jpeg",
+        githubUrl: "https://github.com/jacklion710/m8_data_cleaner"
+      },
     {
         title: "Interactive Web Audio Visual Experience",
         description: "An experiment on the intersection between technology and art.",
@@ -173,7 +180,7 @@ import {
                                                 GitHub
                                             </Button>
                                         </Tooltip>
-                                        {(project.title === "Full Stack Website" || project.title === "JSON Web Token Demo" || project.title === "ChakraUI SVG Filter" || project.title === "Interactive Web Audio Visual Experience" || project.title === "Web Portfolio for Commercial Music" || project.title === "Web Portfolio for Software Engineering") &&
+                                        {(project.title === "Full Stack Website" || project.title === "JSON Web Token Demo" || project.title === "ChakraUI SVG Filter" || project.title === "Interactive Web Audio Visual Experience" || project.title === "Web Portfolio for Commercial Music" || project.title === "Web Portfolio for Software Engineering" || project.title === "Motion Playground") &&
                                             <Tooltip label="Visit Deployed Project" aria-label="Deployment link">
                                                 <Button as={Link} href={project.deployUrl} isExternal colorScheme="teal" ml={{ md: 2 }}>
                                                     View Live
