@@ -36,7 +36,7 @@ import {
         imageUrl: "/images/motion-playground.png",
         githubUrl: "https://github.com/jacklion710/framer-motion-playground",
         deployUrl: "https://framer-motion-playground-swart.vercel.app "
-      },
+    },
     {
         title: "JSON Web Token Demo",
         description: "An exploration of JWT technology with an interactive UI",
@@ -50,6 +50,18 @@ import {
         imageUrl: "/images/redux.png",
         githubUrl: "https://github.com/jacklion710/redux-study",
         deployUrl: "https://redux-study-zeta.vercel.app"
+    },
+    {
+        title: "Twilio Mass SMS Message Builder",
+        description: "Mass SMS marketing utility using Twilio API with node and Firebase to retrieve stored user data from their firestore document for personalized text messages",
+        imageUrl: "/images/twilio-mass-sms.png",
+        githubUrl: "https://github.com/jacklion710/twilio-firebase-mass-sms.git",
+    },
+    {
+        title: "SendGrid User Interactive Email with Firebase",
+        description: "User interactive UI for funneling email marketing subscriptions using sendgrid by dynamically opting in and out based on a users firestore field",
+        imageUrl: "/images/interactive_email.png",
+        githubUrl: "https://github.com/jacklion710/user-interactive-email-list.git",
     },
     {
         title: "ChakraUI SVG Filter",
