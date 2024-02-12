@@ -71,6 +71,12 @@ import {
         deployUrl: "https://simple-chakra-svg-filter.vercel.app"
     },
     {
+        title: "Firebase SMS Authentication",
+        description: "Study on SMS auth & OTP using firebase. Implementation follows the firebase docs in TypeScriptfor phone authentication",
+        imageUrl: "/images/sms-auth.png",
+        githubUrl: "https://github.com/jacklion710/firebase-sms-auth",
+    },
+    {
         title: "M8 Data Cleaner",
         description: "A script that optimizes sample libraries for use on the M8 tracker hardware",
         imageUrl: "/images/m8.jpeg",
