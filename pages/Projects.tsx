@@ -31,6 +31,18 @@ import {
       deployUrl: "https://jacklion.xyz"
     },
     {
+        title: "Generative Adversarial Network",
+        description: "System design for a GAN model used for generating novel audio.",
+        imageUrl: "/images/simple-gan.png",
+        githubUrl: "https://github.com/jacklion710/simple-gan",
+    },
+    {
+        title: "PyTorch Audio Lesson Series",
+        description: "A series of lessons to help others (and me) learn torchaudio fundamentals",
+        imageUrl: "/images/torchaudio-basics.png",
+        githubUrl: "https://github.com/jacklion710/torchaudio-basics",
+    },
+    {
         title: "Motion Playground",
         description: "Collection of reusable animation modules, designed to simplify the process of implementing",
         imageUrl: "/images/motion-playground.png",
