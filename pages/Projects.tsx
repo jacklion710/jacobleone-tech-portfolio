@@ -43,6 +43,12 @@ import {
         githubUrl: "https://github.com/jacklion710/torchaudio-basics",
     },
     {
+        title: "Go Web Scraper",
+        description: "A simple go app for scraping web pages",
+        imageUrl: "/images/go-scraper.png",
+        githubUrl: "https://github.com/jacklion710/go-web-scraper.git",
+    },
+    {
         title: "Motion Playground",
         description: "Collection of reusable animation modules, designed to simplify the process of implementing",
         imageUrl: "/images/motion-playground.png",
