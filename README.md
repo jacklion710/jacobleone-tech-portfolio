@@ -41,8 +41,9 @@ Navigate to http://localhost:3000 in your browser to see the result.
 ## 🌐 Main Pages
 
 - **Landing Page**: An introduction to my skills with responsive design and interactive icons.
-- **Services Page**: Details the professional services offered by Jacob, from AI & Machine Learning to Mobile App Creation.
-- **Resume & References**: Provides an option to download Jacob's resume and professional references.
+- **Services Page**: Details the professional services offered by me, from AI & Machine Learning to Mobile App Creation.
+- **Projects Page**: Curated collection of tech projects from front end, back end, AI, full stack, and lessons.
+- **Resume & References**: Provides an option to download my resume and professional references.
 
 ## 📚 Learn More
 
