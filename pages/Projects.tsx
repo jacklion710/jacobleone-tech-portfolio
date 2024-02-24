@@ -24,13 +24,6 @@ import {
 
   const projects = [
     {
-      title: "Full Stack Website",
-      description: "Personal website for my music gallery. User authentication, professional landing page, and interactive experiences",
-      imageUrl: "/images/jacks_site.png",
-      githubUrl: "https://github.com/jacklion710/jacklions-website",
-      deployUrl: "https://jacklion.xyz"
-    },
-    {
         title: "Generative Adversarial Network",
         description: "System design for a GAN model used for generating novel audio.",
         imageUrl: "/images/simple-gan.png",
@@ -43,10 +36,23 @@ import {
         githubUrl: "https://github.com/jacklion710/torchaudio-basics",
     },
     {
+        title: "Full Stack Website",
+        description: "Personal website for my music gallery. User authentication, professional landing page, and interactive experiences",
+        imageUrl: "/images/jacks_site.png",
+        githubUrl: "https://github.com/jacklion710/jacklions-website",
+        deployUrl: "https://jacklion.xyz"
+    },
+    {
         title: "Go Web Scraper",
         description: "A simple go app for scraping web pages",
         imageUrl: "/images/go-scraper.png",
         githubUrl: "https://github.com/jacklion710/go-web-scraper.git",
+    },
+    {
+        title: "Rust Audio Encryptor",
+        description: "Psuedo random modulations applied to waveforms to obscure audio data for decryption later",
+        imageUrl: "/images/audio-encrypt.png",
+        githubUrl: "https://github.com/jacklion710/audio-encryption",
     },
     {
         title: "Motion Playground",
