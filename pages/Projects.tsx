@@ -236,24 +236,28 @@ import {
                                     _hover={{ transform: 'scale(1.05)' }}
                                 >
                                     <AspectRatio ratio={4 / 3}>
-                                        <Image src={project.imageUrl} alt={project.title} borderRadius="md" mb={4} objectFit="cover" />
+                                    <Image src={project.imageUrl} alt={project.title} borderRadius="md" mb={4} objectFit="cover" />
                                     </AspectRatio>
                                     <Heading size="md" my={2} textAlign="center">{project.title}</Heading>
                                     <Text mb={4} noOfLines={2}>{project.description}</Text>
+                                    {project.title !== "Flash Configurator" && (
                                     <Flex justifyContent="center" mt={3} wrap="wrap" direction={{ base: "column", md: "row" }}>
+                                        {project.githubUrl && (
                                         <Tooltip label="Visit GitHub Repository" aria-label="GitHub link">
                                             <Button as={Link} href={project.githubUrl} leftIcon={<FaGithub />} isExternal colorScheme="blue" mb={{ base: 2, md: 0 }} mr={{ md: 2 }}>
                                                 GitHub
                                             </Button>
                                         </Tooltip>
-                                        {(project.title === "Full Stack Website" || project.title === "JSON Web Token Demo" || project.title === "ChakraUI SVG Filter" || project.title === "Interactive Web Audio Visual Experience" || project.title === "Web Portfolio for Commercial Music" || project.title === "Web Portfolio for Software Engineering" || project.title === "Motion Playground" || project.title === "Redux Study" || project.title === "Static iOS app") &&
-                                            <Tooltip label="Visit Deployed Project" aria-label="Deployment link">
-                                                <Button as={Link} href={project.deployUrl} isExternal colorScheme="teal" ml={{ md: 2 }}>
-                                                    View Live
-                                                </Button>
-                                            </Tooltip>
-                                        }
+                                        )}
+                                        {(project.title === "Full Stack Website" || project.title === "JSON Web Token Demo" || project.title === "ChakraUI SVG Filter" || project.title === "Interactive Web Audio Visual Experience" || project.title === "Web Portfolio for Commercial Music" || project.title === "Web Portfolio for Software Engineering" || project.title === "Motion Playground" || project.title === "Redux Study" || project.title === "Static iOS app") && project.deployUrl && (
+                                        <Tooltip label="Visit Deployed Project" aria-label="Deployment link">
+                                            <Button as={Link} href={project.deployUrl} isExternal colorScheme="teal" ml={{ md: 2 }}>
+                                            View Live
+                                            </Button>
+                                        </Tooltip>
+                                        )}
                                     </Flex>
+                                    )}
                                 </Box>
                             ))}
                         </SimpleGrid>
