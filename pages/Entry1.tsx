@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Text, Link, VStack, SimpleGrid, useColorModeValue, ChakraProvider } from "@chakra-ui/react";
+import { Flex, Heading, Text, VStack, useColorModeValue, ChakraProvider } from "@chakra-ui/react";
 import Navbar from "@/components/Navbar";
 import Footer from '@/components/Footer';
 import { Helmet } from "react-helmet";
@@ -8,9 +8,6 @@ import { useInView } from 'react-intersection-observer';
 import React from 'react';
 
 export default function Entry1() {
-  const bgColor = useColorModeValue("white", "gray.800");
-  const color = useColorModeValue("gray.700", "gray.50");
-  const borderColor = useColorModeValue("gray.200", "gray.600");
 
   const fadeIn = {
     hidden: { opacity: 0 },

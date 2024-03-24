@@ -17,8 +17,6 @@ const blogArticles = [
 ];
 
 export default function BlogMenu() {
-  const bgColor = useColorModeValue("white", "gray.800");
-  const color = useColorModeValue("gray.700", "gray.50");
   const borderColor = useColorModeValue("gray.200", "gray.600");
 
   const fadeIn = {
