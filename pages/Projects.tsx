@@ -36,6 +36,17 @@ import {
         githubUrl: "https://github.com/jacklion710/torchaudio-basics",
     },
     {
+        title: "Maze Solver",
+        description: "Algorithmic race for comparing pathfinding algorithms and maze solving",
+        imageUrl: "/images/maze-solver.png",
+        githubUrl: "https://github.com/jacklion710/jacobleone-tech-portfolio",
+    },
+    {
+        title: "Flash Configurator",
+        description: "Flash configurator GUI for debugging and uploading firmware in bytecode via parsing and processing intel hex format",
+        imageUrl: "/images/flash-config.jpg",
+    },
+    {
         title: "Full Stack Website",
         description: "Personal website for my music gallery. User authentication, professional landing page, and interactive experiences",
         imageUrl: "/images/jacks_site.png",
@@ -47,6 +58,12 @@ import {
         description: "A simple go app for scraping web pages",
         imageUrl: "/images/go-scraper.png",
         githubUrl: "https://github.com/jacklion710/go-web-scraper.git",
+    },
+    {
+        title: "Static iOS app",
+        description: "A static mobile application commission for iOS published to the app store",
+        imageUrl: "/images/mental-math.jpeg",
+        deployUrl: "https://apps.apple.com/us/app/global-math-mind/id6478569296",
     },
     {
         title: "Rust Audio Encryptor",
@@ -229,7 +246,7 @@ import {
                                                 GitHub
                                             </Button>
                                         </Tooltip>
-                                        {(project.title === "Full Stack Website" || project.title === "JSON Web Token Demo" || project.title === "ChakraUI SVG Filter" || project.title === "Interactive Web Audio Visual Experience" || project.title === "Web Portfolio for Commercial Music" || project.title === "Web Portfolio for Software Engineering" || project.title === "Motion Playground" || project.title === "Redux Study") &&
+                                        {(project.title === "Full Stack Website" || project.title === "JSON Web Token Demo" || project.title === "ChakraUI SVG Filter" || project.title === "Interactive Web Audio Visual Experience" || project.title === "Web Portfolio for Commercial Music" || project.title === "Web Portfolio for Software Engineering" || project.title === "Motion Playground" || project.title === "Redux Study" || project.title === "Static iOS app") &&
                                             <Tooltip label="Visit Deployed Project" aria-label="Deployment link">
                                                 <Button as={Link} href={project.deployUrl} isExternal colorScheme="teal" ml={{ md: 2 }}>
                                                     View Live
