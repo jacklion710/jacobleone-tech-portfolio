@@ -1,4 +1,14 @@
-import { Box, Flex, Heading, Text, Link, VStack, SimpleGrid, useColorModeValue, ChakraProvider } from "@chakra-ui/react";
+import { 
+    Box, 
+    Flex, 
+    Heading, 
+    Text, 
+    Link, 
+    VStack, 
+    SimpleGrid, 
+    useColorModeValue, 
+    ChakraProvider 
+} from "@chakra-ui/react";
 import Navbar from "../components/Navbar";
 import Footer from '../components/Footer';
 import { Helmet } from "react-helmet";
