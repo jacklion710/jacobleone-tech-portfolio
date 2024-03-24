@@ -408,5 +408,9 @@ const NAV_ITEMS: Array<NavItem> = [
   {
     label: 'Résumé',
     href: '/Resume'
-  }
+  },
+  {
+    label: 'Blog',
+    href: '/Articles'
+  },
 ];
