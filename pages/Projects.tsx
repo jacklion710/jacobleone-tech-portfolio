@@ -86,6 +86,12 @@ import {
         deployUrl: "https://jwt-user-auth.vercel.app"
     },
     {
+        title: "Audio Plugin Compatibility Checker",
+        description: "Utility for electronic music collaborators to check what tools they both have and which they do not share to assist in maximizing compatibility",
+        imageUrl: "/images/plugin-profile.png",
+        githubUrl: "https://github.com/jacklion710/plugin-union-checker",
+    },
+    {
         title: "Redux Study",
         description: "An exploration of the redux package for sharing states across entire runtime environments",
         imageUrl: "/images/redux.png",
