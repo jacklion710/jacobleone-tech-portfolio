@@ -19,9 +19,9 @@ import React from 'react';
 
 const blogArticles = [
   {
-    title: "Article 1",
-    description: "Description of article 1",
-    url: "/Entry1",
+    title: "Max Patches are Really Just JSON",
+    description: "Part1: Deep dive on the underlying structure of a max patch",
+    url: "/Max-JSON",
   },
   // Add more blog articles here
 ];
