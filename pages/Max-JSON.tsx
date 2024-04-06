@@ -29,12 +29,12 @@ export default function MaxPatchVisualizer() {
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
       </Head>
       <Helmet>
-        <title>Max Patch Visualizer | Jacob Leone</title>
+        <title>Max Patches Are Actually JSON | Jacob Leone</title>
         <meta name="description" content="Explore the requirements and notes for the Max Patch Visualizer project by Jacob Leone. Learn about visualizing Max patches online." />
         <meta name="keywords" content="Max Patch Visualizer, Max MSP, Creative Coding, JSON, Web Tool" />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="Max Patch Visualizer | Jacob Leone" />
-        <meta property="og:description" content="Discover the requirements and notes for the Max Patch Visualizer project by Jacob Leone. Visualize Max patches online." />
+        <meta property="og:title" content="Max Patches Are Actually JSON | Jacob Leone" />
+        <meta property="og:description" content="Learn the requirements and notes for the upcoming Max Patch Visualizer project by Jacob Leone. Visualize Max patches online." />
         <meta property="og:url" content="https://jacobleone.tech/max-patch-visualizer" />
         <link rel="canonical" href="https://jacobleone.tech/max-patch-visualizer" />
       </Helmet>
