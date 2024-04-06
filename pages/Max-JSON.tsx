@@ -82,7 +82,7 @@ export default function MaxPatchVisualizer() {
               <em>Describing the problem space for an upcoming web tool for visualizing Max patches online.</em>
             </Text>
             <Box
-              bg="white"
+              bg="gray.500"
               borderRadius="md"
               boxShadow="md"
               p={8}
