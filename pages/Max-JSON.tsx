@@ -61,6 +61,7 @@ export default function MaxPatchVisualizer() {
                 position="relative"
                 textShadow="0 0 5px teal, 0 0 10px teal, 0 0 15px teal, 0 0 20px teal"
                 color="white"
+                textAlign={'center'}
                 _after={{
                   content: '""',
                   display: 'block',
@@ -68,7 +69,7 @@ export default function MaxPatchVisualizer() {
                   bottom: '-10px',
                   left: '50%',
                   transform: 'translateX(-50%)',
-                  width: '400px',
+                  width: '40vw',
                   borderBottom: `1px solid currentColor`,
                   borderColor: "black"
                 }}
@@ -86,7 +87,7 @@ export default function MaxPatchVisualizer() {
               borderRadius="md"
               boxShadow="md"
               p={8}
-              maxW="800px"
+              maxW="90vw"
               mx="auto"
             >
             <Text textAlign={'center'} pb="40px">
