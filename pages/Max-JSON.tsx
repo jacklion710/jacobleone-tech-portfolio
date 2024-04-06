@@ -35,8 +35,8 @@ export default function MaxPatchVisualizer() {
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Max Patches Are Actually JSON | Jacob Leone" />
         <meta property="og:description" content="Learn the requirements and notes for the upcoming Max Patch Visualizer project by Jacob Leone. Visualize Max patches online." />
-        <meta property="og:url" content="https://jacobleone.tech/max-patch-visualizer" />
-        <link rel="canonical" href="https://jacobleone.tech/max-patch-visualizer" />
+        <meta property="og:url" content="https://jacobleone.tech/Max-JSON" />
+        <link rel="canonical" href="https://jacobleone.tech/Max-JSON" />
       </Helmet>
       <Flex
         direction="column"
