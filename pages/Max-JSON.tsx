@@ -83,19 +83,19 @@ export default function MaxPatchVisualizer() {
               maxW="800px"
               mx="auto"
             >
-            <Text textAlign={'center'}>
+            <Text textAlign={'center'} pb="40px">
               The purpose of this project is to provide a tool for users of Max MSP, a popular patching based environment for various multimedia programming tasks. It is a popular tool for creative coders who want a similar experience to coding with a ton of objects which many programmers will find familiar. They have lists, matrices, operators, etc... you can even write Javascript and use node in Max! If you want to learn more about Max its worth searching up but for the sake of these project this is all we need to know in order to understand what problem this project aims to solve.
             </Text>
-            <Heading size="lg">Max Patches Are Really JSON</Heading>
-            <Text>
+            <Heading size="lg" textAlign={'center'}  pb="20px">Max Patches Are Really JSON</Heading>
+            <Text  pb="40px">
               Even though Max is a visual node based patcher environment when a section of a patch is copied to the clipboard it is copied not as a JSON object which contains information thats used for reconstructing the copied patch when pasted back into max. However, if we copy and paste this into a text editor we can see the JSON object that represents the patch.
             </Text>
-            <Heading size="md">Single Object in JSON</Heading>
-            <Image src="/images/max-json-article/single-cycle~.png" alt="Single cycle~ object" />
+            <Heading size="md"  pb="20px">Single Max Object in JSON</Heading>
+            <Image pb="20px" src="/images/max-json-article/single-cycle~.png" alt="Single cycle~ object" />
             <Text>
               In max we have access to a vast library for DSP and realtime control systems. One of the most basic things you can do with digital audio is to create a sine wave. In max we have the `cycle~` object for generating sine wave signals. Objects with the `~` are denoted as <strong>signal</strong> objects which means it is an object that deals with audio.
             </Text>
-            <Text>
+            <Text  pb="40px">
               If we create a single `cycle~` object and copy it, the resulting JSON looks like this:
             </Text>
             <pre>
@@ -125,7 +125,7 @@ export default function MaxPatchVisualizer() {
                 }, null, 2)}
               </code>
             </pre>
-            <Text>
+            <Text  pt="40px"  pb="40px">
               The `appversion` contains metadata about the system and version used. Its not important for our application so we can simply disregard it. Likewise `classnamespace` is not important to us right now. Instead, turn your attention to the data under `boxes`. Every `box` key value associated with the `boxes` field are the objects we have copied from our patch. Currently there is only one but we will soon see an example with more. A `box` represents any single object and contains attributes which will vary depending on the object.
             </Text>
             <ul>
@@ -151,9 +151,9 @@ export default function MaxPatchVisualizer() {
                 <strong>outlettype</strong>: a list of the data type associated with each outlet. In this case there is only a single outlet of a `signal` type. If numoutlets is 0 then this field will not be present for that object. Regular data like integers, lists and symbols will be marked as `""` for generic max messages, `"signal"` for audio signals or `jit_matrix` for matrices as well as sometimes `"multichannelsignal"` for multichannel audio.
               </li>
             </ul>
-            <Heading size="md">Simple Patch Connection in JSON</Heading>
-            <Image src="/images/max-json-article/simple-connection.png" alt="Simple patch connection" />
-            <Text>
+            <Heading size="md"  pt="40px" pb="20px">Simple Patch Connection in JSON</Heading>
+            <Image pb="40px" src="/images/max-json-article/simple-connection.png" alt="Simple patch connection" />
+            <Text pb="40px">
               If we create a second object and make a single patch connection from one object to another, we can observe some changes in our JSON. The `dac~` object uses your computers digital audio converter if available to play audio aloud.
             </Text>
             <pre>
@@ -201,12 +201,12 @@ export default function MaxPatchVisualizer() {
                 }, null, 2)}
               </code>
             </pre>
-            <Heading size="sm">Multiple Boxes</Heading>
-            <Text>
+            <Heading pt="40px" pb="20px" size="sm">Multiple Boxes</Heading>
+            <Text pb="40px">
               In the patch above we can see there are now two fields called `box`. As described in the previous example, the properties within these fields tell us information about the object associated with that `box`. The only difference now is that we have multiple. There is theoretically no limit to the number of boxes you can spawn in a patch.
             </Text>
-            <Heading size="sm">Patch Connections</Heading>
-            <Text>
+            <Heading pb="20px" size="sm">Patch Connections</Heading>
+            <Text pb="40px">
               Parallel to the `boxes` field are the `lines`. Lines refer to the patch cables that connect one object o another. Specifically what inlets. Many `patchline`s may be present but in our case we only have one for demonstration. Each `patchline` contains a `source` and `destination` attribute to demark the inlets and outlets that the `patchline` connects.
             </Text>
             <ul>
@@ -217,19 +217,19 @@ export default function MaxPatchVisualizer() {
                 <strong>destination</strong>: Similar to source except the destination is where the `patchline` connects to with the second element being an index representing the inlets from left to right.
               </li>
             </ul>
-            <Text>
+            <Text pb="40px">
               We will discuss another example with multiple patchlines soon. But first we have a few more things to cover.
             </Text>
-            <Heading size="md">A Quick Note on Data Flow in Max</Heading>
-            <Text>
+            <Heading pb="20px" size="md">A Quick Note on Data Flow in Max</Heading>
+            <Text pb="40px">
               Any respectable max patch will consist of extensive patch connected. Essentially we are connecting nodes in a graph. The way data flows in max is fascinating as it pertains to path finding algorithms such as Depth First Search (DFS) and Breadth First Search (BFS). If you are interested in learning more about how the order of data flows between objects with patch cables this <a href="https://www.youtube.com/watch?v=OnwmVuHxm30">video</a> can walk you through the flow. It is not necessary to follow along.
             </Text>
-            <Heading size="md">Widget Objects</Heading>
-            <Text>
+            <Heading pb="20px" size="md">Widget Objects</Heading>
+            <Text pb="40px">
               Max has a special category of objects for UI and interactivity. We usually just call them widgets. We have many different kinds at our disposal but some common ones include `slider`, `number`, `button` and `live.dial` all pictured below.
             </Text>
-            <Image src="/images/max-json-article/widgets.png" alt="Widget objects" />
-            <Text>
+            <Image pb="40px" src="/images/max-json-article/widgets.png" alt="Widget objects" />
+            <Text pb="40px">
               These objects do not look that different from our usual JSON representation save for a few minor differences which we will now go over.
             </Text>
             <pre>
@@ -302,15 +302,15 @@ export default function MaxPatchVisualizer() {
                 }, null, 2)}
               </code>
             </pre>
-            <Text>
+            <Text pt="20px" pb="40px">
               As you can see, the `maxclass` attribute now contains the actual name of the widget object instance. Although we can still see the name in the `text` field, by evaluating whether the value for `maxclass` is `newobj` or something else, we can determine whether we are dealing with a generic object or a widget object. Additionally, objects whose methods and objects fall under the `live` class have additional properties under `saved_attribute_attributes` which we can ignore for this project.
             </Text>
-            <Heading size="md">Complex Patches</Heading>
-            <Text>
+            <Heading pb="20px" size="md">Complex Patches</Heading>
+            <Text pb="40px">
               Now we are ready to see a patch we might be more likely to encounter in the wild. Although not as extensive as most devices in production, it is a snippet that represents a realistic scenario with multiple objects and patch connections.
             </Text>
-            <Image src="/images/max-json-article/widget+complex patch.png" alt="Complex patch with widgets" />
-            <Text>
+            <Image pb="40px" src="/images/max-json-article/widget+complex patch.png" alt="Complex patch with widgets" />
+            <Text pb="40px">
               In the image above we connect the outlet of `live.dial` (which sends lets users select a number to output with a dial) to the left inlet of a `+` object with an argument of **50** and the left inlet of a `cycle~` object as well. The outlet of `+` connects to the left inlet of a second `cycle~` object. Both `cycle~` objects finally connect to each the left and right inlets of `~dac` respectively. It is just a shoddy pitchable oscillator where the right speaker always plays a sine wave 50 hz above the left as determined by the dials value. Its not a very realistic patch in a sound designer sense but is valid and realistic enough that it will help us gain insight into the JSON structure of a patch that features multiple objects and connections.
             </Text>
             <pre>
@@ -427,26 +427,19 @@ export default function MaxPatchVisualizer() {
                 }, null, 2)}
               </code>
             </pre>
-            <Text>
+            <Text pt="20px" pb="40px">
               There is not much we have not already discussed going on in the JSON structure above. Biggest difference being the fact that now there are a handful of additional objects and patchlines. If you look closely at the patchlines and follow along with the id values and visually inspect the screenshot you can see that it tracks. Notice the `order` attribute though? This informs us of what order we will be sending out data from two patch cables that spawn from the same source. This is another attribute that we will not be using for our use case but can come in handy for debugging as often it is tricky to determine the order of operations in Max. A good rule of thumb is that messages flow in order from rightmost outlets to left. *See linked resource from earlier on data flow for more info*.
             </Text>
-            <Heading size="md">Nested Subpatchers</Heading>
-            <Text>
+            <Heading pb="20px" size="md">Nested Subpatchers</Heading>
+            <Text pb="40px">
               Sometimes we will encounter nested structures in a max patch. The most basic kind is the `subpatcher` aka `p`, an object which encapsulates portions of a patch. There are other similar ones, the closest relative being `bpatcher`, a subpatcher which features a see through window for encapsulating UI components as opposed to simply raw objects. There are also `poly~`, `fft~`, `~rnbo` and more but these complicate things so for now we do not care about them.
             </Text>
-            <Image src="/images/max-json-article/subpatcher.png" alt="Subpatcher" />
-            <Text>
+            <Image pb="40px" src="/images/max-json-article/subpatcher.png" alt="Subpatcher" />
+            <Text pb="40px">
               In this example, we have a simple subpatcher `p` called *subpatcher* which contains a single `cycle~` object inside. Below we can see the `patcher` field which contains more information about the patch including its enclosed JSON subpatch objects and their connections. Since we are only rendering the `p` object and its text we do not care about the contents of `patcher` for now. It is worth checking the `numinlet` and `numoutlet` attributes because subpatchers can have a varied number of inlets and outlets for connecting encapsulated patches with their parent patches depending on the users design. There are a handful of objects whose behavior, display and expected inputs are versatile.
             </Text>
-            <Heading size="md">Subpatchers Within Subpatchers</Heading>
-            <Text>
-              Subpatchers may be many layers deep Here is an example of JSON for a subpatcher with several layers of subpatcher nesting. See if you can spot the innermost object and its text!
-            </Text>
-            tsx
-
-
-Copy code
-            <Text>
+            <Heading pb="20px" size="md">Subpatchers Within Subpatchers</Heading>
+            <Text pb="40px">
               Subpatchers may be many layers deep Here is an example of JSON for a subpatcher with several layers of subpatcher nesting. See if you can spot the innermost object and its text!
             </Text>
             <pre>
@@ -651,16 +644,13 @@ Copy code
                 }, null, 2)}
               </code>
             </pre>
-            <Heading size="md">Implementation in Javascript</Heading>
-            <Text>
-              Now, lets outline the general approach for programming the web visualizer:
-            </Text>
-            <Heading size="md">Other Destinations</Heading>
+
+            <Heading pt="40px" pb="20px" size="md">Other Destinations</Heading>
             <Text>
               In part 2 we will learn how to parse Max JSON in order to represent a patch accurately in the browser. This could pave the way for more user friendly ways of sharing patches. It could be helpful for the max discord community to be able to simply copy and paste patches directly into discord using commands like `/patch PATCH_JSON` to dynamically share patches on the fly. Although screenshots are convenitent alternatives to JSON, they do not contain the patch itself and therefore they do not allow for easy transmission of patches. A visualizer tool that both displays the graph network of objects as well as carries the JSON data offers a superior way of sharing patches if it can be bundled into a user friendly bot for discord. This may be a worthwhile pursuit for a future version if enough interest is shown. 
             </Text>
-            <Heading size="md">Contributions</Heading>
-            <Text>
+            <Heading pt="40px" pb="20px" size="md">Contributions</Heading>
+            <Text pb="40px">
               Currently I am working on this independantly as a personal project for <a href="https://boot.dev">boot.dev</a>. Once I have fulfilled the requirements for the project on my own and have obtained an MVP I will open things up for open source contributions.
             </Text>
             </Box>
