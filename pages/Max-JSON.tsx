@@ -100,12 +100,12 @@ export default function MaxPatchVisualizer() {
             </Text>
             <Heading size="lg" textAlign={'center'}  pb="20px">Max Patches Are Really JSON</Heading>
             <Text  pb="40px">
-              Even though Max is a visual node based patcher environment when a section of a patch is copied to the clipboard it is copied not as a JSON object which contains information thats used for reconstructing the copied patch when pasted back into max. However, if we copy and paste this into a text editor we can see the JSON object that represents the patch. Matter of fact, if you copy and paste the JSON snippets from this article and paste them into your own patch then you will see the objects appear in your environment.
+              Even though Max is a visual node based patcher environment when a section of a patch is copied to the clipboard it is stored in the form of a JSON object which contains information thats used for reconstructing the copied patch when pasted back into max. However, if we copy and paste this into a text editor we can see the JSON object that represents the patch. Matter of fact, if you copy and paste the JSON snippets from this article and paste them into your own patch then you will see the objects appear in your environment.
             </Text>
             <Heading size="md"  pb="20px">Single Max Object in JSON</Heading>
             <Image pb="20px" src="/images/max-json-article/single-cycle~.png" alt="Single cycle~ object" />
             <Text>
-              In max we have access to a vast library for DSP and realtime control systems. One of the most basic things you can do with digital audio is to create a sine wave. In max we have the <Code>cycle~</Code> object for generating sine wave signals. Objects with the <Code>~</Code> are denoted as <strong>signal</strong> objects which means it is an object that deals with audio.
+              In max we have access to a vast library for DSP and realtime control systems. One of the most fundamental things one can do with any digital audio system is to play a sine wave. In max we have the <Code>cycle~</Code> object for generating sine wave signals. Objects with the <Code>~</Code> are denoted as <strong>signal</strong> objects which means it is an object that deals with audio data.
             </Text>
             <Text  pb="40px">
               If we create a single <Code>cycle~</Code> object and copy it, the resulting JSON looks like this:
@@ -190,14 +190,14 @@ export default function MaxPatchVisualizer() {
               )}
             </CodeBlock>
             <Text  pt="40px"  pb="40px">
-              The <Code>appversion</Code> contains metadata about the system and version used. Its not important for our application so we can simply disregard it. Likewise <Code>classnamespace</Code> is not important to us right now. Instead, turn your attention to the data under <Code>boxes</Code>. <Code>box</Code> key value associated with the <Code>boxes</Code> field are the objects we have copied from our patch. Currently there is only one but we will soon see an example with more. A <Code>box</Code> represents any single object and contains attributes which will vary depending on the object.
+              The <Code>appversion</Code> contains metadata about the system and version used. Its not important for our application so we can simply disregard it. Likewise <Code>classnamespace</Code> is not important to us right now. Instead, we will turn our attention to the data fields under <Code>boxes</Code>. The <Code>box</Code> key values associated with the <Code>boxes</Code> field represent the objects we have copied from our patch. Currently there is only one but we will soon see an example with more. A <Code>box</Code> represents any single object and contains attributes which will vary depending on the object.
             </Text>
             <ul>
               <li>
                 <strong>maxclass</strong>: Most regular objects will be labeled as <Code>newobj</Code> but widget objects like buttons and dials will simply contain the name of the object in this field.
               </li>
               <li>
-                <strong>text</strong>: Whatever text is displayed within the objects starting with the objects name <Code>cycle~</Code> in this case. If an argument or attribute is present after the object name they will be included here. For example, if the user specifies <Code>440</Code> as an argument for <Code>cycle~</Code> then the text field would read <Code>cycle~ 440</Code>.
+                <strong>text</strong>: Whatever text is displayed within the objects starting with the objects name <Code>cycle~</Code> in this case. If an argument or attribute is present after the object name they will be included here. For example, if the user specifies a frequency of<Code>440</Code> by decalring it as an argument for <Code>cycle~</Code> then the text field would read <Code>cycle~ 440</Code>.
               </li>
               <li>
                 <strong>id</strong>: Unique identifier for an object. Useful for differentiating between multiple objects with the same name.
@@ -356,7 +356,7 @@ export default function MaxPatchVisualizer() {
             </Text>
             <Heading pb="20px" size="md">A Quick Note on Data Flow in Max</Heading>
             <Text pb="40px">
-              Any respectable max patch will consist of extensive patch connected. Essentially we are connecting nodes in a graph. The way data flows in max is fascinating as it pertains to path finding algorithms such as Depth First Search (DFS) and Breadth First Search (BFS). If you are interested in learning more about how the order of data flows between objects with patch cables this <a href="https://www.youtube.com/watch?v=OnwmVuHxm30">video</a> can walk you through the flow. It is not necessary to follow along.
+              Any respectable max patch will consist of extensive patchline connections. Essentially we are connecting nodes in a graph. The way data flows in max is fascinating as it pertains to path finding algorithms such as Depth First Search (DFS) and Breadth First Search (BFS). If you are interested in learning more about how the order of data flows between objects with patch cables this <a href="https://www.youtube.com/watch?v=OnwmVuHxm30">video</a> can walk you through the flow. It is not necessary to follow along.
             </Text>
             <Heading pb="20px" size="md">Widget Objects</Heading>
             <Text pb="40px">
@@ -540,7 +540,7 @@ export default function MaxPatchVisualizer() {
             </Text>
             <Image pb="40px" src="/images/max-json-article/widget+complex-patch.png" alt="Complex patch with widgets" />
             <Text pb="40px">
-              In the image above we connect the outlet of <Code>live.dial</Code> (which sends lets users select a number to output with a dial) to the left inlet of a <Code>+</Code> object with an argument of **50** and the left inlet of a <Code>cycle~</Code> object as well. The outlet of <Code>+</Code> connects to the left inlet of a second <Code>cycle~</Code> object. Both <Code>cycle~</Code> objects finally connect to each the left and right inlets of <Code>~dac</Code> respectively. It is just a shoddy pitchable oscillator where the right speaker always plays a sine wave 50 hz above the left as determined by the dials value. Its not a very realistic patch in a sound designer sense but is valid and realistic enough that it will help us gain insight into the JSON structure of a patch that features multiple objects and connections.
+              In the image above we connect the outlet of <Code>live.dial</Code> (which sends lets users select a number to output with a dial) to the left inlet of a <Code>+</Code> object with an argument of **50** and the left inlet of a <Code>cycle~</Code> object as well. The outlet of <Code>+</Code> connects to the left inlet of a second <Code>cycle~</Code> object. Both <Code>cycle~</Code> objects finally connect to each the left and right inlets of <Code>~dac</Code> respectively. It is just a simple pitchable oscillator where the right speaker always plays a sine wave 50 hz above the left as determined by the dials value. Its not a very realistic patch in a sound designers sense but is still valid and realistic enough that it will help us gain insight into the JSON structure of a patch that features multiple objects and connections.
             </Text>
             <CodeBlock
               language="json"
@@ -796,7 +796,7 @@ export default function MaxPatchVisualizer() {
               )}
             </CodeBlock>
             <Text pt="20px" pb="40px">
-              There is not much we have not already discussed going on in the JSON structure above. The biggest difference being the fact that now there are a handful of additional objects and patchlines. If you look closely at the patchlines and follow along with the id values and visually inspect the screenshot you can see that it tracks. Notice the <Code>order</Code> attribute though? This informs us of what order we will be sending out data from two patch cables that spawn from the same source. This is another attribute that we will not be using for our use case but can come in handy for debugging as often it is tricky to determine the order of operations in Max. A good rule of thumb is that messages flow in order from rightmost outlets to left. *See linked resource from earlier on data flow for more info*.
+              There is not much we have not already discussed going on in the JSON structure above. The biggest difference being the fact that now there are a handful of additional objects and patchlines. If you look closely at the patchlines and follow along with the id values and visually inspect the screenshot you can see that it tracks. Notice the <Code>order</Code> attribute though? This informs us of what order we will be sending out data from two patch cables that spawn from the same source. This is another attribute that we will not be using for our use case but can come in handy for debugging as often it is tricky to determine the order of operations in Max. A good rule of thumb is that messages flow in order from rightmost outlets to left. <i>See linked resource from earlier on data flow for more info</i>.
             </Text>
             <Heading pb="20px" size="md">Nested Subpatchers</Heading>
             <Text pb="40px">
