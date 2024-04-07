@@ -89,6 +89,7 @@ export default function MaxPatchVisualizer() {
               p={8}
               maxW="90vw"
               mx="auto"
+              color="white"
             >
             <Text textAlign={'center'} pb="40px">
               The purpose of this project is to provide a tool for users of Max MSP, a popular patching based environment for various multimedia programming tasks. It is a popular tool for creative coders who want a similar experience to coding with a ton of objects which many programmers will find familiar. They have lists, matrices, operators, etc... you can even write Javascript and use node in Max! If you want to learn more about Max its worth searching up but for the sake of these project this is all we need to know in order to understand what problem this project aims to solve.
@@ -120,7 +121,7 @@ export default function MaxPatchVisualizer() {
                 borderRadius: '0.5rem',
                 marginTop: '1rem',
                 marginBottom: '1rem',
-                color: "black"
+                color: 'white'
               }}
               codeTagProps={{
                 style: {
@@ -230,7 +231,7 @@ export default function MaxPatchVisualizer() {
                 borderRadius: '0.5rem',
                 marginTop: '1rem',
                 marginBottom: '1rem',
-                color: 'black',
+                color: 'white',
               }}
               codeTagProps={{
                 style: {
@@ -376,7 +377,7 @@ export default function MaxPatchVisualizer() {
                 borderRadius: '0.5rem',
                 marginTop: '1rem',
                 marginBottom: '1rem',
-                color: 'black',
+                color: 'white',
               }}
               codeTagProps={{
                 style: {
@@ -552,7 +553,7 @@ export default function MaxPatchVisualizer() {
                 borderRadius: '0.5rem',
                 marginTop: '1rem',
                 marginBottom: '1rem',
-                color: 'black',
+                color: 'white',
               }}
               codeTagProps={{
                 style: {
@@ -820,7 +821,7 @@ export default function MaxPatchVisualizer() {
                 borderRadius: '0.5rem',
                 marginTop: '1rem',
                 marginBottom: '1rem',
-                color: 'black',
+                color: 'white',
               }}
               codeTagProps={{
                 style: {
