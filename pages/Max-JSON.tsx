@@ -95,7 +95,7 @@ export default function MaxPatchVisualizer() {
             </Text>
             <Heading size="lg" textAlign={'center'}  pb="20px">Max Patches Are Really JSON</Heading>
             <Text  pb="40px">
-              Even though Max is a visual node based patcher environment when a section of a patch is copied to the clipboard it is copied not as a JSON object which contains information thats used for reconstructing the copied patch when pasted back into max. However, if we copy and paste this into a text editor we can see the JSON object that represents the patch.
+              Even though Max is a visual node based patcher environment when a section of a patch is copied to the clipboard it is copied not as a JSON object which contains information thats used for reconstructing the copied patch when pasted back into max. However, if we copy and paste this into a text editor we can see the JSON object that represents the patch. Matter of fact, if you copy and paste the JSON snippets from this article and paste them into your own patch then you will see the objects appear in your environment.
             </Text>
             <Heading size="md"  pb="20px">Single Max Object in JSON</Heading>
             <Image pb="20px" src="/images/max-json-article/single-cycle~.png" alt="Single cycle~ object" />
@@ -533,7 +533,7 @@ export default function MaxPatchVisualizer() {
             <Text pb="40px">
               Now we are ready to see a patch we might be more likely to encounter in the wild. Although not as extensive as most devices in production, it is a snippet that represents a realistic scenario with multiple objects and patch connections.
             </Text>
-            <Image pb="40px" src="/images/max-json-article/widget+complex patch.png" alt="Complex patch with widgets" />
+            <Image pb="40px" src="/images/max-json-article/widget+complex-patch.png" alt="Complex patch with widgets" />
             <Text pb="40px">
               In the image above we connect the outlet of <Code>live.dial</Code> (which sends lets users select a number to output with a dial) to the left inlet of a <Code>+</Code> object with an argument of **50** and the left inlet of a <Code>cycle~</Code> object as well. The outlet of <Code>+</Code> connects to the left inlet of a second <Code>cycle~</Code> object. Both <Code>cycle~</Code> objects finally connect to each the left and right inlets of <Code>~dac</Code> respectively. It is just a shoddy pitchable oscillator where the right speaker always plays a sine wave 50 hz above the left as determined by the dials value. Its not a very realistic patch in a sound designer sense but is valid and realistic enough that it will help us gain insight into the JSON structure of a patch that features multiple objects and connections.
             </Text>
