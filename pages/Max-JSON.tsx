@@ -92,7 +92,7 @@ export default function MaxPatchVisualizer() {
               color="white"
             >
             <Text textAlign={'center'} pb="40px">
-              The purpose of this project is to provide a tool for users of Max MSP, a popular patching based environment for various multimedia programming tasks. It is a popular tool for creative coders who want a similar experience to coding with a ton of objects which many programmers will find familiar. They have lists, matrices, operators, etc... you can even write Javascript and use node in Max! If you want to learn more about Max its worth searching up but for the sake of these project this is all we need to know in order to understand what problem this project aims to solve.
+              The purpose of this project is to provide a tool for users of Max MSP, a popular patching based environment for various multimedia programming tasks. It is a popular tool for creative coders who want a similar experience to coding with a ton of objects which many programmers will find familiar. They have lists, matrices, operators, etc... you can even write Javascript and use node in Max! If you want to learn more about Max its worth searching up but for the sake of this project we dont need to understand all Max has to offer.
             </Text>
             <Heading size="sm"  pt="40px" pb="20px">Prerequisite Knowledge</Heading>
             <Text pb="40px">
