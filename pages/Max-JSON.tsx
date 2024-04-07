@@ -796,7 +796,12 @@ export default function MaxPatchVisualizer() {
               )}
             </CodeBlock>
             <Text pt="20px" pb="40px">
-              There is not much we have not already discussed going on in the JSON structure above. The biggest difference being the fact that now there are a handful of additional objects and patchlines. If you look closely at the patchlines and follow along with the id values and visually inspect the screenshot you can see that it tracks. Notice the <Code>order</Code> attribute though? This informs us of what order we will be sending out data from two patch cables that spawn from the same source. This is another attribute that we will not be using for our use case but can come in handy for debugging as often it is tricky to determine the order of operations in Max. A good rule of thumb is that messages flow in order from rightmost outlets to left. <i>See linked resource from earlier on data flow for more info</i>.
+              There is not much we have not already discussed going on in the JSON structure above. The biggest difference being the fact that now there are a handful of additional objects and patchlines. If you look closely at the patchlines and follow along with the id values and visually inspect the screenshot you can see that it tracks. Notice the <Code>order</Code> attribute though? This informs us of what order we will be sending out data from two patch cables that spawn from the same source. This is another attribute that we will not be using for our use case but can come in handy for debugging as often it is tricky to determine the order of operations in Max. A good rule of thumb is that messages flow in order from rightmost outlets to left. 
+            </Text>
+            <Text pt="20px">
+              <i>
+                See linked resource from earlier on data flow for more info
+              </i>.
             </Text>
             <Heading pb="20px" size="md">Nested Subpatchers</Heading>
             <Text pb="40px">
