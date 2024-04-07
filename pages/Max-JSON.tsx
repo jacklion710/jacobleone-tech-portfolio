@@ -93,6 +93,10 @@ export default function MaxPatchVisualizer() {
             <Text textAlign={'center'} pb="40px">
               The purpose of this project is to provide a tool for users of Max MSP, a popular patching based environment for various multimedia programming tasks. It is a popular tool for creative coders who want a similar experience to coding with a ton of objects which many programmers will find familiar. They have lists, matrices, operators, etc... you can even write Javascript and use node in Max! If you want to learn more about Max its worth searching up but for the sake of these project this is all we need to know in order to understand what problem this project aims to solve.
             </Text>
+            <Heading size="sm"  pt="40px" pb="20px">Prerequisite Knowledge</Heading>
+            <Text pb="40px">
+              If you have no experience with Javascript or programming it might be a good idea to brush up on Javascript objects and JSON to get a better idea of whats going on. Regardless, it isn't a strict requirement. Most of the patches we'll look at are simple and the fields are named in a way that makes it easy to read. 
+            </Text>
             <Heading size="lg" textAlign={'center'}  pb="20px">Max Patches Are Really JSON</Heading>
             <Text  pb="40px">
               Even though Max is a visual node based patcher environment when a section of a patch is copied to the clipboard it is copied not as a JSON object which contains information thats used for reconstructing the copied patch when pasted back into max. However, if we copy and paste this into a text editor we can see the JSON object that represents the patch. Matter of fact, if you copy and paste the JSON snippets from this article and paste them into your own patch then you will see the objects appear in your environment.
