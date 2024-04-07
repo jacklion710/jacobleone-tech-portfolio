@@ -95,7 +95,7 @@ export default function MaxPatchVisualizer() {
             </Text>
             <Heading size="sm"  pt="40px" pb="20px">Prerequisite Knowledge</Heading>
             <Text pb="40px">
-              If you have no experience with Javascript or programming it might be a good idea to brush up on Javascript objects and JSON to get a better idea of whats going on. Regardless, it isn't a strict requirement. Most of the patches we'll look at are simple and the fields are named in a way that makes it easy to read. 
+              If you have no experience with Javascript or programming it might be a good idea to brush up on Javascript objects and JSON to get a better idea of whats going on. Regardless, it isn&apos;t a strict requirement. Most of the patches we&apos;ll look at are simple and the fields are named in a way that makes it easy to read. 
             </Text>
             <Heading size="lg" textAlign={'center'}  pb="20px">Max Patches Are Really JSON</Heading>
             <Text  pb="40px">
