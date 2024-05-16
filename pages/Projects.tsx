@@ -42,6 +42,11 @@ import {
         githubUrl: "https://github.com/jacklion710/jacobleone-tech-portfolio",
     },
     {
+        title: "Convolutional Layer for Neural Networks In C",
+        description: "Rudimentary implementation of a convolutional layer in C",
+        imageUrl: "/images/CNN.png",
+    },
+    {
         title: "Flash Configurator",
         description: "Flash configurator GUI for debugging and uploading firmware in bytecode via parsing and processing intel hex format",
         imageUrl: "/images/flash-config.jpg",
