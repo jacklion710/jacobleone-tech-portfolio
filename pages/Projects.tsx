@@ -45,6 +45,7 @@ import {
         title: "Convolutional Layer for Neural Networks In C",
         description: "Rudimentary implementation of a convolutional layer in C",
         imageUrl: "/images/CNN.png",
+        githubUrl: "https://github.com/jacklion710/Convolutional-Image-Layer-in-C",
     },
     {
         title: "Flash Configurator",
