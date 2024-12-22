@@ -56,7 +56,7 @@ export default function Footer() {
         spacing={2}
         justify={{ base: 'center', md: 'space-between' }}
         align={{ base: 'center', md: 'center' }}>
-        <Text fontSize="sm">© 2023 Jacob Leone. All rights reserved</Text> 
+        <Text fontSize="sm">© 2025 Jacob Leone. All rights reserved</Text> 
         <Stack direction={'row'} spacing={4}>
           <SocialButton label={'Github'} href={'https://github.com/jacklion710'}>
             <FaGithub />
