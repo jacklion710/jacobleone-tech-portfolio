@@ -99,7 +99,7 @@ const ResumeComponent: React.FC = () => {
           <Heading textAlign="center" color="white" fontSize="2xl" mb={2}>
               About me
           </Heading>
-          <Text color="white" textAlign="center" mb={1}>I am driven by an intrinsic passion for tackling both creative and technical challenges. As part of agile development teams, I thrive on collaborating towards our shared mission: delivering exceptional value to clients efficiently and effectively. Before diving into the tech arena, I pursued an intensive graduate program at a top-tier university, focusing on the convergence of artificial intelligence and psychology. This academic journey endowed me with a unique lens: approaching AI development from a human-centric perspective and deeply understanding the nuanced ways people interact with technology. Beyond my academic pursuits, I am a perpetual learner, drawing from experiences that span leadership, creativity, problem-solving, and shepherding projects from mere ideas to successful execution.</Text>
+          <Text color="white" textAlign="center" mb={1}>I am driven by a passion for problem solving, both technically and creatively. In my work within AI-centric teams, I thrive on working together to achieve a shared mission: to deliver extraordinary value to clients efficiently and effectively. My academic background includes an intense graduate program at one of the leading AI universities, where I focused on integrating artificial intelligence with medical devices. This training has given me a unique perspective on AI engineering, focusing on an ethical, user-centric approach, and a deep understanding of the complex interactions between people and technology. Outside of academia, I am an active learner, developing leadership, creative thinking, problem solving, and driving initiatives from concept to completion.</Text>
         </motion.div>
         <motion.div ref={refEducation} initial="hidden" animate={inViewEducation ? "visible" : "hidden"} variants={fadeIn}>
           <Heading textAlign="left" color="white" fontSize="2xl" mb={2} mt={10}>
@@ -122,19 +122,19 @@ const ResumeComponent: React.FC = () => {
 
           <Text color="white" mb={1} fontSize="2xl">
           Programming Languages</Text>
-          <Text color="white" mb={1}>C/C++, GLSL, HTML, CSS, Python, JavaScript, TypeScript, Swift, R</Text>
+          <Text color="white" mb={1}>Python, C/C++, Matlab, TypeScript, R, Go, SQL</Text>
 
           <Text color="white" mb={1} fontSize="2xl">
           Tools & Technologies</Text>
-          <Text color="white" mb={1}>AWS, Docker, Postman, AI, node, VSCode, PCB, DSP, Raspberry Pi</Text>
+          <Text color="white" mb={1}>Wandb, Docker, Postman, Deep Learning, DSP, ESP32, Raspberry Pi</Text>
 
           <Text color="white" mb={1} fontSize="2xl">
           Operating Systems</Text>
-          <Text color="white" mb={1}>Linux Ubuntu, Windows10, MacOS</Text>
+          <Text color="white" mb={1}>Linux Ubuntu, Windows, MacOS</Text>
 
           <Text color="white" mb={1} fontSize="2xl">
           Frameworks</Text>
-          <Text color="white" mb={1}>Tensorflow, Pytorch, REST, Pandas, Numpy, Sklearn, Seaborn, React, Chakra UI, Firebase, Next JS, Jest, Redux
+          <Text color="white" mb={1}>Pytorch, Tensorflow, Keras, Pandas, Numpy, Scikit-Learn, MatPlotlib, Seaborn
           </Text>
 
         </motion.div>
@@ -145,6 +145,20 @@ const ResumeComponent: React.FC = () => {
           <Heading textAlign="left" color="white" fontSize="2xl" mb={2} mt={10}>
           Professional Experience
           </Heading>
+
+          <Text color="white" mb={1} fontSize="2xl">
+          Machine Learning Medical Engineer, Aventusoft | Boca Raton, FL</Text>
+          <Text color="white" mb={1}>Developed predictive AI models for use in medical devices and leveraged data science techniques to enhance algorithm functionality.
+          </Text>
+          <Text color="white" mb={1}>
+          ▪ Curated large medical datasets of ECG signals sourced from publicly available datasets as well as internal company data.
+          </Text>
+          <Text color="white" mb={1}>
+          ▪ Designed training routines for developing classification and predictive AI models for use in FDA approved medical devices.
+          </Text>
+          <Text color="white" mb={10}>
+          ▪ Collaborated with a cross functional technical team involving cloud architecture, low level firmware and hardware devices and biomedical engineers to integrate an end to end DSP based AI system into the flagship product.
+          </Text>
 
           <Text color="white" mb={1} fontSize="2xl">
           Team Lead & Software Architect, AuthentiKid | California • Idaho • Florida</Text>
@@ -160,20 +174,6 @@ const ResumeComponent: React.FC = () => {
           </Text>
           <Text color="white" mb={10}>
           ▪ Overseeing comprehensive data collection initiatives and AI model training processes, ensuring optimal performance and accuracy.
-          </Text>
-
-          <Text color="white" mb={1} fontSize="2xl">
-          Graduate Research Trainee, National Science Foundation at FAU| Boca Raton, FL</Text>
-          <Text color="white" mb={1}>Engaged in research, design and development for detection of ocular disease using CNNs and retinal photography.
-          </Text>
-          <Text color="white" mb={1}>
-          ▪ Developed, and tested software for detecting ocular diseases with deep learning and medical images using Tensorflow.
-          </Text>
-          <Text color="white" mb={1}>
-          ▪ Collaborated with professors and other graduate students on performing research and designing experiments.
-          </Text>
-          <Text color="white" mb={10}>
-          ▪ Implemented a framework for a web based audio-visual solution.
           </Text>
 
           <Text color="white" mb={1} fontSize="2xl">

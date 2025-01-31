@@ -100,7 +100,7 @@ export default function Resume() {
               <Button 
                   as="a" 
                   w="50%"
-                  href="/docs/Jacob_Leone_Tech_2024.pdf" 
+                  href="/docs/Jacob_Leone_AI_2025.pdf" 
                   download
                   colorScheme="gray"
                   fontSize="lg"
@@ -143,7 +143,7 @@ export default function Resume() {
             <VStack spacing={6} display={["flex", "none"]}>
             <Button 
                 as="a" 
-                href="/docs/Jacob_Leone_Tech_2024.pdf" 
+                href="/docs/Jacob_Leone_AI_2025.pdf" 
                 download
                 colorScheme="gray"
                 fontSize="lg"
