@@ -641,7 +641,7 @@ model.eval()`}
 
             <Heading size="md" pt="40px" pb="20px">Defining App Routes</Heading>
             <Text pb="20px">
-              The home route (<Code>'/'</Code>) uses the <Code>GET</Code> method and serves the HTML form where users can upload audio files.
+              The home route (<Code>&apos;/&apos;</Code>) uses the <Code>GET</Code> method and serves the HTML form where users can upload audio files.
             </Text>
 
             <CodeBlockWithCopy
@@ -653,7 +653,7 @@ def index():
 
             <Heading size="sm" pt="40px" pb="20px">Prediction Route</Heading>
             <Text pb="20px">
-              The prediction route (<Code>'/predict'</Code>) handles audio file uploads and predictions. It uses the <Code>POST</Code> method to receive the audio file, preprocesses it, runs it through the model, and returns the predicted class name as JSON.
+              The prediction route (<Code>&apos;/predict&apos;</Code>) handles audio file uploads and predictions. It uses the <Code>POST</Code> method to receive the audio file, preprocesses it, runs it through the model, and returns the predicted class name as JSON.
             </Text>
 
             <CodeBlockWithCopy

@@ -38,6 +38,8 @@ const blogArticles = [
 export default function BlogMenu() {
   const borderColor = useColorModeValue("gray.200", "gray.600");
   const cardBgColor = useColorModeValue("rgba(255, 255, 255, 0.9)", "rgba(45, 55, 72, 0.9)");
+  const titleColor = useColorModeValue("teal.600", "teal.200");
+  const descriptionColor = useColorModeValue("gray.700", "gray.300");
 
   const fadeIn = {
     hidden: { opacity: 0 },
@@ -134,13 +136,13 @@ export default function BlogMenu() {
                         size="md" 
                         my={2} 
                         textAlign="center"
-                        color={useColorModeValue("teal.600", "teal.200")}
+                        color={titleColor}
                       >
                         {article.title}
                       </Heading>
                       <Text 
                         mb={4}
-                        color={useColorModeValue("gray.700", "gray.300")}
+                        color={descriptionColor}
                       >
                         {article.description}
                       </Text>

@@ -392,7 +392,7 @@ plt.show()`}
 
               <Heading size="md" pt="40px" pb="20px">Mel-Spectrogram</Heading>
               <Text color="white" mb={1}>
-                &ldquo;A Mel-Spectrogram is a Spectrogram where the frequencies are converted to the Mel scale, more closely approximating human auditory system&apos;s response.&rdquo;
+                A Mel-Spectrogram is a Spectrogram where the frequencies are converted to the Mel scale, more closely approximating human auditory systems frequency response.
               </Text>
 
               <Heading size="sm" pb="20px">Computing and Plotting a Mel-Spectrogram</Heading>
