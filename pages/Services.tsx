@@ -56,9 +56,6 @@ import React, { useState, useEffect } from 'react';
 
     return (
         <ChakraProvider>
-            <Head>
-                <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
-            </Head>
             <Helmet>
                 <title>Jacob Leones Professional Tech Services</title>
                 <meta name="description" content="Discover the range of tech services offered by Jacob Leone, including AI & Machine Learning, Web Development, Software Development, and Mobile App Creation. Get tailored solutions for your specific needs." />

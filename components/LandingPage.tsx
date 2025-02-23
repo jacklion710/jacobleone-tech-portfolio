@@ -45,7 +45,6 @@ const LandingPage = () => {
         <meta property="og:description" content="Welcome to Jacob Leones tech portfolio. Immerse yourself in the innovative world of an AI Specialist and Software Engineer who approaches challenges from a unique, human-first perspective." />
         <meta property="og:url" content="https://jacobleone.tech/" />
         <link rel="canonical" href="https://jacobleone.tech/" />
-        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet"/>
       </Helmet>
       <Box bgColor="rgba(230, 230, 230, 0.7)" p={6} borderRadius="md">
         <VStack spacing={6}>

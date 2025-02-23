@@ -80,9 +80,6 @@ export default function TorchaudioTutorialP2() {
 
   return (
     <ChakraProvider>
-      <Head>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
-      </Head>
       <Helmet>
         <title>Torchaudio Study Project Part 2 | Jacob Leone</title>
         <meta name="description" content="Learn about audio processing and classification using PyTorch and torchaudio through a series of practical lessons." />

@@ -96,7 +96,7 @@ function Navbar() {
               <ChakraLink>
                   <Image 
                       src='/images/headshot.jpg' 
-                      alt="Headshot" 
+                      alt="Jacob Leone's headshot"
                       borderRadius="50%"
                       w="100px" 
                       h="100px" 
