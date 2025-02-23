@@ -17,7 +17,6 @@ import {
   import Navbar from "../components/Navbar";
   import Footer from '../components/Footer';
   import { Helmet } from "react-helmet";
-  import Head from 'next/head';
   import { motion } from 'framer-motion';
   import { useInView } from 'react-intersection-observer';
   import React, { useRef } from 'react';
@@ -181,9 +180,6 @@ import {
     
     return (
       <ChakraProvider>
-        <Head>
-            <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
-        </Head>
         <Helmet>
             <title>Jacob Leones Tech Projects | Showcase</title>
             <meta name="description" content="Dive deep into Jacob Leones innovative projects. From full-stack web applications, data cleaner scripts, audio-visual experiences to software portfolios, discover the depth and breadth of Jacobs tech expertise." />
@@ -193,7 +189,6 @@ import {
             <meta property="og:description" content="Explore Jacob Leones diverse projects that highlight his expertise in various domains of tech. Discover his contributions and innovations firsthand." />
             <meta property="og:url" content="https://jacobleone.tech/Projects" />
             <link rel="canonical" href="https://jacobleone.tech/Projects" />
-            <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet"/>
             </Helmet>
             <Flex 
                 direction="column"

@@ -14,10 +14,9 @@ import { FaLaptopCode, FaMobileAlt, FaBrain, FaCode } from "react-icons/fa";
 import Navbar from "../components/Navbar";
 import Footer from '../components/Footer';
 import { Helmet } from "react-helmet";
-import Head from 'next/head';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
   const services = [
     {
@@ -65,7 +64,6 @@ import React, { useState, useEffect } from 'react';
                 <meta property="og:description" content="Explore Jacob Leones specialized tech services, designed to provide optimal solutions in various domains including AI, web development, software creation, and mobile app design." />
                 <meta property="og:url" content="https://jacobleone.tech/Services" />
                 <link rel="canonical" href="https://jacobleone.tech/Services" />
-                <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet"/>
             </Helmet>
             <Flex 
                 direction="column" 

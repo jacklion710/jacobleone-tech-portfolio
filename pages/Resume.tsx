@@ -15,7 +15,6 @@ import Footer from '../components/Footer';
 import { Helmet } from 'react-helmet';
 import ResumeComponent from "../components/ResumeComponent";
 import ReferencesComponent from "../components/ReferencesComponent";
-import Head from 'next/head';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
@@ -38,9 +37,6 @@ export default function Resume() {
 
   return (
     <ChakraProvider>
-      <Head>
-          <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
-      </Head>
       <Helmet>
         <title>Jacob Leones Official Resume and Professional References</title>
         <meta name="description" content="Discover Jacob Leones detailed resume outlining his tech expertise, achievements, and experiences. Also, access authentic references vouching for Jacobs professional competencies." />
@@ -50,7 +46,6 @@ export default function Resume() {
         <meta property="og:description" content="Discover Jacob Leones detailed resume and explore professional references attesting to his expertise in the tech domain." />
         <meta property="og:url" content="https://jacobleone.tech/Resume" />
         <link rel="canonical" href="https://jacobleone.tech/Resume" />
-        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet"/>
     </Helmet>
       <Flex 
           direction="column" 

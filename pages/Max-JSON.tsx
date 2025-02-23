@@ -4,7 +4,6 @@ import { CopyIcon } from '@chakra-ui/icons';
 import Navbar from "@/components/Navbar";
 import Footer from '@/components/Footer';
 import { Helmet } from "react-helmet";
-import Head from 'next/head';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import CodeBlock from 'react-syntax-highlighter';
@@ -80,9 +79,6 @@ export default function MaxPatchVisualizer() {
 
   return (
     <ChakraProvider>
-      <Head>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
-      </Head>
       <Helmet>
         <title>Max Patches Are Actually JSON | Jacob Leone</title>
         <meta name="description" content="Explore the requirements and notes for the Max Patch Visualizer project by Jacob Leone. Learn about visualizing Max patches online." />

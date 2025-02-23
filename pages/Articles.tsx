@@ -12,7 +12,6 @@ import {
 import Navbar from "../components/Navbar";
 import Footer from '../components/Footer';
 import { Helmet } from "react-helmet";
-import Head from 'next/head';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import React from 'react';
@@ -52,9 +51,6 @@ export default function BlogMenu() {
   
   return (
     <ChakraProvider>
-      <Head>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
-      </Head>
       <Helmet>
         <title>Blog Articles | Jacob Leone</title>
         <meta name="description" content="Browse through the collection of blog articles by Your Name. Discover insights, tips, and stories on various topics." />

@@ -3,7 +3,6 @@ import { Flex, Heading, Text, VStack, ChakraProvider, Image, Box, Code, useColor
 import Navbar from "@/components/Navbar";
 import Footer from '@/components/Footer';
 import { Helmet } from "react-helmet";
-import Head from 'next/head';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import CodeBlock from 'react-syntax-highlighter';

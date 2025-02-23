@@ -208,6 +208,7 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ isOpen }) => {
               {navItem.imageSrc ? (
                 <Image 
                   src={navItem.imageSrc}
+                  alt={`Navigation item ${navItem.label || 'image'}`}
                   objectFit="cover"
                   objectPosition="center top"
                   w={isOpen ? "100px" : "50px"}

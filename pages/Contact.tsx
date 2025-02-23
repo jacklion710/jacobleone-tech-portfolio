@@ -24,7 +24,6 @@ import {
 import Navbar from "../components/Navbar";
 import Footer from '../components/Footer';
 import { Helmet } from 'react-helmet';
-import Head from 'next/head';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useState, useRef } from 'react'; 
@@ -130,9 +129,6 @@ import { useState, useRef } from 'react';
 
     return (
       <ChakraProvider>
-        <Head>
-            <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
-        </Head>
         <Helmet>
             <title>Connect with Jacob Leone | Contact & Collaboration</title>
             <meta name="description" content="Want to collaborate or ask a question? Get in touch with Jacob Leone through various platforms including LinkedIn, GitHub, YouTube, or directly via email." />

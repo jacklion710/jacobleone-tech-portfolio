@@ -3,7 +3,6 @@ import { Flex, Heading, Text, VStack, ChakraProvider, Image, Box, Code, useColor
 import Navbar from "@/components/Navbar";
 import Footer from '@/components/Footer';
 import { Helmet } from "react-helmet";
-import Head from 'next/head';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import CodeBlock from 'react-syntax-highlighter';
@@ -392,8 +391,8 @@ plt.show()`}
               />
 
               <Heading size="md" pt="40px" pb="20px">Mel-Spectrogram</Heading>
-              <Text pb="40px">
-                A Mel-Spectrogram is a Spectrogram where the frequencies are converted to the Mel scale, more closely approximating human auditory system&apos;s response.
+              <Text color="white" mb={1}>
+                &ldquo;A Mel-Spectrogram is a Spectrogram where the frequencies are converted to the Mel scale, more closely approximating human auditory system&apos;s response.&rdquo;
               </Text>
 
               <Heading size="sm" pb="20px">Computing and Plotting a Mel-Spectrogram</Heading>
