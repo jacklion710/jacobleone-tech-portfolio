@@ -152,7 +152,7 @@ export default function TorchaudioTutorialP2() {
             color="white"
           >
             <Text textAlign={'center'} pb="40px">
-              This project provides a structured approach to learning audio processing and classification using PyTorch and torchaudio. Through a series of lessons, you'll progress from basic audio handling to deploying audio models for real-world applications.
+              This project provides a structured approach to learning audio processing and classification using PyTorch and torchaudio. Through a series of lessons, you&apos;ll progress from basic audio handling to deploying audio models for real-world applications.
             </Text>
 
             <Heading size="lg" pt="60px" pb="20px">Lesson 5: Advanced Audio Processing Techniques</Heading>
@@ -243,7 +243,7 @@ export default function TorchaudioTutorialP2() {
 
             <Heading size="md" pb="20px">Demonstration</Heading>
             <Text pb="20px">
-              Let's apply these techniques to an example audio file and visualize the results.
+              Let&apos;s apply these techniques to an example audio file and visualize the results.
             </Text>
 
             <CodeBlockWithCopy
@@ -325,7 +325,7 @@ plt.show()`}
         if self.transformation:
             waveform = self.transformation(waveform)
 
-        # Ensure waveform is squeezed if it's mono to remove channel dimension
+        # Ensure waveform is squeezed if it&apos;s mono to remove channel dimension
         waveform = torch.squeeze(waveform)
       
         return waveform, label`}
@@ -365,7 +365,7 @@ temp_model = wav2vec2_bundle.get_model()`}
             />
 
             <Text pb="40px">
-              Here, we load a pre-trained Wav2Vec 2.0 model from torchaudio's pipeline. Wav2Vec 2.0 has been trained on a large corpus of unlabeled audio data and can extract rich, meaningful features from raw audio waveforms.
+              Here&apos;s how to load a pre-trained Wav2Vec 2.0 model from torchaudio&apos;s pipeline. Wav2Vec 2.0 has been trained on a large corpus of unlabeled audio data and can extract rich, meaningful features from raw audio waveforms.
             </Text>
 
             <Heading size="sm" pb="20px">Determining the Correct Feature Size</Heading>
@@ -400,7 +400,7 @@ model = Wav2Vec2ForAudioClassification(wav2vec2_bundle.get_model(), num_classes,
             />
 
             <Text pb="40px">
-              This class integrates the pre-trained Wav2Vec 2.0 model with a custom linear layer (<Code>self.classifier</Code>) for classification. The linear layer's input features match the size determined previously, ensuring compatibility with the extracted features.
+              This class integrates the pre-trained Wav2Vec 2.0 model with a custom linear layer (<Code>self.classifier</Code>) for classification. The linear layer&apos;s input features match the size determined previously, ensuring compatibility with the extracted features.
             </Text>
 
             <Heading size="md" pb="20px">Data Augmentation and Preprocessing</Heading>
@@ -423,7 +423,7 @@ model = Wav2Vec2ForAudioClassification(wav2vec2_bundle.get_model(), num_classes,
             />
 
             <Text pb="20px">
-              The <Code>model_info</Code> variable is a dictionary that stores not only the trained model's state but also the feature size used by the classifier. This is particularly important for transfer learning because it encapsulates both the learned parameters and the configuration necessary to reproduce the model's architecture. When we save this dictionary:
+              The <Code>model_info</Code> variable is a dictionary that stores not only the trained model&apos;s state but also the feature size used by the classifier. This is particularly important for transfer learning because it encapsulates both the learned parameters and the configuration necessary to reproduce the model&apos;s architecture. When we save this dictionary:
             </Text>
 
             <CodeBlockWithCopy
@@ -432,7 +432,7 @@ model = Wav2Vec2ForAudioClassification(wav2vec2_bundle.get_model(), num_classes,
             />
 
             <Text pb="40px">
-              We're ensuring that anyone who loads the model later has all the information needed to correctly initialize the model architecture and load the learned weights. This approach facilitates model sharing and deployment, as the model's architecture and its state are bundled together.
+              We&apos;re ensuring that anyone who loads the model later has all the information needed to correctly initialize the model architecture and load the learned weights. This approach facilitates model sharing and deployment, as the model&apos;s architecture and its state are bundled together.
             </Text>
 
             <Heading size="md" pb="20px">Training the Model</Heading>
@@ -454,7 +454,7 @@ optimizer = torch.optim.Adam(model.parameters(), lr=0.001)`}
 
             <Heading size="sm" pt="40px" pb="20px">The Training Loop</Heading>
             <Text pb="20px">
-              During training, we iterate over our dataset, compute the loss, and update the model's weights accordingly.
+              During training, we iterate over our dataset, compute the loss, and update the model&apos;s weights accordingly.
             </Text>
 
             <CodeBlockWithCopy
@@ -483,7 +483,7 @@ for epoch in range(num_epochs):
 
             <Heading size="md" pb="20px">Saving the Model</Heading>
             <Text pb="20px">
-              After training, we save the model's state along with the feature size to a file. This allows us to easily load the model for future inference.
+              After training, we save the model&apos;s state along with the feature size to a file. This allows us to easily load the model for future inference.
             </Text>
 
             <CodeBlockWithCopy
@@ -501,7 +501,7 @@ for epoch in range(num_epochs):
 
             <Heading size="lg" pt="60px" pb="20px">Lesson 7: Deploying Audio Models</Heading>
             <Text pb="40px">
-              In this lesson, we'll cover how to deploy our trained audio classification model using Flask, a lightweight WSGI web application framework in Python. This allows us to create a simple web interface for uploading audio files and getting predictions.
+              In this lesson, we&apos;ll cover how to deploy our trained audio classification model using Flask, a lightweight WSGI web application framework in Python. This allows us to create a simple web interface for uploading audio files and getting predictions.
             </Text>
 
             <Heading size="md" pb="20px">Model Definitions</Heading>
@@ -558,7 +558,7 @@ class Wav2Vec2ForAudioClassification(torch.nn.Module):
             />
 
             <Text pb="40px">
-              If you're not too familiar with <Code>HTML</Code>, <Code>CSS</Code> or <Code>JavaScript</Code> then have no fear! For the sake of this series, all you need to do is copy the code and follow along.
+              If you&apos;re not too familiar with <Code>HTML</Code>, <Code>CSS</Code> or <Code>JavaScript</Code> then have no fear! For the sake of this series, all you need to do is copy the code and follow along.
             </Text>
 
             <Heading size="sm" pb="20px">CSS (/static/css/styles.css)</Heading>
@@ -623,7 +623,7 @@ label:hover {
             />
 
             <Text pb="40px">
-              We're not too concerned with whats going on here, just know its going to make things on the UI look a little more neat and pleasing to look at.
+              We&apos;re not too concerned with whats going on here, just know its going to make things on the UI look a little more neat and pleasing to look at.
             </Text>
 
             <Heading size="sm" pt="40px" pb="20px">Loading the Trained Model</Heading>
@@ -712,7 +712,7 @@ def predict():
             />
 
             <Text pb="40px">
-              Once it's running go to <Code>http://127.0.0.1:5000</Code> on a browser
+              Once it&apos;s running go to <Code>http://127.0.0.1:5000</Code> on a browser
             </Text>
 
             <Text pb="40px">
@@ -721,23 +721,23 @@ def predict():
 
             <Heading size="lg" pt="60px" pb="20px">Conclusion and Moving Forward</Heading>
             <Text pb="40px">
-              Throughout these lessons, we've explored the foundational concepts and practical applications of building and deploying audio classification models using PyTorch and Flask. We started with the basics of PyTorch, learning about tensors and operations, and progressively moved towards more complex topics like audio processing, feature extraction, and model training. Finally, we applied transfer learning with Wav2Vec 2.0 and deployed our model with a Flask web application.
+              Throughout these lessons, we&apos;ve explored the foundational concepts and practical applications of building and deploying audio classification models using PyTorch and Flask. We started with the basics of PyTorch, learning about tensors and operations, and progressively moved towards more complex topics like audio processing, feature extraction, and model training. Finally, we applied transfer learning with Wav2Vec 2.0 and deployed our model with a Flask web application.
             </Text>
 
             <Heading size="md" pb="20px">Recap of Lessons</Heading>
             <UnorderedList pb="40px" spacing={2}>
-              <ListItem>Lesson 1: Introduced PyTorch, focusing on tensors and their operations.</ListItem>
-              <ListItem>Lesson 2: Covered loading and visualizing audio data using torchaudio.</ListItem>
-              <ListItem>Lesson 3: Explored audio feature extraction techniques such as spectrograms, MFCCs, and mel-spectrograms.</ListItem>
-              <ListItem>Lesson 4: Built a simple CNN model for audio classification and learned about data preparation and augmentation.</ListItem>
-              <ListItem>Lesson 5: Delved into advanced audio processing techniques and data augmentation to improve model performance.</ListItem>
-              <ListItem>Lesson 6: Applied transfer learning using the pre-trained Wav2Vec 2.0 model for enhanced audio classification.</ListItem>
-              <ListItem>Lesson 7: Deployed our trained audio classification model with a Flask web application, enabling real-world usage.</ListItem>
+              <ListItem><strong>Lesson 1:</strong> Introduced PyTorch, focusing on tensors and their operations.</ListItem>
+              <ListItem><strong>Lesson 2:</strong> Covered loading and visualizing audio data using torchaudio.</ListItem>
+              <ListItem><strong>Lesson 3:</strong> Explored audio feature extraction techniques such as spectrograms, MFCCs, and mel-spectrograms.</ListItem>
+              <ListItem><strong>Lesson 4:</strong> Built a simple CNN model for audio classification and learned about data preparation and augmentation.</ListItem>
+              <ListItem><strong>Lesson 5:</strong> Delved into advanced audio processing techniques and data augmentation to improve model performance.</ListItem>
+              <ListItem><strong>Lesson 6:</strong> Applied transfer learning using the pre-trained Wav2Vec 2.0 model for enhanced audio classification.</ListItem>
+              <ListItem><strong>Lesson 7:</strong> Deployed our trained audio classification model with a Flask web application, enabling real-world usage.</ListItem>
             </UnorderedList>
 
             <Heading size="md" pb="20px">Moving Forward</Heading>
             <Text pb="20px">
-              The journey doesn't end here. There's much more to explore and many ways to refine and expand your knowledge and skills in audio processing and machine learning. Here are some suggestions:
+              The journey doesn&apos;t end here. There&apos;s much more to explore and many ways to refine and expand your knowledge and skills in audio processing and machine learning. Here are some suggestions:
             </Text>
 
             <UnorderedList pb="40px" spacing={2}>

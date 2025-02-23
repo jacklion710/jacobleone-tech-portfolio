@@ -151,29 +151,29 @@ export default function TorchaudioTutorialP1() {
               color="white"
             >
               <Text textAlign={'center'} pb="40px">
-                This project provides a structured approach to learning audio processing and classification using PyTorch and torchaudio. Through a series of lessons, you'll progress from basic audio handling to deploying audio models for real-world applications.
+                This project provides a structured approach to learning audio processing and classification using PyTorch and torchaudio. Through a series of lessons, you&apos;ll progress from basic audio handling to deploying audio models for real-world applications.
               </Text>
 
               <Heading size="md" pb="20px">Project Overview</Heading>
               <Text pb="40px">
-                In this installment of my Torchaudio Study Project, I'll be taking you through the basics of audio processing and classification using PyTorch and torchaudio. The project is split into 7 lessons, each one building on the previous one. In this blog artile we will present lesssons 1 through 4 where we will build a basic audio classification model. You can follow along with the project on this blog but I recommend cloning the repository and running the code yourself. You can find it <a href="https://github.com/jacklion710/torchaudio-basics">here</a>. First we'll kick things off by setting up a conda environment and installing the necessary dependencies.
+                In this installment of my Torchaudio Study Project, I&apos;ll be taking you through the basics of audio processing and classification using PyTorch and torchaudio. The project is split into 7 lessons, each one building on the previous one. In this blog artile we will present lesssons 1 through 4 where we will build a basic audio classification model. You can follow along with the project on this blog but I recommend cloning the repository and running the code yourself. You can find it <a href="https://github.com/jacklion710/torchaudio-basics">here</a>. First we&apos;ll kick things off by setting up a conda environment and installing the necessary dependencies.
               </Text>
               
               <Heading size="md" pb="20px">Dataset</Heading>
               <Text pb="40px">
-                We'll be using the UrbanSound8K dataset, which contains 8732 labeled sound excerpts of urban sounds from 10 classes. The dataset is pre-sorted into ten folds for cross-validation and experimentation. You can find it <a href="https://urbansounddataset.weebly.com/urbansound8k.html">here</a>.
+                We&apos;ll be using the UrbanSound8K dataset, which contains 8732 labeled sound excerpts of urban sounds from 10 classes. The dataset is pre-sorted into ten folds for cross-validation and experimentation. You can find it <a href="https://urbansounddataset.weebly.com/urbansound8k.html">here</a>.
               </Text>
 
               <Heading size="md" pb="20px">Lessons Overview</Heading>
               
               <Heading size="sm" pt="40px" pb="20px">Lesson 1: Introduction to PyTorch</Heading>
               <Text pb="40px">
-                Learn PyTorch's fundamentals, including tensors, operations, and computational graphs.
+                Learn PyTorch&apos;s fundamentals, including tensors, operations, and computational graphs.
               </Text>
 
               <Heading size="md" pt="40px" pb="20px">PyTorch GPU Setup</Heading>
               <Text pb="20px">
-                Setting up PyTorch with GPU support requires specific steps. Here's how to get started:
+                Setting up PyTorch with GPU support requires specific steps. Here&apos;s how to get started:
               </Text>
 
               <Text pb="20px">Initialize conda environment (requires Python 3.7+):</Text>
@@ -193,17 +193,17 @@ export default function TorchaudioTutorialP1() {
 
               <Heading size="lg" pt="60px" pb="20px">Lesson 1: Introduction to PyTorch Fundamentals</Heading>
               <Text pb="40px">
-                Welcome to the first lesson in our series on audio processing with PyTorch. We'll explore the basics of PyTorch, including tensors, operations, and core concepts that make it essential for machine learning and audio processing.
+                Welcome to the first lesson in our series on audio processing with PyTorch. We&apos;ll explore the basics of PyTorch, including tensors, operations, and core concepts that make it essential for machine learning and audio processing.
               </Text>
 
               <Heading size="md" pb="20px">What is PyTorch?</Heading>
               <Text pb="40px">
-                PyTorch is an open-source machine learning library developed by Facebook's AI Research lab. It provides a flexible and intuitive framework for building and training neural networks, with a strong focus on deep learning.
+                PyTorch is an open-source machine learning library developed by Facebook&apos;s AI Research lab. It provides a flexible and intuitive framework for building and training neural networks, with a strong focus on deep learning.
               </Text>
 
               <Heading size="md" pb="20px">Getting Started with Tensors</Heading>
               <Text pb="20px">
-                Let's start with creating and manipulating tensors, the fundamental building blocks in PyTorch:
+                Let&apos;s start with creating and manipulating tensors, the fundamental building blocks in PyTorch:
               </Text>
 
               <CodeBlockWithCopy
@@ -225,7 +225,7 @@ print("Element-wise multiplication:", z)`}
 
               <Heading size="md" pt="40px" pb="20px">Advanced Tensor Operations</Heading>
               <Text pb="20px">
-                Let's explore more complex tensor operations that are particularly useful in audio processing:
+                Let&apos;s explore more complex tensor operations that are particularly useful in audio processing:
               </Text>
 
               <CodeBlockWithCopy
@@ -244,7 +244,7 @@ print("Broadcasted Addition:", result)`}
 
               <Heading size="md" pt="40px" pb="20px">Working with Audio Data</Heading>
               <Text pb="20px">
-                Understanding how to handle audio data in PyTorch is crucial. Here's how to work with mono and stereo audio:
+                Understanding how to handle audio data in PyTorch is crucial. Here&apos;s how to work with mono and stereo audio:
               </Text>
 
               <CodeBlockWithCopy
@@ -262,7 +262,7 @@ print("Converted mono shape:", mono_converted.shape)`}
               />
 
               <Text pt="40px" pb="40px">
-                This concludes our first lesson on PyTorch fundamentals. In the next lesson, we'll explore more advanced audio processing techniques and how to apply these concepts to real-world audio data.
+                This concludes our first lesson on PyTorch fundamentals. In the next lesson, we&apos;ll explore more advanced audio processing techniques and how to apply these concepts to real-world audio data.
               </Text>
 
               <Heading size="md" pt="40px" pb="20px">Acknowledgments</Heading>
@@ -299,7 +299,7 @@ waveform, sample_rate = torchaudio.load(filename)`}
 
               <Heading size="md" pb="20px">Visualizing Audio Data</Heading>
               <Text pb="20px">
-                Visualizing audio can provide insights into its characteristics. Let's plot the waveform of our loaded audio:
+                Visualizing audio can provide insights into its characteristics. Let&apos;s plot the waveform of our loaded audio:
               </Text>
 
               <CodeBlockWithCopy
@@ -329,7 +329,7 @@ plt.show()`}
               </Text>
 
               <Text pb="40px">
-                In this lesson, you've learned how to load and visualize audio data using <Code>torchaudio</Code> and <Code>matplotlib</Code>. These skills form the foundation for more advanced audio processing tasks, such as feature extraction and audio classification, which we'll explore in upcoming lessons.
+                In this lesson, you&apos;ve learned how to load and visualize audio data using <Code>torchaudio</Code> and <Code>matplotlib</Code>. These skills form the foundation for more advanced audio processing tasks, such as feature extraction and audio classification, which we&apos;ll explore in upcoming lessons.
               </Text>
 
               <Text pb="40px">
@@ -343,12 +343,12 @@ plt.show()`}
 
               <Heading size="md" pb="20px">Understanding Audio Features</Heading>
               <Text pb="40px">
-                Feature extraction transforms raw audio data into a structured format that's more informative and less redundant for machine learning models. Common audio features include Spectrograms, Mel-Frequency Cepstral Coefficients (MFCCs), and Mel-Spectrograms.
+                Feature extraction transforms raw audio data into a structured format that&apos;s more informative and less redundant for machine learning models. Common audio features include Spectrograms, Mel-Frequency Cepstral Coefficients (MFCCs), and Mel-Spectrograms.
               </Text>
 
               <Heading size="md" pb="20px">Spectrograms</Heading>
               <Text pb="40px">
-                A spectrogram is a visual representation of the spectrum of frequencies in a sound or other signal as they vary with time. It's a powerful tool for analyzing the frequency content of audio signals.
+                A spectrogram is a visual representation of the spectrum of frequencies in a sound or other signal as they vary with time. It&apos;s a powerful tool for analyzing the frequency content of audio signals.
               </Text>
 
               <Heading size="sm" pb="20px">Computing and Plotting a Spectrogram</Heading>
@@ -396,7 +396,7 @@ plt.show()`}
 
               <Heading size="md" pt="40px" pb="20px">Mel-Spectrogram</Heading>
               <Text pb="40px">
-                A Mel-Spectrogram is a Spectrogram where the frequencies are converted to the Mel scale, more closely approximating human auditory system's response.
+                A Mel-Spectrogram is a Spectrogram where the frequencies are converted to the Mel scale, more closely approximating human auditory system&apos;s response.
               </Text>
 
               <Heading size="sm" pb="20px">Computing and Plotting a Mel-Spectrogram</Heading>
@@ -425,7 +425,7 @@ plt.show()`}
 
               <Heading size="lg" pt="60px" pb="20px">Lesson 4: Building a Simple Audio Classification Model</Heading>
               <Text pb="40px">
-                In this lesson, we're focusing on constructing a basic CNN model to classify different types of urban sounds using the UrbanSound8K dataset. This dataset consists of various urban sounds from 10 classes, making it an excellent choice for our classification project.
+                In this lesson, we&apos;re focusing on constructing a basic CNN model to classify different types of urban sounds using the UrbanSound8K dataset. This dataset consists of various urban sounds from 10 classes, making it an excellent choice for our classification project.
               </Text>
 
               <Heading size="md" pb="20px">Preparing the Dataset</Heading>
@@ -519,7 +519,7 @@ root_dir = '../../data/audio/'`}
               />
 
               <Text pb="40px">
-                In the next lesson, we will discuss advanced audio data augmentation techniques to further improve our model's performance.
+                In the next lesson, we will discuss advanced audio data augmentation techniques to further improve our model&apos;s performance.
               </Text>
             </Box>
           </VStack>
