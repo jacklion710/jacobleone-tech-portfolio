@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Heading, Text, VStack, ChakraProvider, Image, Box, Code, useColorModeValue, IconButton, useClipboard, useToast } from "@chakra-ui/react";
+import { Flex, Heading, Text, VStack, ChakraProvider, Image, Box, Code, useColorModeValue, IconButton, useClipboard, useToast, UnorderedList, ListItem, Link } from "@chakra-ui/react";
 import Navbar from "@/components/Navbar";
 import Footer from '@/components/Footer';
 import { Helmet } from "react-helmet";
@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import CodeBlock from 'react-syntax-highlighter';
 import { vs2015 } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
-import { CopyIcon } from '@chakra-ui/icons';
+import { CopyIcon, ExternalLinkIcon } from '@chakra-ui/icons';
 
 interface CodeBlockWithCopyProps {
   code: string;
@@ -717,6 +717,110 @@ def predict():
 
             <Text pb="40px">
               This setup allows users to upload audio files through a web interface, and the backend processes these files to return the predicted audio class. Deploying the model in this way makes it accessible for real-world applications and testing.
+            </Text>
+
+            <Heading size="lg" pt="60px" pb="20px">Conclusion and Moving Forward</Heading>
+            <Text pb="40px">
+              Throughout these lessons, we've explored the foundational concepts and practical applications of building and deploying audio classification models using PyTorch and Flask. We started with the basics of PyTorch, learning about tensors and operations, and progressively moved towards more complex topics like audio processing, feature extraction, and model training. Finally, we applied transfer learning with Wav2Vec 2.0 and deployed our model with a Flask web application.
+            </Text>
+
+            <Heading size="md" pb="20px">Recap of Lessons</Heading>
+            <UnorderedList pb="40px" spacing={2}>
+              <ListItem>Lesson 1: Introduced PyTorch, focusing on tensors and their operations.</ListItem>
+              <ListItem>Lesson 2: Covered loading and visualizing audio data using torchaudio.</ListItem>
+              <ListItem>Lesson 3: Explored audio feature extraction techniques such as spectrograms, MFCCs, and mel-spectrograms.</ListItem>
+              <ListItem>Lesson 4: Built a simple CNN model for audio classification and learned about data preparation and augmentation.</ListItem>
+              <ListItem>Lesson 5: Delved into advanced audio processing techniques and data augmentation to improve model performance.</ListItem>
+              <ListItem>Lesson 6: Applied transfer learning using the pre-trained Wav2Vec 2.0 model for enhanced audio classification.</ListItem>
+              <ListItem>Lesson 7: Deployed our trained audio classification model with a Flask web application, enabling real-world usage.</ListItem>
+            </UnorderedList>
+
+            <Heading size="md" pb="20px">Moving Forward</Heading>
+            <Text pb="20px">
+              The journey doesn't end here. There's much more to explore and many ways to refine and expand your knowledge and skills in audio processing and machine learning. Here are some suggestions:
+            </Text>
+
+            <UnorderedList pb="40px" spacing={2}>
+              <ListItem><strong>Experiment with Different Datasets:</strong> Practice with various audio datasets to understand how different types of data affect model performance.</ListItem>
+              <ListItem><strong>Try Advanced Models:</strong> Explore more complex models such as recurrent neural networks (RNNs), long short-term memory networks (LSTMs), and Transformer models.</ListItem>
+              <ListItem><strong>Participate in Competitions:</strong> Engage in online competitions on platforms like Kaggle to challenge yourself and learn from the community.</ListItem>
+              <ListItem><strong>Contribute to Open Source:</strong> Consider contributing to open-source projects related to audio processing and machine learning.</ListItem>
+              <ListItem><strong>Continuous Learning:</strong> Stay updated with the latest research, attend workshops, and take online courses.</ListItem>
+            </UnorderedList>
+
+            <Heading size="md" pb="20px">Recommended Resources</Heading>
+            <UnorderedList pb="40px" spacing={2}>
+              <ListItem>
+                <Link 
+                  href="https://pytorch.org/docs/" 
+                  isExternal 
+                  color="white"
+                  fontWeight="bold"
+                  textDecoration="underline"
+                  _hover={{ 
+                    color: "teal.200",
+                    textDecoration: "none" 
+                  }}
+                >
+                  PyTorch Official Documentation <ExternalLinkIcon mx="2px" />
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link 
+                  href="https://pytorch.org/audio/stable/index.html" 
+                  isExternal 
+                  color="white"
+                  fontWeight="bold"
+                  textDecoration="underline"
+                  _hover={{ 
+                    color: "teal.200",
+                    textDecoration: "none" 
+                  }}
+                >
+                  Torchaudio Documentation <ExternalLinkIcon mx="2px" />
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link 
+                  href="https://www.kaggle.com/" 
+                  isExternal 
+                  color="white"
+                  fontWeight="bold"
+                  textDecoration="underline"
+                  _hover={{ 
+                    color: "teal.200",
+                    textDecoration: "none" 
+                  }}
+                >
+                  Kaggle <ExternalLinkIcon mx="2px" />
+                </Link>
+                {" "}for datasets and competitions
+              </ListItem>
+              <ListItem>
+                <Link 
+                  href="https://arxiv.org/" 
+                  isExternal 
+                  color="white"
+                  fontWeight="bold"
+                  textDecoration="underline"
+                  _hover={{ 
+                    color: "teal.200",
+                    textDecoration: "none" 
+                  }}
+                >
+                  arXiv <ExternalLinkIcon mx="2px" />
+                </Link>
+                {" "}for the latest research papers
+              </ListItem>
+              <ListItem>Explore GitHub for open-source projects and code examples in the field of audio processing and machine learning.</ListItem>
+            </UnorderedList>
+
+            <Text pb="20px">
+              We hope these lessons have provided you with a solid foundation and inspired you to continue exploring the fascinating world of audio processing with PyTorch. Remember, practice is key to mastering these concepts, so keep experimenting, learning, and building.
+            </Text>
+
+            <Text pb="40px">
+              Thank you for following along, and best of luck on your machine learning journey!
             </Text>
 
           </Box>
