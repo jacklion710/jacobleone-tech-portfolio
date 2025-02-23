@@ -1,5 +1,6 @@
 import React from 'react';
-import { Flex, Heading, Text, VStack, ChakraProvider, Image, Box, Code, useColorModeValue } from "@chakra-ui/react";
+import { Flex, Heading, Text, VStack, ChakraProvider, Image, Box, Code, useColorModeValue, IconButton, useClipboard, useToast } from "@chakra-ui/react";
+import { CopyIcon } from '@chakra-ui/icons';
 import Navbar from "@/components/Navbar";
 import Footer from '@/components/Footer';
 import { Helmet } from "react-helmet";
@@ -9,14 +10,68 @@ import { useInView } from 'react-intersection-observer';
 import CodeBlock from 'react-syntax-highlighter';
 import { vs2015 } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
+interface CodeBlockWithCopyProps {
+  code: string;
+  language: string;
+}
+
+const CodeBlockWithCopy: React.FC<CodeBlockWithCopyProps> = ({ code, language }) => {
+  const { hasCopied, onCopy } = useClipboard(code);
+  const toast = useToast();
+
+  const handleCopy = () => {
+    onCopy();
+    toast({
+      title: "Code copied",
+      status: "success",
+      duration: 2000,
+      isClosable: true,
+    });
+  };
+
+  return (
+    <Box position="relative">
+      <IconButton
+        aria-label="Copy code"
+        icon={<CopyIcon />}
+        size="sm"
+        position="absolute"
+        top={2}
+        right={2}
+        onClick={handleCopy}
+        zIndex={2}
+        colorScheme="gray"
+        _hover={{ bg: 'gray.600' }}
+      />
+      <CodeBlock
+        language={language}
+        style={vs2015}
+        customStyle={{
+          background: 'black',
+          padding: '1rem',
+          borderRadius: '0.5rem',
+          marginBottom: '1rem',
+          marginTop: '1rem',
+          boxShadow: '0 0 10px rgba(0,0,0,0.5)',
+          color: 'white'
+        }}
+        codeTagProps={{
+          style: {
+            fontFamily: 'monospace',
+            fontSize: '0.9rem',
+          },
+        }}
+      >
+        {code}
+      </CodeBlock>
+    </Box>
+  );
+};
+
 export default function MaxPatchVisualizer() {
   const fadeIn = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { duration: 1.33 } }
-  };
-
-  const handleCopy = (code: string) => {
-    navigator.clipboard.writeText(code);
   };
 
   const [navbarRef, navbarInView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -110,85 +165,32 @@ export default function MaxPatchVisualizer() {
             <Text  pb="40px">
               If we create a single <Code>cycle~</Code> object and copy it, the resulting JSON looks like this:
             </Text>
-            <CodeBlock
+            <CodeBlockWithCopy
               language="json"
-              style={vs2015}
-              showLineNumbers
-              wrapLines
-              customStyle={{
-                background: useColorModeValue('gray.400', 'gray.900'),
-                padding: '1rem',
-                borderRadius: '0.5rem',
-                marginTop: '1rem',
-                marginBottom: '1rem',
-                color: 'white'
-              }}
-              codeTagProps={{
-                style: {
-                  fontFamily: 'monospace',
-                  fontSize: '0.9rem',
-                },
-              }}
-              onDoubleClick={() =>
-                handleCopy(
-                  JSON.stringify(
-                    {
-                      boxes: [
-                        {
-                          box: {
-                            maxclass: 'newobj',
-                            text: 'cycle~',
-                            id: 'obj-5',
-                            numinlets: 2,
-                            numoutlets: 1,
-                            patching_rect: [402.666678667068481, 101.333336353302002, 43.0, 22.0],
-                            outlettype: ['signal'],
-                          },
-                        },
-                      ],
-                      appversion: {
-                        major: 8,
-                        minor: 6,
-                        revision: 2,
-                        architecture: 'x64',
-                        modernui: 1,
-                      },
-                      classnamespace: 'box',
+              code={JSON.stringify({
+                boxes: [
+                  {
+                    box: {
+                      maxclass: 'newobj',
+                      text: 'cycle~',
+                      id: 'obj-5',
+                      numinlets: 2,
+                      numoutlets: 1,
+                      patching_rect: [402.666678667068481, 101.333336353302002, 43.0, 22.0],
+                      outlettype: ['signal'],
                     },
-                    null,
-                    2
-                  )
-                )
-              }
-            >
-              {JSON.stringify(
-                {
-                  boxes: [
-                    {
-                      box: {
-                        maxclass: 'newobj',
-                        text: 'cycle~',
-                        id: 'obj-5',
-                        numinlets: 2,
-                        numoutlets: 1,
-                        patching_rect: [402.666678667068481, 101.333336353302002, 43.0, 22.0],
-                        outlettype: ['signal'],
-                      },
-                    },
-                  ],
-                  appversion: {
-                    major: 8,
-                    minor: 6,
-                    revision: 2,
-                    architecture: 'x64',
-                    modernui: 1,
                   },
-                  classnamespace: 'box',
+                ],
+                appversion: {
+                  major: 8,
+                  minor: 6,
+                  revision: 2,
+                  architecture: 'x64',
+                  modernui: 1,
                 },
-                null,
-                2
-              )}
-            </CodeBlock>
+                classnamespace: 'box',
+              }, null, 2)}
+            />
             <Text  pt="40px"  pb="40px">
               The <Code>appversion</Code> contains metadata about the system and version used. Its not important for our application so we can simply disregard it. Likewise <Code>classnamespace</Code> is not important to us right now. Instead, we will turn our attention to the data fields under <Code>boxes</Code>. The <Code>box</Code> key values associated with the <Code>boxes</Code> field represent the objects we have copied from our patch. Currently there is only one but we will soon see an example with more. A <Code>box</Code> represents any single object and contains attributes which will vary depending on the object.
             </Text>
@@ -220,121 +222,50 @@ export default function MaxPatchVisualizer() {
             <Text pb="40px">
               If we create a second object and make a single patch connection from one object to another, we can observe some changes in our JSON. The <Code>dac~</Code> object uses your computers digital audio converter if available to play audio aloud.
             </Text>
-            <CodeBlock
+            <CodeBlockWithCopy
               language="json"
-              style={vs2015}
-              showLineNumbers
-              wrapLines
-              customStyle={{
-                background: useColorModeValue('gray.400', 'gray.900'),
-                padding: '1rem',
-                borderRadius: '0.5rem',
-                marginTop: '1rem',
-                marginBottom: '1rem',
-                color: 'white',
-              }}
-              codeTagProps={{
-                style: {
-                  fontFamily: 'monospace',
-                  fontSize: '0.9rem',
-                },
-              }}
-              onDoubleClick={() => {
-                handleCopy(
-                  JSON.stringify(
-                    {
-                      boxes: [
-                        {
-                          box: {
-                            maxclass: 'newobj',
-                            text: 'dac~',
-                            id: 'obj-2',
-                            numinlets: 2,
-                            numoutlets: 0,
-                            patching_rect: [308.666675865650177, 124.000003695487976, 35.0, 22.0],
-                          },
-                        },
-                        {
-                          box: {
-                            maxclass: 'newobj',
-                            text: 'cycle~ 440',
-                            id: 'obj-1',
-                            numinlets: 2,
-                            numoutlets: 1,
-                            patching_rect: [308.666675865650177, 89.000002652406693, 66.0, 22.0],
-                            outlettype: ['signal'],
-                          },
-                        },
-                      ],
-                      lines: [
-                        {
-                          patchline: {
-                            source: ['obj-1', 0],
-                            destination: ['obj-2', 0],
-                          },
-                        },
-                      ],
-                      appversion: {
-                        major: 8,
-                        minor: 6,
-                        revision: 2,
-                        architecture: 'x64',
-                        modernui: 1,
-                      },
-                      classnamespace: 'box',
+              code={JSON.stringify({
+                boxes: [
+                  {
+                    box: {
+                      maxclass: 'newobj',
+                      text: 'dac~',
+                      id: 'obj-2',
+                      numinlets: 2,
+                      numoutlets: 0,
+                      patching_rect: [308.666675865650177, 124.000003695487976, 35.0, 22.0],
                     },
-                    null,
-                    2
-                  )
-                );
-              }}
-            >
-              {JSON.stringify(
-                {
-                  boxes: [
-                    {
-                      box: {
-                        maxclass: 'newobj',
-                        text: 'dac~',
-                        id: 'obj-2',
-                        numinlets: 2,
-                        numoutlets: 0,
-                        patching_rect: [308.666675865650177, 124.000003695487976, 35.0, 22.0],
-                      },
-                    },
-                    {
-                      box: {
-                        maxclass: 'newobj',
-                        text: 'cycle~ 440',
-                        id: 'obj-1',
-                        numinlets: 2,
-                        numoutlets: 1,
-                        patching_rect: [308.666675865650177, 89.000002652406693, 66.0, 22.0],
-                        outlettype: ['signal'],
-                      },
-                    },
-                  ],
-                  lines: [
-                    {
-                      patchline: {
-                        source: ['obj-1', 0],
-                        destination: ['obj-2', 0],
-                      },
-                    },
-                  ],
-                  appversion: {
-                    major: 8,
-                    minor: 6,
-                    revision: 2,
-                    architecture: 'x64',
-                    modernui: 1,
                   },
-                  classnamespace: 'box',
+                  {
+                    box: {
+                      maxclass: 'newobj',
+                      text: 'cycle~ 440',
+                      id: 'obj-1',
+                      numinlets: 2,
+                      numoutlets: 1,
+                      patching_rect: [308.666675865650177, 89.000002652406693, 66.0, 22.0],
+                      outlettype: ['signal'],
+                    },
+                  },
+                ],
+                lines: [
+                  {
+                    patchline: {
+                      source: ['obj-1', 0],
+                      destination: ['obj-2', 0],
+                    },
+                  },
+                ],
+                appversion: {
+                  major: 8,
+                  minor: 6,
+                  revision: 2,
+                  architecture: 'x64',
+                  modernui: 1,
                 },
-                null,
-                2
-              )}
-            </CodeBlock>
+                classnamespace: 'box',
+              }, null, 2)}
+            />
             <Heading pt="40px" pb="20px" size="sm">Multiple Boxes</Heading>
             <Text pb="40px">
               In the patch above we can see there are now two fields called <Code>box</Code>. As described in the previous example, the properties within these fields tell us information about the object associated with that <Code>box</Code>. The only difference now is that we have multiple. There is theoretically no limit to the number of boxes you can spawn in a patch.
@@ -366,171 +297,75 @@ export default function MaxPatchVisualizer() {
             <Text pb="40px">
               These objects do not look that different from our usual JSON representation save for a few minor differences which we will now go over.
             </Text>
-            <CodeBlock
+            <CodeBlockWithCopy
               language="json"
-              style={vs2015}
-              showLineNumbers
-              wrapLines
-              customStyle={{
-                background: useColorModeValue('gray.400', 'gray.900'),
-                padding: '1rem',
-                borderRadius: '0.5rem',
-                marginTop: '1rem',
-                marginBottom: '1rem',
-                color: 'white',
-              }}
-              codeTagProps={{
-                style: {
-                  fontFamily: 'monospace',
-                  fontSize: '0.9rem',
-                },
-              }}
-              onDoubleClick={() => {
-                handleCopy(
-                  JSON.stringify(
-                    {
-                      boxes: [
-                        {
-                          box: {
-                            maxclass: 'slider',
-                            id: 'obj-19',
-                            parameter_enable: 0,
-                            numinlets: 1,
-                            numoutlets: 1,
-                            patching_rect: [236.333340376615524, 60.500001445412636, 104.66666978597641, 34.333334356546402],
-                            outlettype: [''],
-                          },
-                        },
-                        {
-                          box: {
-                            maxclass: 'number',
-                            id: 'obj-17',
-                            parameter_enable: 0,
-                            numinlets: 1,
-                            numoutlets: 2,
-                            patching_rect: [363.000010818243027, 66.666668623685837, 50.0, 22.0],
-                            outlettype: ['', 'bang'],
-                          },
-                        },
-                        {
-                          box: {
-                            maxclass: 'button',
-                            id: 'obj-15',
-                            parameter_enable: 0,
-                            numinlets: 1,
-                            numoutlets: 1,
-                            patching_rect: [431.666679531335831, 65.666668623685837, 24.0, 24.0],
-                            outlettype: ['bang'],
-                          },
-                        },
-                        {
-                          box: {
-                            maxclass: 'live.dial',
-                            varname: 'live.dial',
-                            id: 'obj-11',
-                            parameter_enable: 1,
-                            numinlets: 1,
-                            numoutlets: 2,
-                            patching_rect: [480.666680991649628, 48.329999999999984, 41.0, 48.0],
-                            outlettype: ['', 'float'],
-                            saved_attribute_attributes: {
-                              valueof: {
-                                parameter_longname: 'live.dial',
-                                parameter_modmode: 3,
-                                parameter_shortname: 'live.dial',
-                                parameter_type: 0,
-                                parameter_unitstyle: 0,
-                              },
-                            },
-                          },
-                        },
-                      ],
-                      appversion: {
-                        major: 8,
-                        minor: 6,
-                        revision: 2,
-                        architecture: 'x64',
-                        modernui: 1,
-                      },
-                      classnamespace: 'box',
+              code={JSON.stringify({
+                boxes: [
+                  {
+                    box: {
+                      maxclass: 'slider',
+                      id: 'obj-19',
+                      parameter_enable: 0,
+                      numinlets: 1,
+                      numoutlets: 1,
+                      patching_rect: [236.333340376615524, 60.500001445412636, 104.66666978597641, 34.333334356546402],
+                      outlettype: [''],
                     },
-                    null,
-                    2
-                  )
-                );
-              }}
-            >
-              {JSON.stringify(
-                {
-                  boxes: [
-                    {
-                      box: {
-                        maxclass: 'slider',
-                        id: 'obj-19',
-                        parameter_enable: 0,
-                        numinlets: 1,
-                        numoutlets: 1,
-                        patching_rect: [236.333340376615524, 60.500001445412636, 104.66666978597641, 34.333334356546402],
-                        outlettype: [''],
-                      },
-                    },
-                    {
-                      box: {
-                        maxclass: 'number',
-                        id: 'obj-17',
-                        parameter_enable: 0,
-                        numinlets: 1,
-                        numoutlets: 2,
-                        patching_rect: [363.000010818243027, 66.666668623685837, 50.0, 22.0],
-                        outlettype: ['', 'bang'],
-                      },
-                    },
-                    {
-                      box: {
-                        maxclass: 'button',
-                        id: 'obj-15',
-                        parameter_enable: 0,
-                        numinlets: 1,
-                        numoutlets: 1,
-                        patching_rect: [431.666679531335831, 65.666668623685837, 24.0, 24.0],
-                        outlettype: ['bang'],
-                      },
-                    },
-                    {
-                      box: {
-                        maxclass: 'live.dial',
-                        varname: 'live.dial',
-                        id: 'obj-11',
-                        parameter_enable: 1,
-                        numinlets: 1,
-                        numoutlets: 2,
-                        patching_rect: [480.666680991649628, 48.329999999999984, 41.0, 48.0],
-                        outlettype: ['', 'float'],
-                        saved_attribute_attributes: {
-                          valueof: {
-                            parameter_longname: 'live.dial',
-                            parameter_modmode: 3,
-                            parameter_shortname: 'live.dial',
-                            parameter_type: 0,
-                            parameter_unitstyle: 0,
-                          },
-                        },
-                      },
-                    },
-                  ],
-                  appversion: {
-                    major: 8,
-                    minor: 6,
-                    revision: 2,
-                    architecture: 'x64',
-                    modernui: 1,
                   },
-                  classnamespace: 'box',
+                  {
+                    box: {
+                      maxclass: 'number',
+                      id: 'obj-17',
+                      parameter_enable: 0,
+                      numinlets: 1,
+                      numoutlets: 2,
+                      patching_rect: [363.000010818243027, 66.666668623685837, 50.0, 22.0],
+                      outlettype: ['', 'bang'],
+                    },
+                  },
+                  {
+                    box: {
+                      maxclass: 'button',
+                      id: 'obj-15',
+                      parameter_enable: 0,
+                      numinlets: 1,
+                      numoutlets: 1,
+                      patching_rect: [431.666679531335831, 65.666668623685837, 24.0, 24.0],
+                      outlettype: ['bang'],
+                    },
+                  },
+                  {
+                    box: {
+                      maxclass: 'live.dial',
+                      varname: 'live.dial',
+                      id: 'obj-11',
+                      parameter_enable: 1,
+                      numinlets: 1,
+                      numoutlets: 2,
+                      patching_rect: [480.666680991649628, 48.329999999999984, 41.0, 48.0],
+                      outlettype: ['', 'float'],
+                      saved_attribute_attributes: {
+                        valueof: {
+                          parameter_longname: 'live.dial',
+                          parameter_modmode: 3,
+                          parameter_shortname: 'live.dial',
+                          parameter_type: 0,
+                          parameter_unitstyle: 0,
+                        },
+                      },
+                    },
+                  },
+                ],
+                appversion: {
+                  major: 8,
+                  minor: 6,
+                  revision: 2,
+                  architecture: 'x64',
+                  modernui: 1,
                 },
-                null,
-                2
-              )}
-            </CodeBlock>
+                classnamespace: 'box',
+              }, null, 2)}
+            />
             <Text pt="20px" pb="40px">
               As you can see, the <Code>maxclass</Code> attribute now contains the actual name of the widget object instance. Although we can still see the name in the <Code>text</Code> field, by evaluating whether the value for <Code>maxclass</Code> is <Code>newobj</Code> or something else, we can determine whether we are dealing with a generic object or a widget object. Additionally, objects whose methods and objects fall under the <Code>live</Code> class have additional properties under <Code>saved_attribute_attributes</Code> which we can ignore for this project.
             </Text>
@@ -542,259 +377,119 @@ export default function MaxPatchVisualizer() {
             <Text pb="40px">
               In the image above we connect the outlet of <Code>live.dial</Code> (which sends lets users select a number to output with a dial) to the left inlet of a <Code>+</Code> object with an argument of **50** and the left inlet of a <Code>cycle~</Code> object as well. The outlet of <Code>+</Code> connects to the left inlet of a second <Code>cycle~</Code> object. Both <Code>cycle~</Code> objects finally connect to each the left and right inlets of <Code>~dac</Code> respectively. It is just a simple pitchable oscillator where the right speaker always plays a sine wave 50 hz above the left as determined by the dials value. Its not a very realistic patch in a sound designers sense but is still valid and realistic enough that it will help us gain insight into the JSON structure of a patch that features multiple objects and connections.
             </Text>
-            <CodeBlock
+            <CodeBlockWithCopy
               language="json"
-              style={vs2015}
-              showLineNumbers
-              wrapLines
-              customStyle={{
-                background: useColorModeValue('gray.400', 'gray.900'),
-                padding: '1rem',
-                borderRadius: '0.5rem',
-                marginTop: '1rem',
-                marginBottom: '1rem',
-                color: 'white',
-              }}
-              codeTagProps={{
-                style: {
-                  fontFamily: 'monospace',
-                  fontSize: '0.9rem',
-                },
-              }}
-              onDoubleClick={() => {
-                handleCopy(
-                  JSON.stringify(
-                    {
-                      "boxes": [
-                        {
-                          "box": {
-                            "maxclass": "newobj",
-                            "text": "+ 50",
-                            "id": "obj-22",
-                            "numinlets": 2,
-                            "numoutlets": 1,
-                            "patching_rect": [358.333344012498856, 128.333337157964706, 32.0, 22.0],
-                            "outlettype": ["int"]
-                          }
-                        },
-                        {
-                          "box": {
-                            "maxclass": "newobj",
-                            "text": "cycle~",
-                            "id": "obj-21",
-                            "numinlets": 2,
-                            "numoutlets": 1,
-                            "patching_rect": [358.333344012498856, 158.666671395301819, 43.0, 22.0],
-                            "outlettype": ["signal"]
-                          }
-                        },
-                        {
-                          "box": {
-                            "maxclass": "live.dial",
-                            "varname": "live.dial",
-                            "id": "obj-11",
-                            "parameter_enable": 1,
-                            "numinlets": 1,
-                            "numoutlets": 2,
-                            "patching_rect": [277.000008255243301, 51.000001519918442, 41.0, 48.0],
-                            "outlettype": ["", "float"],
-                            "saved_attribute_attributes": {
-                              "valueof": {
-                                "parameter_longname": "live.dial",
-                                "parameter_modmode": 3,
-                                "parameter_shortname": "live.dial",
-                                "parameter_type": 0,
-                                "parameter_unitstyle": 0
-                              }
-                            }
-                          }
-                        },
-                        {
-                          "box": {
-                            "maxclass": "newobj",
-                            "text": "dac~",
-                            "id": "obj-2",
-                            "numinlets": 2,
-                            "numoutlets": 0,
-                            "patching_rect": [277.000008255243301, 209.666672915220261, 35.0, 22.0]
-                          }
-                        },
-                        {
-                          "box": {
-                            "maxclass": "newobj",
-                            "text": "cycle~",
-                            "id": "obj-1",
-                            "numinlets": 2,
-                            "numoutlets": 1,
-                            "patching_rect": [277.000008255243301, 158.666671395301819, 43.0, 22.0],
-                            "outlettype": ["signal"]
-                          }
-                        }
-                      ],
-                      "lines": [
-                        {
-                          "patchline": {
-                            "source": ["obj-21", 0],
-                            "destination": ["obj-2", 1]
-                          }
-                        },
-                        {
-                          "patchline": {
-                            "source": ["obj-22", 0],
-                            "destination": ["obj-21", 0]
-                          }
-                        },
-                        {
-                          "patchline": {
-                            "source": ["obj-11", 0],
-                            "destination": ["obj-22", 0],
-                            "order": 0
-                          }
-                        },
-                        {
-                          "patchline": {
-                            "source": ["obj-1", 0],
-                            "destination": ["obj-2", 0]
-                          }
-                        },
-                        {
-                          "patchline": {
-                            "source": ["obj-11", 0],
-                            "destination": ["obj-1", 0],
-                            "order": 1
-                          }
-                        }
-                      ],
-                      "appversion": {
-                        "major": 8,
-                        "minor": 6,
-                        "revision": 2,
-                        "architecture": "x64",
-                        "modernui": 1
-                      },
-                      "classnamespace": "box"
-                    },
-                    null,
-                    2
-                  )
-                );
-              }}
-            >
-              {JSON.stringify(
-                {
-                  "boxes": [
-                    {
-                      "box": {
-                        "maxclass": "newobj",
-                        "text": "+ 50",
-                        "id": "obj-22",
-                        "numinlets": 2,
-                        "numoutlets": 1,
-                        "patching_rect": [358.333344012498856, 128.333337157964706, 32.0, 22.0],
-                        "outlettype": ["int"]
-                      }
-                    },
-                    {
-                      "box": {
-                        "maxclass": "newobj",
-                        "text": "cycle~",
-                        "id": "obj-21",
-                        "numinlets": 2,
-                        "numoutlets": 1,
-                        "patching_rect": [358.333344012498856, 158.666671395301819, 43.0, 22.0],
-                        "outlettype": ["signal"]
-                      }
-                    },
-                    {
-                      "box": {
-                        "maxclass": "live.dial",
-                        "varname": "live.dial",
-                        "id": "obj-11",
-                        "parameter_enable": 1,
-                        "numinlets": 1,
-                        "numoutlets": 2,
-                        "patching_rect": [277.000008255243301, 51.000001519918442, 41.0, 48.0],
-                        "outlettype": ["", "float"],
-                        "saved_attribute_attributes": {
-                          "valueof": {
-                            "parameter_longname": "live.dial",
-                            "parameter_modmode": 3,
-                            "parameter_shortname": "live.dial",
-                            "parameter_type": 0,
-                            "parameter_unitstyle": 0
-                          }
-                        }
-                      }
-                    },
-                    {
-                      "box": {
-                        "maxclass": "newobj",
-                        "text": "dac~",
-                        "id": "obj-2",
-                        "numinlets": 2,
-                        "numoutlets": 0,
-                        "patching_rect": [277.000008255243301, 209.666672915220261, 35.0, 22.0]
-                      }
-                    },
-                    {
-                      "box": {
-                        "maxclass": "newobj",
-                        "text": "cycle~",
-                        "id": "obj-1",
-                        "numinlets": 2,
-                        "numoutlets": 1,
-                        "patching_rect": [277.000008255243301, 158.666671395301819, 43.0, 22.0],
-                        "outlettype": ["signal"]
-                      }
+              code={JSON.stringify({
+                "boxes": [
+                  {
+                    "box": {
+                      "maxclass": "newobj",
+                      "text": "+ 50",
+                      "id": "obj-22",
+                      "numinlets": 2,
+                      "numoutlets": 1,
+                      "patching_rect": [358.333344012498856, 128.333337157964706, 32.0, 22.0],
+                      "outlettype": ["int"]
                     }
-                  ],
-                  "lines": [
-                    {
-                      "patchline": {
-                        "source": ["obj-21", 0],
-                        "destination": ["obj-2", 1]
-                      }
-                    },
-                    {
-                      "patchline": {
-                        "source": ["obj-22", 0],
-                        "destination": ["obj-21", 0]
-                      }
-                    },
-                    {
-                      "patchline": {
-                        "source": ["obj-11", 0],
-                        "destination": ["obj-22", 0],
-                        "order": 0
-                      }
-                    },
-                    {
-                      "patchline": {
-                        "source": ["obj-1", 0],
-                        "destination": ["obj-2", 0]
-                      }
-                    },
-                    {
-                      "patchline": {
-                        "source": ["obj-11", 0],
-                        "destination": ["obj-1", 0],
-                        "order": 1
-                      }
-                    }
-                  ],
-                  "appversion": {
-                    "major": 8,
-                    "minor": 6,
-                    "revision": 2,
-                    "architecture": "x64",
-                    "modernui": 1
                   },
-                  "classnamespace": "box"
+                  {
+                    "box": {
+                      "maxclass": "newobj",
+                      "text": "cycle~",
+                      "id": "obj-21",
+                      "numinlets": 2,
+                      "numoutlets": 1,
+                      "patching_rect": [358.333344012498856, 158.666671395301819, 43.0, 22.0],
+                      "outlettype": ["signal"]
+                    }
+                  },
+                  {
+                    "box": {
+                      "maxclass": "live.dial",
+                      "varname": "live.dial",
+                      "id": "obj-11",
+                      "parameter_enable": 1,
+                      "numinlets": 1,
+                      "numoutlets": 2,
+                      "patching_rect": [277.000008255243301, 51.000001519918442, 41.0, 48.0],
+                      "outlettype": ["", "float"],
+                      "saved_attribute_attributes": {
+                        "valueof": {
+                          "parameter_longname": "live.dial",
+                          "parameter_modmode": 3,
+                          "parameter_shortname": "live.dial",
+                          "parameter_type": 0,
+                          "parameter_unitstyle": 0
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "box": {
+                      "maxclass": "newobj",
+                      "text": "dac~",
+                      "id": "obj-2",
+                      "numinlets": 2,
+                      "numoutlets": 0,
+                      "patching_rect": [277.000008255243301, 209.666672915220261, 35.0, 22.0]
+                    }
+                  },
+                  {
+                    "box": {
+                      "maxclass": "newobj",
+                      "text": "cycle~",
+                      "id": "obj-1",
+                      "numinlets": 2,
+                      "numoutlets": 1,
+                      "patching_rect": [277.000008255243301, 158.666671395301819, 43.0, 22.0],
+                      "outlettype": ["signal"]
+                    }
+                  }
+                ],
+                "lines": [
+                  {
+                    "patchline": {
+                      "source": ["obj-21", 0],
+                      "destination": ["obj-2", 1]
+                    }
+                  },
+                  {
+                    "patchline": {
+                      "source": ["obj-22", 0],
+                      "destination": ["obj-21", 0]
+                    }
+                  },
+                  {
+                    "patchline": {
+                      "source": ["obj-11", 0],
+                      "destination": ["obj-22", 0],
+                      "order": 0
+                    }
+                  },
+                  {
+                    "patchline": {
+                      "source": ["obj-1", 0],
+                      "destination": ["obj-2", 0]
+                    }
+                  },
+                  {
+                    "patchline": {
+                      "source": ["obj-11", 0],
+                      "destination": ["obj-1", 0],
+                      "order": 1
+                    }
+                  }
+                ],
+                "appversion": {
+                  "major": 8,
+                  "minor": 6,
+                  "revision": 2,
+                  "architecture": "x64",
+                  "modernui": 1
                 },
-                null,
-                2
-              )}
-            </CodeBlock>
+                "classnamespace": "box"
+              }, null, 2)}
+            />
             <Text pt="20px" pb="40px">
               There is not much we have not already discussed going on in the JSON structure above. The biggest difference being the fact that now there are a handful of additional objects and patchlines. If you look closely at the patchlines and follow along with the id values and visually inspect the screenshot you can see that it tracks. Notice the <Code>order</Code> attribute though? This informs us of what order we will be sending out data from two patch cables that spawn from the same source. This is another attribute that we will not be using for our use case but can come in handy for debugging as often it is tricky to determine the order of operations in Max. A good rule of thumb is that messages flow in order from rightmost outlets to left. 
             </Text>
@@ -815,28 +510,9 @@ export default function MaxPatchVisualizer() {
             <Text pb="40px">
               Subpatchers may be many layers deep Here is an example of JSON for a subpatcher with several layers of subpatcher nesting. See if you can spot the innermost object and its text!
             </Text>
-            <CodeBlock
+            <CodeBlockWithCopy
               language="json"
-              style={vs2015}
-              showLineNumbers
-              wrapLines
-              customStyle={{
-                background: useColorModeValue('gray.400', 'gray.900'),
-                padding: '1rem',
-                borderRadius: '0.5rem',
-                marginTop: '1rem',
-                marginBottom: '1rem',
-                color: 'white',
-              }}
-              codeTagProps={{
-                style: {
-                  fontFamily: 'monospace',
-                  fontSize: '0.9rem',
-                },
-              }}
-            >
-            {JSON.stringify(
-              {
+              code={JSON.stringify({
                 "boxes": [
                   {
                     "box": {
@@ -1034,7 +710,7 @@ export default function MaxPatchVisualizer() {
                 },
                 "classnamespace": "box"
               }, null, 2)}
-            </CodeBlock>
+            />
             <Heading pt="40px" pb="20px" size="md">Other Destinations</Heading>
             <Text>
               In part 2 we will learn how to parse Max JSON in order to represent a patch accurately in the browser. This could pave the way for more user friendly ways of sharing patches. It could be helpful for the max discord community to be able to simply copy and paste patches directly into discord using commands like <Code>/patch PATCH_JSON</Code> to dynamically share patches on the fly. Although screenshots are convenitent alternatives to JSON, they do not contain the patch itself and therefore they do not allow for easy transmission of patches. A visualizer tool that both displays the graph network of objects as well as carries the JSON data offers a superior way of sharing patches if it can be bundled into a user friendly bot for discord. This may be a worthwhile pursuit for a future version if enough interest is shown. 
