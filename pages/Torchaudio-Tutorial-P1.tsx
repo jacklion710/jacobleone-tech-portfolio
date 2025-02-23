@@ -68,7 +68,7 @@ const CodeBlockWithCopy: React.FC<CodeBlockWithCopyProps> = ({ code, language })
   );
 };
 
-export default function TorchaudioTutorial() {
+export default function TorchaudioTutorialP1() {
   const fadeIn = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { duration: 1.33 } }
@@ -88,14 +88,14 @@ export default function TorchaudioTutorial() {
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
       </Head>
       <Helmet>
-        <title>Torchaudio Study Project | Jacob Leone</title>
+        <title>Torchaudio Study Project Part 1 | Jacob Leone</title>
         <meta name="description" content="Learn about audio processing and classification using PyTorch and torchaudio through a series of practical lessons." />
         <meta name="keywords" content="Torchaudio, PyTorch, Audio Processing, Machine Learning, Deep Learning" />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="Torchaudio Study Project | Jacob Leone" />
+        <meta property="og:title" content="Torchaudio Study Project Part 1 | Jacob Leone" />
         <meta property="og:description" content="Explore audio processing and classification using PyTorch and torchaudio through hands-on lessons." />
-        <meta property="og:url" content="https://jacobleone.tech/Torchaudio-Tutorial" />
-        <link rel="canonical" href="https://jacobleone.tech/Torchaudio-Tutorial" />
+        <meta property="og:url" content="https://jacobleone.tech/Torchaudio-Tutorial-P1" />
+        <link rel="canonical" href="https://jacobleone.tech/Torchaudio-Tutorial-P1" />
       </Helmet>
       <Flex
         direction="column"
@@ -133,7 +133,7 @@ export default function TorchaudioTutorial() {
                   borderColor: "black"
                 }}
               >
-                Torchaudio Study Project
+                Torchaudio Study Project Part 1
               </Heading>
             </VStack>
           </motion.div>

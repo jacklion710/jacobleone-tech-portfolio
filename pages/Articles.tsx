@@ -19,9 +19,14 @@ import React from 'react';
 
 const blogArticles = [
   {
-    title: "Torchaudio Tutorial",
+    title: "Torchaudio Tutorial Part 1",
     description: "Tutorial on how to use torchaudio to process audio data",
-    url: "/Torchaudio-Tutorial",
+    url: "/Torchaudio-Tutorial-P1",
+  },
+  {
+    title: "Torchaudio Tutorial Part 2",
+    description: "Second installment of the torchaudio tutorial",
+    url: "/Torchaudio-Tutorial-P2",
   },
   {
     title: "Max Patches are Really Just JSON",
