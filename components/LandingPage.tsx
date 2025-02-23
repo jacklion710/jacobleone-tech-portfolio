@@ -76,14 +76,14 @@ const LandingPage = () => {
             <motion.div ref={textRef} initial="hidden" animate={textView ? "visible" : "hidden"} variants={fadeIn}>
             <Box textAlign="center" w="100%" my={4}>
               <Text fontSize="lg" color="black" mb={1} maxW="700px" textAlign="center" mx="auto">
-                Driven by an intrinsic passion for tackling creative and technical challenges and as member of agile development teams, I thrive on collaboration towards a shared mission: delivering exceptional value to clients efficiently...
+              Machine Learning Engineer specializing in signal and image processing, with hands-on experience developing AI-driven solutions...
               </Text>
               <Button variant="link" color="teal.500" onClick={onToggle} mt={2}>
                 {isOpen ? "Read Less" : "Read More"} {isOpen ? <FaAngleUp /> : <FaAngleDown />}
               </Button>
               <Collapse in={isOpen}>
                 <Text fontSize="lg" color="black" mt={4} maxW="700px" textAlign="center" mx="auto">
-                  Before diving into the tech arena, I pursued an intensive graduate program at a top-tier university, focusing on the convergence of artificial intelligence and psychology. This academic journey endowed me with a unique lens: approaching AI development from a human first perspective and a deep understanding of the nuanced ways people interface with machines. Beyond my academic pursuits, I am a perpetual learner, drawing from experiences that span leadership, creativity, problem-solving, and architecting projects from mere ideas to successful execution.
+                  My expertise spans implementing computer vision algorithms, processing complex signal data, and designing ML pipelines that bridge theoretical concepts with practical applications. Building on my graduate research in AI-medical device integration, I combine strong technical capabilities in deep learning and signal processing with a commitment to creating reliable, ethical AI systems. I excel in collaborative environments where I can apply my analytical mindset to solve challenging technical problems while maintaining a user-centric approach.
                 </Text>
               </Collapse>
             </Box>

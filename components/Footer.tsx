@@ -7,7 +7,7 @@ import {
   useColorModeValue,
   VisuallyHidden
 } from '@chakra-ui/react';
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'; 
+import { FaGithub, FaLinkedin, FaEnvelope, FaYoutube } from 'react-icons/fa'; 
 import { ReactNode } from 'react';
 
 const SocialButton = ({
@@ -64,7 +64,10 @@ export default function Footer() {
           <SocialButton label={'Linkedin'} href={'https://www.linkedin.com/in/jacob-leone/'}>
             <FaLinkedin />
           </SocialButton>
-          <SocialButton label={'Email'} href={'mailto:jacob0leone@gmail.com'}> {/* Step 2: Add email icon and mailto link */}
+          <SocialButton label={'YouTube'} href={'YOUR_YOUTUBE_URL'}>
+            <FaYoutube />
+          </SocialButton>
+          <SocialButton label={'Email'} href={'mailto:jacob0leone@gmail.com'}>
             <FaEnvelope />
           </SocialButton>
         </Stack>
