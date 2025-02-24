@@ -42,6 +42,16 @@ const ReferencesComponent: React.FC = () => {
         mt={5}
         w="full"
       >
+        <motion.div ref={ref3} initial="hidden" animate={inView1 ? "visible" : "hidden"} variants={fadeIn}>
+          <Flex direction="column" alignItems="center">
+            <Heading color="white" fontSize="2xl" mb={2}>Jhoan Keider Hoyos</Heading>
+            <Text color="white" mb={1} textAlign="center" >Ph.D, Machine Learning & Signal Processing Engineer</Text>
+            <Text color="white" mb={1}>Aventusoft</Text>
+            <Link href="mailto: devin@ystemandchess.com" color="white" mb={1}>keider.hoyos@gmail.com</Link>
+            <Text color="white" textAlign="center" mb={10}>Relationship: Colleague | Mentor</Text>
+          </Flex>
+        </motion.div>
+
         <motion.div ref={ref1} initial="hidden" animate={inView1 ? "visible" : "hidden"} variants={fadeIn}>
           <Flex direction="column" alignItems="center" w="full">
             <Heading color="white" fontSize="2xl" mb={2}>Borko Fuhrt</Heading>
@@ -63,16 +73,6 @@ const ReferencesComponent: React.FC = () => {
             <Text color="white" textAlign="center" >Relationship: Former Employer | Mentor</Text>
           </Flex>
         </motion.div>
-          
-        <motion.div ref={ref3} initial="hidden" animate={inView1 ? "visible" : "hidden"} variants={fadeIn}>
-          <Flex direction="column" alignItems="center">
-            <Heading color="white" fontSize="2xl" mb={2} mt={10}>Devin Nakano</Heading>
-            <Text color="white" mb={1} textAlign="center" >Founder, President and Executive Director</Text>
-            <Text color="white" mb={1}>Y Stem and Chess</Text>
-            <Link href="mailto: devin@ystemandchess.com" color="white" mb={1}>devin@ystemandchess.com</Link>
-            <Text color="white" textAlign="center" >Relationship: Business Leader | Client</Text>
-          </Flex>
-        </motion.div>
 
       </Flex>
 
@@ -84,7 +84,7 @@ const ReferencesComponent: React.FC = () => {
         <Heading textAlign="center" color="white" fontSize="2xl" mb={2} mt={2}>
             About me
         </Heading>
-        <Text color="white" textAlign="center" mb={1}>I am driven by an intrinsic passion for tackling both creative and technical challenges. As part of agile development teams, I thrive on collaborating towards our shared mission: delivering exceptional value to clients efficiently and effectively. Before diving into the tech arena, I pursued an intensive graduate program at a top-tier university, focusing on the convergence of artificial intelligence and psychology. This academic journey endowed me with a unique lens: approaching AI development from a human-centric perspective and deeply understanding the nuanced ways people interact with technology. Beyond my academic pursuits, I am a perpetual learner, drawing from experiences that span leadership, creativity, problem-solving, and shepherding projects from mere ideas to successful execution.</Text>
+        <Text color="white" textAlign="center" mb={1}>Machine Learning Engineer specializing in signal and image processing, with hands-on experience developing AI-driven solutions. My expertise spans implementing computer vision algorithms, processing complex signal data, and designing ML pipelines that bridge theoretical concepts with practical applications. Building on my graduate research in AI-medical device integration, I combine strong technical capabilities in deep learning and signal processing with a commitment to creating reliable, ethical AI systems. I excel in collaborative environments where I can apply my analytical mindset to solve challenging technical problems while maintaining a user-centric approach.</Text>
       </motion.div>
 
     </Box>
