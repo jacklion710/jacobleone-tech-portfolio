@@ -141,13 +141,13 @@ import {
         githubUrl: "https://github.com/jacklion710/jacklions-website/blob/main/pages/av/RNBO/simple-sampler-dna.tsx",
         deployUrl: "https://jacklion.xyz/av/RNBO/simple-sampler-dna"
       },
-      {
-        title: "Web Portfolio for Commercial Music",
-        description: "A professional landing page for music business pursuits made with Next js and Chakra UI.",
-        imageUrl: "/images/music-portfolio.png",
-        githubUrl: "https://github.com/jacklion710/jacobleone-music-portfolio",
-        deployUrl: "https://jacobleone-music.vercel.app"
-      },
+    //   {
+    //     title: "Web Portfolio for Commercial Music",
+    //     description: "A professional landing page for music business pursuits made with Next js and Chakra UI.",
+    //     imageUrl: "/images/music-portfolio.png",
+    //     githubUrl: "https://github.com/jacklion710/jacobleone-music-portfolio",
+    //     deployUrl: "https://jacobleone-music.vercel.app"
+    //   },
       {
         title: "CDJ Compatibility Cleaner",
         description: "A script for assisting DJs in preparing samples for CDJ compatibility.",
