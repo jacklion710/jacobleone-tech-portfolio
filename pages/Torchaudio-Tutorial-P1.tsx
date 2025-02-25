@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Heading, Text, VStack, ChakraProvider, Image, Box, Code, useColorModeValue, IconButton, useClipboard, useToast } from "@chakra-ui/react";
+import { Flex, Heading, Text, VStack, ChakraProvider, Image, Box, Code, IconButton, useClipboard, useToast, OrderedList, ListItem } from "@chakra-ui/react";
 import Navbar from "@/components/Navbar";
 import Footer from '@/components/Footer';
 import { Helmet } from "react-helmet";
@@ -152,7 +152,7 @@ export default function TorchaudioTutorialP1() {
 
               <Heading size="md" pb="20px">Project Overview</Heading>
               <Text pb="40px">
-                In this installment of my Torchaudio Study Project, I&apos;ll be taking you through the basics of audio processing and classification using PyTorch and torchaudio. The project is split into 7 lessons, each one building on the previous one. In this blog artile we will present lesssons 1 through 4 where we will build a basic audio classification model. You can follow along with the project on this blog but I recommend cloning the repository and running the code yourself. You can find it <a href="https://github.com/jacklion710/torchaudio-basics">here</a>. First we&apos;ll kick things off by setting up a conda environment and installing the necessary dependencies.
+                In this installment of my Torchaudio Study Project, I&apos;ll be taking you through the basics of audio processing and classification using PyTorch and torchaudio. The project is split into 7 lessons, each one building on the previous one. In this blog artile we will present lesssons 1 through 4 where we will build a basic audio classification model. You can follow along with the project on this blog but I recommend cloning the repository and running the code yourself. You can find it <a href="https://github.com/jacklion710/torchaudio-basics">here</a>. First we&apos;ll kick things off by setting up a conda environment and installing the necessary dependencies. This tutorial will be focusing on local development and training with GPU support. But if you prefer to work with notebooks due to hardware constraints you can simply port the code to Google Colab or your preferred cloud service.
               </Text>
               
               <Heading size="md" pb="20px">Dataset</Heading>
@@ -160,16 +160,9 @@ export default function TorchaudioTutorialP1() {
                 We&apos;ll be using the UrbanSound8K dataset, which contains 8732 labeled sound excerpts of urban sounds from 10 classes. The dataset is pre-sorted into ten folds for cross-validation and experimentation. You can find it <a href="https://urbansounddataset.weebly.com/urbansound8k.html">here</a>.
               </Text>
 
-              <Heading size="md" pb="20px">Lessons Overview</Heading>
-              
-              <Heading size="sm" pt="40px" pb="20px">Lesson 1: Introduction to PyTorch</Heading>
-              <Text pb="40px">
-                Learn PyTorch&apos;s fundamentals, including tensors, operations, and computational graphs.
-              </Text>
-
               <Heading size="md" pt="40px" pb="20px">PyTorch GPU Setup</Heading>
               <Text pb="20px">
-                Setting up PyTorch with GPU support requires specific steps. Here&apos;s how to get started:
+                Setting up PyTorch with local GPU support requires specific steps. Here&apos;s how to get started:
               </Text>
 
               <Text pb="20px">Initialize conda environment (requires Python 3.7+):</Text>
@@ -189,7 +182,7 @@ export default function TorchaudioTutorialP1() {
 
               <Heading size="lg" pt="60px" pb="20px">Lesson 1: Introduction to PyTorch Fundamentals</Heading>
               <Text pb="40px">
-                Welcome to the first lesson in our series on audio processing with PyTorch. We&apos;ll explore the basics of PyTorch, including tensors, operations, and core concepts that make it essential for machine learning and audio processing.
+                Welcome to the first lesson in our series on audio processing with PyTorch. We&apos;ll explore the basics of PyTorch, including tensors, operators, and core concepts that are essential for machine learning and audio processing.
               </Text>
 
               <Heading size="md" pb="20px">What is PyTorch?</Heading>
@@ -219,6 +212,10 @@ z = x * x
 print("Element-wise multiplication:", z)`}
               />
 
+              <Text pb="20px">
+                You can think of tensors as n-dimensional arrays. For example, a 1D tensor is a vector, a 2D tensor is a matrix, and a 3D tensor is a cube. Tensors can be used to represent audio data, images, and other data and are the fundamental building blocks of PyTorch. There is technically no limit to the number of dimensions a tensor can have, but for the scope of this tutorial we will only be using 1D and 2D tensors. If you are unfamiliar with tensors or n-dimensional arrays, I recommend checking out the <a href="https://www.youtube.com/watch?v=L35fFDpwIM4">Tensors for Neural Networks, Clearly Explained!!!</a> video by StatQuest with Josh Starmer. It&apos;s a great way to get a visual understanding of tensors and their operations.
+              </Text>
+
               <Heading size="md" pt="40px" pb="20px">Advanced Tensor Operations</Heading>
               <Text pb="20px">
                 Let&apos;s explore more complex tensor operations that are particularly useful in audio processing:
@@ -237,6 +234,14 @@ b = torch.tensor([[0], [1], [2]])
 result = a + b
 print("Broadcasted Addition:", result)`}
               />
+
+              <Text pb="20px">
+                Flattening a tensor is a common operation in audio processing. It converts a multi-dimensional tensor into a 1D tensor, which is easier to work with in machine learning models. We will see this in practice when we start working with audio data and feeding inputs to a machine learning model.
+              </Text>
+              
+              <Text pb="20px">
+                Broadcasting is a powerful feature in PyTorch that allows tensors of different shapes to be used in arithmetic operations. It automatically expands the smaller tensor to match the dimensions of the larger tensor, making it easier to perform operations between tensors of different sizes.
+              </Text>
 
               <Heading size="md" pt="40px" pb="20px">Working with Audio Data</Heading>
               <Text pb="20px">
@@ -257,13 +262,20 @@ mono_converted = torch.mean(stereo_audio, dim=0)
 print("Converted mono shape:", mono_converted.shape)`}
               />
 
-              <Text pt="40px" pb="40px">
-                This concludes our first lesson on PyTorch fundamentals. In the next lesson, we&apos;ll explore more advanced audio processing techniques and how to apply these concepts to real-world audio data.
+              <Text pb="20px">
+                If you are unfamiliar with stereo and mono audio, I recommend checking out the <a href="https://www.youtube.com/watch?v=4ryacPfyq4k">Stereo and Mono Audio, Clearly Explained!!!</a> video by Black Ghost Audio. It contains examples of stereo and mono audio and explains the difference between the two.
               </Text>
 
-              <Heading size="md" pt="40px" pb="20px">Acknowledgments</Heading>
-              <Text pb="40px">
-                This project uses the UrbanSound8K dataset for demonstrating audio processing and classification techniques with PyTorch and torchaudio.
+              <Text pb="20px">
+                To put it simply, stereo audio has two channels and mono audio has one. When playing audio through a stereo system you usually will have a left and right speaker with each channel being routed to the left and right ear. There also exists multi-channel audio, but for the scope of this tutorial we will only be working with mono and stereo audio. 
+              </Text>
+                
+              <Text pb="20px">
+                Channels are commonly seen in many different kinds of data and therefor are crucial to understand. Since audio is usually at most comprised of 2 channels it gives us a great opportunity to learn about the concept of channels in an intuitive way. Stereo audio is represented by a 2D tensor with shape <Code>[2, samples]</Code> and mono audio is represented by a 1D tensor with shape <Code>[samples]</Code>. We will see this in practice when we start working with audio data and feeding inputs to a machine learning model.
+              </Text>
+
+              <Text pt="40px" pb="40px">
+                This concludes our first lesson on PyTorch fundamentals. In the next lesson, we&apos;ll explore more advanced audio processing techniques and how to apply these concepts to real-world audio data.
               </Text>
 
               <Heading size="lg" pt="60px" pb="20px">Lesson 2: Working with Audio Data in PyTorch</Heading>
@@ -290,7 +302,7 @@ waveform, sample_rate = torchaudio.load(filename)`}
               />
 
               <Text pb="40px">
-                This code loads an audio file, returning the waveform as a tensor and its sample rate. The waveform tensor shape is typically <Code>[channels, frames]</Code>, where channels represent the audio channels (mono or stereo), and frames represent the discrete audio samples over time.
+                This code simply loads an audio file, returning the waveform as a tensor and its sample rate. The waveform tensor shape is typically <Code>[channels, frames]</Code>, where channels represent the audio channels (mono or stereo), and frames represent the discrete audio samples over time.
               </Text>
 
               <Heading size="md" pb="20px">Visualizing Audio Data</Heading>
@@ -300,28 +312,53 @@ waveform, sample_rate = torchaudio.load(filename)`}
 
               <CodeBlockWithCopy
                 language="python"
-                code={`import matplotlib.pyplot as plt
-import seaborn as sns
+                code={`import torch
+import matplotlib.pyplot as plt
+import torchaudio
 
-# Set seaborn style for plots
-sns.set(style="whitegrid")
+# Load the audio file
+file_path = '../../Kick.wav'  # Update path if needed
+waveform, sample_rate = torchaudio.load(file_path)
 
+print(f"Sample rate: {sample_rate} Hz")
+print(f"Audio shape: {waveform.shape}")
+
+# Convert to mono if stereo by averaging channels
+if waveform.shape[0] > 1:
+    waveform = torch.mean(waveform, dim=0, keepdim=True)
+
+# Normalize audio to range [-1, 1]
+max_val = torch.max(torch.abs(waveform))
+if max_val > 0:
+    waveform = waveform / max_val
+print(f"Max amplitude after normalization: {torch.max(torch.abs(waveform)).item()}")
+
+# Create time axis in seconds
+time = torch.arange(0, waveform.shape[1]) / sample_rate
+
+# Plot the waveform
 plt.figure(figsize=(10, 4))
-plt.plot(waveform.t().numpy())
-plt.title('Audio Waveform')
-plt.xlabel('Time')
+plt.plot(time, waveform[0].numpy())  # Convert to numpy for plotting
+plt.title('Normalized Kick Drum Waveform')
+plt.xlabel('Time (seconds)')
 plt.ylabel('Amplitude')
-plt.savefig('../../plots/audio_waveform_seaborn.png')
+plt.grid(True, alpha=0.3)
+plt.tight_layout()
 plt.show()`}
               />
 
               <Text pb="20px">
-                In this snippet:
+                The resulting plot will look something like this:
               </Text>
-              <Text as="ul" pb="40px" pl={6}>
-                <Text as="li">We transpose the waveform tensor with <Code>.t()</Code> to convert it to <Code>[frames, channels]</Code> for plotting.</Text>
-                <Text as="li">We use <Code>matplotlib</Code> to plot the waveform and <Code>seaborn</Code> to enhance the visual style.</Text>
-                <Text as="li">The X-axis represents time, and the Y-axis represents amplitude.</Text>
+
+              <Image mb={4} src="/images/kick_plot.png" alt="Audio Waveform" />
+
+              <Text mb={4}>
+                If the waveform is stereo, we can convert it to mono by averaging the channels. This is useful because it reduces the dimensionality of the waveform tensor and simplifies the processing of the audio data. Typically the audio in the left and right channels are very similar, so averaging them is a simple way to reduce the dimensionality of the waveform tensor. There may be cases where you want to keep the stereo information, especially if you are working with spatial audio, but for this tutorial we will be averaging the channels to convert the waveform to mono.
+              </Text>
+
+              <Text mb={4}>
+                The process of normalizing the audio is important because it ensures that the audio signals amplitude is within a consistent range, which can help improve the performance of machine learning models. Typically the range is normalized to <Code>[-1, 1]</Code>. But depending on the bit depth of the audio file, the range may be different. For example, if the audio file is 16-bit, the range is <Code>[-32768, 32767]</Code>.
               </Text>
 
               <Text pb="40px">
@@ -334,7 +371,7 @@ plt.show()`}
 
               <Heading size="lg" pt="60px" pb="20px">Lesson 3: Audio Feature Extraction with PyTorch</Heading>
               <Text pb="40px">
-                In our journey through audio processing with PyTorch, we now arrive at a crucial milestone: feature extraction. This lesson covers how to extract meaningful features from audio signals, which is essential for audio analysis and machine learning tasks.
+                Along our journey through audio processing with PyTorch, we now arrive at a crucial milestone: feature extraction. This lesson covers how to extract meaningful features from audio signals, which is essential for audio analysis and machine learning tasks.
               </Text>
 
               <Heading size="md" pb="20px">Understanding Audio Features</Heading>
@@ -344,7 +381,7 @@ plt.show()`}
 
               <Heading size="md" pb="20px">Spectrograms</Heading>
               <Text pb="40px">
-                A spectrogram is a visual representation of the spectrum of frequencies in a sound or other signal as they vary with time. It&apos;s a powerful tool for analyzing the frequency content of audio signals.
+                A spectrogram is a visual representation of the frequency spectrum of a signal as it varies with time. The x-axis represents time, the y-axis represents frequency, and the color intensity indicates the amplitude/energy at each time-frequency point. This allows us to see how different frequencies are distributed throughout the audio sample.
               </Text>
 
               <Heading size="sm" pb="20px">Computing and Plotting a Spectrogram</Heading>
@@ -369,9 +406,21 @@ plt.colorbar(format='%+2.0f dB')
 plt.show()`}
               />
 
+              <Text pb="20px">
+                The resulting spectrogram will look something like this:
+              </Text>
+
+              <Image mb={4} src="/images/spectrogram.png" alt="Spectrogram" />
+
               <Heading size="md" pt="40px" pb="20px">Mel-Frequency Cepstral Coefficients (MFCCs)</Heading>
               <Text pb="40px">
-                MFCCs are coefficients that collectively make up an MFC. They are derived from a type of cepstral representation of the audio clip (a nonlinear &apos;spectrum-of-a-spectrum&apos;).
+                MFCCs are a compact representation of audio that attempts to mimic how human hearing works. They are created through the following process:
+                <OrderedList mt={4} pl={8}>
+                  <ListItem>Take the Fourier transform of a signal</ListItem>
+                  <ListItem>Map the powers of the spectrum onto the mel scale</ListItem>
+                  <ListItem>Take the logs of the powers at each mel frequency</ListItem>
+                  <ListItem>Take the discrete cosine transform of the list of mel log powers</ListItem>
+                </OrderedList>
               </Text>
 
               <Heading size="sm" pb="20px">Computing and Plotting MFCCs</Heading>
@@ -390,9 +439,25 @@ plt.colorbar()
 plt.show()`}
               />
 
+              <Text pb="20px">
+                The resulting MFCCs will look something like this:
+              </Text>
+
+              <Image mb={4} src="/images/mfcc.png" alt="MFCCs" />
+
+              <Text pb="20px">
+                MFCCs are a great way to represent the frequency content of an audio signal and are often used in machine learning models. They are a more compact representation of the audio signal and are easier to work with than spectrograms.
+              </Text>
+
               <Heading size="md" pt="40px" pb="20px">Mel-Spectrogram</Heading>
-              <Text color="white" mb={1}>
-                A Mel-Spectrogram is a Spectrogram where the frequencies are converted to the Mel scale, more closely approximating human auditory systems frequency response.
+              <Text color="white" mb={4}>
+                A Mel-Spectrogram is a modified version of a spectrogram that uses the Mel scale instead of a linear frequency scale. The Mel scale is a perceptual scale of pitches where equal distances in pitch are perceived as equal by listeners. Key differences include:
+                <OrderedList mt={4} mb={4} pl={8}>
+                  <ListItem>Linear Spectrogram: Uses equally spaced frequency bins</ListItem>
+                  <ListItem>Mel-Spectrogram: Uses frequency bins that are closer together at lower frequencies and further apart at higher frequencies, matching human perception</ListItem>
+                </OrderedList>
+                This makes Mel-Spectrograms particularly useful for machine learning models working with audio, as they focus computational resources on the frequency ranges that humans find most perceptually significant.
+
               </Text>
 
               <Heading size="sm" pb="20px">Computing and Plotting a Mel-Spectrogram</Heading>
@@ -410,6 +475,21 @@ plt.ylabel('Mel Frequency')
 plt.colorbar(format='%+2.0f dB')
 plt.show()`}
               />
+
+              <Text pb="20px">
+                The resulting Mel-Spectrogram will look something like this:
+              </Text>
+
+              <Image mb={4} src="/images/mel_spectrogram.png" alt="mel_Spectrogram" />
+
+              <Text pb="20px"> 
+                Comparison of the three representations:
+                <OrderedList mt={4} mb={4} pl={8}>
+                  <ListItem>Spectrogram: Raw frequency analysis, best for detailed technical analysis</ListItem>
+                  <ListItem>MFCC: Most compact representation, good for machine learning tasks, especially speech recognition</ListItem>
+                  <ListItem>Mel-Spectrogram: Balance between human perception and signal detail, popular in music analysis and audio generation tasks</ListItem>
+                </OrderedList>
+              </Text>
 
               <Text pb="40px">
                 Feature extraction is a pivotal process in audio analysis, providing a bridge between raw audio data and machine learning models. By understanding and utilizing Spectrograms, MFCCs, and Mel-Spectrograms, we can effectively capture the essence of audio signals for further analysis or model training.
@@ -467,6 +547,10 @@ class UrbanSoundDataset(Dataset):
                 <Text as="li"><Code>__getitem__</Code>: Loads and returns a single sample from the dataset, including the audio waveform and its corresponding label.</Text>
               </Text>
 
+              <Text pb="40px">
+                Dataloaders are used to load the dataset into a more manageable form. They are also used to batch the data and shuffle the data. This is important because it allows us to train our model on a large dataset and it also allows us to shuffle the data to prevent overfitting giving us finer grain control over the data and the training process.
+              </Text>
+
               <Heading size="md" pb="20px">Data Paths</Heading>
               <CodeBlockWithCopy
                 language="python"
@@ -488,6 +572,10 @@ root_dir = '../../data/audio/'`}
     hop_length=512
 )`}
               />
+
+              <Text pb="20px">
+                Even more transformations can be applied to the data to further improve the quality of the data and the performance of the model. For example, we can apply a random noise transformation to the data to further improve the quality of the data and the performance of the model. For now we will not be applying any more transformations to the data.
+              </Text>
 
               <Heading size="md" pt="40px" pb="20px">Building the CNN Model</Heading>
               <Text pb="20px">
@@ -514,8 +602,180 @@ root_dir = '../../data/audio/'`}
         return x`}
               />
 
+              <Text mb={4}>
+                The model architecture is illustrated below.
+              </Text>
+
+              <Image mb={4} src="/images/model_architecture.png" alt="Model Architecture" />
+
               <Text pb="40px">
-                In the next lesson, we will discuss advanced audio data augmentation techniques to further improve our model&apos;s performance.
+                The model is a simple CNN model with two convolutional layers for feature extraction followed by max pooling layers, an adaptive average pooling layer to standardize the output size, and a fully connected layer for classification. Model architecture design is often thought of as an art form and is a topic of much research. For this tutorial we will be using a simple model architecture to keep the focus on the audio processing and machine learning techniques.
+              </Text>
+
+              <Text pb="40px">
+                The <Code>AudioCNN</Code> class inherits from the <Code>nn.Module</Code> class and defines the <Code>forward</Code> method. The <Code>forward</Code> method defines the sequence of operations that are applied to the input data to produce the output data.
+              </Text>
+
+              <Text pb="40px">
+                Now that we have our model defined, we can start training.
+              </Text>
+
+              <Heading size="md" pt="40px" pb="20px">Training and Evaluation</Heading>
+              <Text pb="20px">
+                Let&apos;s implement the training and validation functions that will be used to train our model and evaluate its performance. I will assume you have a basic understanding of the training and validation process. If you don&apos;t, please refer to this video for a quick refresher: <a href="https://www.youtube.com/watch?pp=ygUPI3Rlc3R2YWxpZGF0aW9u&v=ZblqTCFnH-M&utm_source=chatgpt.com">Train, Test, & Validation Sets | How to Train Machine Learning Models (Properly!!!)</a> by Greg hogg.
+              </Text>
+
+              <Heading size="sm" pb="20px">Training Function</Heading>
+              <Text pb="20px">
+                Training involves passing our data through the model, calculating the loss (difference between the predicted and actual labels), and updating the model to reduce this loss.
+              </Text>
+
+              <CodeBlockWithCopy
+                language="python"
+                code={`def train(model, train_loader, optimizer, loss_function, device):
+    model.train()
+    total_loss = 0
+    for inputs, labels in train_loader:
+        inputs, labels = inputs.to(device), labels.to(device)
+        optimizer.zero_grad()
+        outputs = model(inputs)
+        loss = loss_function(outputs, labels)
+        loss.backward()
+        optimizer.step()
+        total_loss += loss.item()
+    return total_loss / len(train_loader)`}
+              />
+
+              <Text as="ul" pb="40px" pl={6}>
+                <Text as="li"><Code>model.train()</Code>: Prepares the model for training.</Text>
+                <Text as="li"><Code>optimizer.zero_grad()</Code>: Clears old gradients; otherwise, they&apos;ll accumulate.</Text>
+                <Text as="li"><Code>loss.backward()</Code>: Computes the gradient of the loss.</Text>
+                <Text as="li"><Code>optimizer.step()</Code>: Updates the model parameters based on the chosen optimizer and obtained loss.</Text>
+              </Text>
+
+              <Heading size="sm" pb="20px">Validation Function</Heading>
+              <Text pb="20px">
+                Validation helps us assess the model&apos;s performance on unseen data, ensuring it&apos;s learning general patterns rather than memorizing the training data.
+              </Text>
+
+              <CodeBlockWithCopy
+                language="python"
+                code={`def validate(model, validate_loader, device):
+    model.eval()
+    total = 0
+    correct = 0
+    with torch.no_grad():
+        for inputs, labels in validate_loader:
+            inputs, labels = inputs.to(device), labels.to(device)
+            outputs = model(inputs)
+            _, predicted = torch.max(outputs.data, 1)
+            total += labels.size(0)
+            correct += (predicted == labels).sum().item()
+    return 100 * correct / total`}
+              />
+
+              <Text as="ul" pb="40px" pl={6}>
+                <Text as="li"><Code>model.eval()</Code>: Prepares the model for evaluation, affecting certain layers like dropout.</Text>
+                <Text as="li"><Code>torch.no_grad()</Code>: Indicates that we don't need to compute gradients, which reduces memory consumption and speeds up computation.</Text>
+              </Text>
+
+              <Heading size="md" pt="40px" pb="20px">Understanding the <Code>pad_collate</Code> Function</Heading>
+              <Text pb="20px">
+                When training neural networks with audio data, one challenge we often face is the variable length of audio files. Since most neural network architectures expect inputs of consistent size, we need to standardize the size of our audio inputs. This is where the <Code>pad_collate</Code> function comes into play.
+              </Text>
+
+              <Heading size="sm" pb="20px">Purpose of <Code>pad_collate</Code></Heading>
+              <Text pb="20px">
+                The <Code>pad_collate</Code> function is designed to ensure that all audio waveforms in a batch have the same length. It does this by padding shorter audio files with zeros until they match the length of the longest file in the batch. This uniformity is crucial for batching and processing through the neural network.
+              </Text>
+
+              <Heading size="sm" pb="20px">How <Code>pad_collate</Code> Works</Heading>
+              <CodeBlockWithCopy
+                language="python"
+                code={`def pad_collate(batch):
+    # Find the maximum length of a waveform in the batch
+    max_len = max([x[0].size(-1) for x in batch])
+  
+    # Pad each waveform in the batch to the maximum length
+    batch_padded = []
+    for waveform, label in batch:
+        # Calculate the amount of padding needed for this waveform
+        pad_amount = max_len - waveform.size(-1)
+        # Pad the waveform at the end along the time dimension
+        padded_waveform = F.pad(waveform, (0, pad_amount), "constant", 0)
+        batch_padded.append((padded_waveform, label))
+  
+    # Stack all the waveforms and labels together
+    waveforms_padded = torch.stack([x[0] for x in batch_padded])
+    labels = torch.tensor([x[1] for x in batch_padded])
+    return waveforms_padded, labels`}
+              />
+
+              <Text as="ul" pb="40px" pl={6}>
+                <Text as="li">Find the Maximum Length: First, we determine the length of the longest audio waveform in the current batch.</Text>
+                <Text as="li">Padding the Waveforms: For each waveform in the batch, we calculate how much padding is needed to match the maximum length.</Text>
+                <Text as="li">Stacking for the Batch: Once all waveforms are padded to the same length, we stack them together along with their labels.</Text>
+              </Text>
+
+              <Heading size="md" pt="40px" pb="20px">Cross-validation Setup</Heading>
+              <Text pb="20px">
+                To ensure our model&apos;s robustness, we perform 10-fold cross-validation and average the accuracy across all folds.
+              </Text>
+
+              <CodeBlockWithCopy
+                language="python"
+                code={`num_epochs = 100
+learning_rate = 0.001
+num_folds = 10
+results = []
+
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
+for fold in range(1, num_folds + 1):
+    print(f"Processing fold {fold}")
+  
+    # Splitting dataset
+    train_data = UrbanSoundDataset(csv_file=csv_file, root_dir=root_dir, fold=fold, transform=transform)
+    validate_data = UrbanSoundDataset(csv_file=csv_file, root_dir=root_dir, fold=fold, transform=transform)
+  
+    # DataLoader setup
+    train_loader = DataLoader(train_data, batch_size=32, shuffle=True, collate_fn=pad_collate)
+    validate_loader = DataLoader(validate_data, batch_size=32, shuffle=False, collate_fn=pad_collate)
+  
+    # Model setup
+    model = AudioCNN().to(device)
+    optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
+    loss_function = nn.CrossEntropyLoss()
+  
+    # Training loop
+    for epoch in range(num_epochs):
+        train_loss = train(model, train_loader, optimizer, loss_function, device)
+        print(f'Fold {fold}, Epoch [{epoch+1}/{num_epochs}], Loss: {train_loss:.4f}')
+  
+    # Validation
+    accuracy = validate(model, validate_loader, device)
+    results.append(accuracy)
+    print(f'Validation Accuracy for fold {fold}: {accuracy:.2f}%')
+
+# Calculate average accuracy across all folds
+average_accuracy = np.mean(results)
+print(f'Average Accuracy across all folds: {average_accuracy:.2f}%')`}
+              />
+
+              <Text pb="40px">
+                The variables such as <Code>num_epochs</Code>, <Code>learning_rate</Code>, <Code>num_folds</Code>, and <Code>batch_size</Code> are all hyperparameters that can be tuned to improve the performance of the model. There is no &apos;one size fits all&apos; approach to tuning hyperparameters. It is a process of trial and error and the best approach is to use a systematic approach to tune the hyperparameters for your model.
+              </Text>
+
+              <Text pb="40px">
+                Cross validation is a technique used to evaluate the performance of a model on a dataset. It works by splitting the dataset into multiple folds and training and validating the model on each fold. The performance of the model is then averaged across all folds. It is not always necessary to use cross validation, but it is a good practice to use it when you are evaluating the performance of a model. You will see many different approaches to validating your model as well as special tooling such as <a href="https://wandb.ai/home">Wandb</a> to help you visualize your model&apos;s performance and configure your training process in order to systematically find the determine hyperparameters for your model.
+              </Text>
+
+              <Text pb="40px">
+                Building a simple CNN model for audio classification with PyTorch demonstrates the power of neural networks in processing and understanding complex audio signals. This foundational knowledge sets the stage for exploring more advanced models and techniques in the field of audio analysis.
+              </Text>
+
+              <Text pb="40px">
+                In the next lesson, we will dive into advanced audio data augmentation techniques to further improve our model&apos;s performance.
               </Text>
             </Box>
           </VStack>
