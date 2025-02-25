@@ -124,7 +124,7 @@ export default function TorchaudioTutorialP1() {
                   bottom: '-10px',
                   left: '50%',
                   transform: 'translateX(-50%)',
-                  width: '40vw',
+                  width: '65vw',
                   borderBottom: `1px solid currentColor`,
                   borderColor: "black"
                 }}
@@ -415,13 +415,13 @@ plt.show()`}
               <Heading size="md" pt="40px" pb="20px">Mel-Frequency Cepstral Coefficients (MFCCs)</Heading>
               <Text pb="40px">
                 MFCCs are a compact representation of audio that attempts to mimic how human hearing works. They are created through the following process:
-                <OrderedList mt={4} pl={8}>
-                  <ListItem>Take the Fourier transform of a signal</ListItem>
-                  <ListItem>Map the powers of the spectrum onto the mel scale</ListItem>
-                  <ListItem>Take the logs of the powers at each mel frequency</ListItem>
-                  <ListItem>Take the discrete cosine transform of the list of mel log powers</ListItem>
-                </OrderedList>
               </Text>
+              <OrderedList mt={4} pl={8} pb="40px">
+                <ListItem>Take the Fourier transform of a signal</ListItem>
+                <ListItem>Map the powers of the spectrum onto the mel scale</ListItem>
+                <ListItem>Take the logs of the powers at each mel frequency</ListItem>
+                <ListItem>Take the discrete cosine transform of the list of mel log powers</ListItem>
+              </OrderedList>
 
               <Heading size="sm" pb="20px">Computing and Plotting MFCCs</Heading>
               <CodeBlockWithCopy
@@ -452,12 +452,13 @@ plt.show()`}
               <Heading size="md" pt="40px" pb="20px">Mel-Spectrogram</Heading>
               <Text color="white" mb={4}>
                 A Mel-Spectrogram is a modified version of a spectrogram that uses the Mel scale instead of a linear frequency scale. The Mel scale is a perceptual scale of pitches where equal distances in pitch are perceived as equal by listeners. Key differences include:
-                <OrderedList mt={4} mb={4} pl={8}>
-                  <ListItem>Linear Spectrogram: Uses equally spaced frequency bins</ListItem>
-                  <ListItem>Mel-Spectrogram: Uses frequency bins that are closer together at lower frequencies and further apart at higher frequencies, matching human perception</ListItem>
-                </OrderedList>
+              </Text>
+              <OrderedList mt={4} mb={4} pl={8}>
+                <ListItem>Linear Spectrogram: Uses equally spaced frequency bins</ListItem>
+                <ListItem>Mel-Spectrogram: Uses frequency bins that are closer together at lower frequencies and further apart at higher frequencies, matching human perception</ListItem>
+              </OrderedList>
+              <Text color="white" mb={4}>
                 This makes Mel-Spectrograms particularly useful for machine learning models working with audio, as they focus computational resources on the frequency ranges that humans find most perceptually significant.
-
               </Text>
 
               <Heading size="sm" pb="20px">Computing and Plotting a Mel-Spectrogram</Heading>
@@ -484,12 +485,12 @@ plt.show()`}
 
               <Text pb="20px"> 
                 Comparison of the three representations:
-                <OrderedList mt={4} mb={4} pl={8}>
-                  <ListItem>Spectrogram: Raw frequency analysis, best for detailed technical analysis</ListItem>
-                  <ListItem>MFCC: Most compact representation, good for machine learning tasks, especially speech recognition</ListItem>
-                  <ListItem>Mel-Spectrogram: Balance between human perception and signal detail, popular in music analysis and audio generation tasks</ListItem>
-                </OrderedList>
               </Text>
+              <OrderedList mt={4} mb={4} pl={8}>
+                <ListItem>Spectrogram: Raw frequency analysis, best for detailed technical analysis</ListItem>
+                <ListItem>MFCC: Most compact representation, good for machine learning tasks, especially speech recognition</ListItem>
+                <ListItem>Mel-Spectrogram: Balance between human perception and signal detail, popular in music analysis and audio generation tasks</ListItem>
+              </OrderedList>
 
               <Text pb="40px">
                 Feature extraction is a pivotal process in audio analysis, providing a bridge between raw audio data and machine learning models. By understanding and utilizing Spectrograms, MFCCs, and Mel-Spectrograms, we can effectively capture the essence of audio signals for further analysis or model training.
