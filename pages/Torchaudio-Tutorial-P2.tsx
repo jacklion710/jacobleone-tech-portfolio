@@ -148,7 +148,7 @@ export default function TorchaudioTutorialP2() {
             color="white"
           >
             <Text textAlign={'center'} pb="40px">
-              This project provides a structured approach to learning audio processing and classification using PyTorch and torchaudio. Through a series of lessons, you&apos;ll progress from basic audio handling to deploying audio models for real-world applications.
+              In the previous installment we learned the basics of tensors, data transformations as well as model architecture and training routines. Building off of the topics in part 1, this lesson covers data augmentations, transfer learning techniques and deployment in a web application. 
             </Text>
 
             <Heading size="lg" pt="60px" pb="20px">Overview</Heading>
@@ -163,7 +163,7 @@ export default function TorchaudioTutorialP2() {
 
             <Heading size="md" pb="20px">Audio Data Augmentation</Heading>
             <Text pb="40px">
-              Data augmentation is a technique used to increase the diversity of your training set by applying random transformations. It helps prevent overfitting and makes your model more robust to variations in audio data.
+              Data augmentation is a technique used to increase the diversity of your training set by applying random transformations. It helps prevent overfitting and makes your model more robust to variations in audio data. This is sometimes known as feature engineering since we are creating new features from the existing data.
             </Text>
 
             <Heading size="sm" pb="20px">Adding Noise</Heading>
@@ -173,15 +173,17 @@ export default function TorchaudioTutorialP2() {
 
             <CodeBlockWithCopy
               language="python"
-              code={`def add_noise(waveform, noise_level=0.005):
+              code={`def add_noise(waveform, noise_level=0.25):
     noise = torch.randn(waveform.size()) * noise_level
     augmented_waveform = waveform + noise
     return augmented_waveform`}
             />
 
-            <Text pb="40px">
-              This function adds Gaussian noise to the waveform, controlled by the noise_level parameter.
+            <Text pb="20px">
+              This function adds Gaussian noise to the waveform, controlled by the <Code>noise_level</Code> parameter. The noise is sampled from a normal distribution with mean 0 and standard deviation <Code>noise_level</Code> resulting in a waveform with added noise. Here&apos;s an example of the effect of adding noise to a waveform might look like:
             </Text>
+
+            <Image mx="auto" mb={8} src="/images/signal_noise.png" alt="Noise" />
 
             <Heading size="sm" pb="20px">Pitch Shifting</Heading>
             <Text pb="20px">
@@ -190,14 +192,20 @@ export default function TorchaudioTutorialP2() {
 
             <CodeBlockWithCopy
               language="python"
-              code={`def change_pitch(waveform, sample_rate, pitch_shift=5):
+              code={`def change_pitch(waveform, sample_rate, pitch_shift=12):
     augmented_waveform = torchaudio.functional.pitch_shift(waveform, sample_rate, pitch_shift)
     return augmented_waveform`}
             />
 
             <Text pb="40px">
-              Here, <Code>pitch_shift</Code> specifies the number of semitones by which the pitch is shifted.
+              Here, <Code>pitch_shift</Code> specifies the number of semitones by which the pitch is shifted. Pitch shifting alters the frequency of the audio signal without changing its duration. 
             </Text>
+
+            <Text pb="40px">
+              Here&apos;s an example of the effect of pitch shifting a waveform might look like:
+            </Text>
+
+            <Image mx="auto" mb={8} src="/images/signal_pitch.png" alt="Pitch" />
 
             <Heading size="sm" pb="20px">Time Shifting</Heading>
             <Text pb="20px">
@@ -206,14 +214,20 @@ export default function TorchaudioTutorialP2() {
 
             <CodeBlockWithCopy
               language="python"
-              code={`def time_shift(waveform, shift_max=0.1):
+              code={`def time_shift(waveform, shift_max=0.5):
     shift_amount = int(random.random() * shift_max * waveform.size(1))
     return torch.roll(waveform, shifts=shift_amount, dims=1)`}
             />
 
             <Text pb="40px">
-              <Code>shift_max</Code> controls the maximum fraction of the waveform that can be shifted.
+              <Code>shift_max</Code> controls the maximum fraction of the waveform that can be shifted. Similar to how an image can be panned or skewed so that for example an image of someones face can be trained on from a different perceived angle, time shifting can be used to move audio objects around in temporal space which may give the model a new &apos;angle&apos; to view the data from.
             </Text>
+
+            <Text pb="40px">
+              Here&apos;s an example of the effect of pitch shifting a waveform might look like:
+            </Text>
+
+            <Image mx="auto" mb={4} src="/images/time_shift.png" alt="Time shift effect" />
 
             <Heading size="md" pb="20px">Feature Extraction</Heading>
             <Text pb="40px">
@@ -239,7 +253,7 @@ export default function TorchaudioTutorialP2() {
             />
 
             <Text pb="40px">
-              This function computes a mel-spectrogram and its first and second derivatives, providing a rich representation of the audio signal.
+              This function computes a mel-spectrogram and its first and second derivatives, providing a rich representation of the audio signal. We already covered mel-spectrograms in part 1 so we will skip this visualization.
             </Text>
 
             <Heading size="md" pb="20px">Demonstration</Heading>
@@ -258,20 +272,42 @@ waveform_shifted = time_shift(waveform)
 
 features = extract_features(waveform, sample_rate)
 
-plt.figure(figsize=(12, 8))
-plt.subplot(3, 1, 1)
+# Plotting
+plt.figure(figsize=(12, 15))
+plt.subplot(5, 1, 1)
 plt.title("Original Waveform")
 plt.plot(waveform.t().numpy())
 
-plt.subplot(3, 1, 2)
+plt.subplot(5, 1, 2)
 plt.title("Waveform with Noise")
 plt.plot(waveform_noise.t().numpy())
 
-plt.subplot(3, 1, 3)
+plt.subplot(5, 1, 3)
+plt.title("Waveform with Pitch Shift")
+plt.plot(waveform_pitch.t().numpy())
+
+plt.subplot(5, 1, 4)
+plt.title("Waveform with Time Shift")
+plt.plot(waveform_shifted.t().numpy())
+
+plt.subplot(5, 1, 5)
 plt.title("Features")
 plt.imshow(features.log2()[0,:,:].numpy(), cmap='viridis', aspect='auto')
-plt.show()`}
+
+plt.tight_layout()
+plt.show()
+plt.savefig("features.png", dpi=300, bbox_inches='tight')`}
             />
+
+            <Text pb="40px">
+              Here&apos;s the resulting plot:
+            </Text>
+
+            <Image mx="auto" mb={4} src="/images/features.png" alt="Features" />
+
+            <Text pb="40px">
+              You can observe the differences between the stereo and mono waveforms in the time domain, the orange being the left channel and the blue being the right channel.
+            </Text>
 
             <Text pb="40px">
               In this lesson, we explored advanced techniques for processing audio data, including data augmentation and feature extraction. These strategies are crucial for developing high-performing audio classification models, especially in scenarios with limited training data.
@@ -283,12 +319,12 @@ plt.show()`}
 
             <Heading size="lg" pt="60px" pb="20px">Lesson 6: Transfer Learning in Audio with PyTorch</Heading>
             <Text pb="40px">
-              In this lesson, we focus on leveraging transfer learning to improve the performance of audio classification tasks. Transfer learning allows us to use a pre-trained model and fine-tune it on a specific task, reducing the need for a large dataset and computational resources.
+              In this lesson, we focus on leveraging the potential of pre-trained models with transfer learning to improve the performance of the model on a specific task. Transfer learning allows us to use a pre-trained model and fine-tune it on a specific task, reducing the need for a large dataset and computational resources.
             </Text>
 
             <Heading size="md" pb="20px">The Concept of Transfer Learning</Heading>
             <Text pb="40px">
-              Transfer learning involves taking a model trained on a large dataset and adapting it to a similar task. This is particularly useful in audio processing, where training models from scratch can be resource-intensive.
+              Transfer learning involves taking a model trained on a large dataset and adapting it to a similar task. This is particularly useful in audio processing, where training models from scratch can be resource-intensive. We will be using the Wav2Vec 2.0 model, which is a pre-trained model that has been trained on a large dataset of unlabeled audio data.
             </Text>
 
             <Heading size="md" pb="20px">Using Wav2Vec 2.0 for Audio Classification</Heading>
@@ -326,19 +362,19 @@ plt.show()`}
         if self.transformation:
             waveform = self.transformation(waveform)
 
-        # Ensure waveform is squeezed if it&apos;s mono to remove channel dimension
+        # Ensure waveform is squeezed if its mono to remove channel dimension
         waveform = torch.squeeze(waveform)
       
         return waveform, label`}
             />
 
             <Text pb="40px">
-              This class handles loading audio data, converting it to mono if necessary, and applying any specified transformations.
+              This class handles loading audio data, converting it to mono if necessary, and applying any specified transformations. It is similar to the <Code>AudioClassificationDataset</Code> class we created in part 1.
             </Text>
 
             <Heading size="md" pb="20px">Padding Audio</Heading>
             <Text pb="20px">
-              Our friend the <Code>pad_collate</Code> function from lesson4 becomes useful to us again:
+              Our friend the <Code>pad_collate</Code> function from lesson 4 becomes useful to us once again:
             </Text>
 
             <CodeBlockWithCopy
@@ -380,6 +416,10 @@ temp_features, _ = temp_model(temp_inputs)
 feature_size = temp_features.shape[-1]`}
             />
 
+            <Text pb="40px">
+              We determine the correct feature size by passing a temporary input through the model and then checking the shape of the output. This is a common technique used to determine the shape of the dataloaders output.
+            </Text>
+
             <Heading size="md" pt="40px" pb="20px">Define the model</Heading>
             <CodeBlockWithCopy
               language="python"
@@ -401,7 +441,7 @@ model = Wav2Vec2ForAudioClassification(wav2vec2_bundle.get_model(), num_classes,
             />
 
             <Text pb="40px">
-              This class integrates the pre-trained Wav2Vec 2.0 model with a custom linear layer (<Code>self.classifier</Code>) for classification. The linear layer&apos;s input features match the size determined previously, ensuring compatibility with the extracted features.
+              This class integrates the pre-trained Wav2Vec 2.0 model with a custom linear layer (<Code>self.classifier</Code>) by initializing it with the feature size determined previously, ensuring compatibility with the extracted features.
             </Text>
 
             <Heading size="md" pb="20px">Data Augmentation and Preprocessing</Heading>
@@ -424,13 +464,8 @@ model = Wav2Vec2ForAudioClassification(wav2vec2_bundle.get_model(), num_classes,
             />
 
             <Text pb="20px">
-              The <Code>model_info</Code> variable is a dictionary that stores not only the trained model&apos;s state but also the feature size used by the classifier. This is particularly important for transfer learning because it encapsulates both the learned parameters and the configuration necessary to reproduce the model&apos;s architecture. When we save this dictionary:
+              The <Code>model_info</Code> variable is a dictionary that stores not only the trained model&apos;s state but also the feature size used by the classifier. This is particularly important for transfer learning because it encapsulates both the learned parameters and the configuration necessary to reproduce the model&apos;s architecture. When we save this dictionary later, we will be able to load the model and its state:
             </Text>
-
-            <CodeBlockWithCopy
-              language="python"
-              code={`torch.save(model_info, model_save_path)`}
-            />
 
             <Text pb="40px">
               We&apos;re ensuring that anyone who loads the model later has all the information needed to correctly initialize the model architecture and load the learned weights. This approach facilitates model sharing and deployment, as the model&apos;s architecture and its state are bundled together.
@@ -484,7 +519,7 @@ for epoch in range(num_epochs):
 
             <Heading size="md" pb="20px">Saving the Model</Heading>
             <Text pb="20px">
-              After training, we save the model&apos;s state along with the feature size to a file. This allows us to easily load the model for future inference.
+              After fine-tuning, we save the model&apos;s state dictionary along with the feature size to a file. This allows us to easily load the model for future inference.
             </Text>
 
             <CodeBlockWithCopy
@@ -493,11 +528,11 @@ for epoch in range(num_epochs):
             />
 
             <Text pb="40px">
-              Transfer learning with <Code>Wav2Vec 2.0</Code> offers a powerful approach for audio classification tasks. By leveraging pre-trained models, we can achieve high performance with relatively small datasets and less computational effort.
+              Now that we have obtained a fine-tuned model, we can proceed with deploying it in lesson 7. Transfer learning with <Code>Wav2Vec 2.0</Code> offers a powerful approach for audio classification tasks. By leveraging pre-trained models, we can achieve high performance with relatively small datasets and less computational effort.
             </Text>
 
             <Text pb="40px">
-              In the next lesson, we will explore deploying our trained audio models, making them accessible for real-world applications.
+              In the next lesson, we will explore deploying our trained audio models, making them accessible in real-world applications.
             </Text>
 
             <Heading size="lg" pt="60px" pb="20px">Lesson 7: Deploying Audio Models</Heading>
@@ -713,8 +748,10 @@ def predict():
             />
 
             <Text pb="40px">
-              Once it&apos;s running go to <Code>http://127.0.0.1:5000</Code> on a browser
+              Once it&apos;s running go to <Code>http://127.0.0.1:5000</Code> on a browser, you should see the following:
             </Text>
+
+            <Image mx="auto" mb={4} src="/images/torchaudio-basics.png" alt="Lesson 7" />
 
             <Text pb="40px">
               This setup allows users to upload audio files through a web interface, and the backend processes these files to return the predicted audio class. Deploying the model in this way makes it accessible for real-world applications and testing.
@@ -817,7 +854,7 @@ def predict():
             </UnorderedList>
 
             <Text pb="20px">
-              We hope these lessons have provided you with a solid foundation and inspired you to continue exploring the fascinating world of audio processing with PyTorch. Remember, practice is key to mastering these concepts, so keep experimenting, learning, and building.
+              I hope these lessons have provided you with a solid foundation and inspired you to continue exploring the fascinating world of audio processing with PyTorch. Remember, practice is key to mastering these concepts, so keep experimenting, learning, and building.
             </Text>
 
             <Text pb="40px">

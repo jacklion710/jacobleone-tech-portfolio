@@ -351,7 +351,11 @@ plt.show()`}
                 The resulting plot will look something like this:
               </Text>
 
-              <Image mb={4} src="/images/kick_plot.png" alt="Audio Waveform" />
+              <Image mx="auto" mb={4} src="/images/kick_plot.png" alt="Audio Waveform" />
+
+              <Text pb="40px">
+                Note that if you get a segmentation fault error, it is likely because of the version of torchaudio you are using. I recommend using the latest version of torchaudio.
+              </Text>
 
               <Text mb={4}>
                 If the waveform is stereo, we can convert it to mono by averaging the channels. This is useful because it reduces the dimensionality of the waveform tensor and simplifies the processing of the audio data. Typically the audio in the left and right channels are very similar, so averaging them is a simple way to reduce the dimensionality of the waveform tensor. There may be cases where you want to keep the stereo information, especially if you are working with spatial audio, but for this tutorial we will be averaging the channels to convert the waveform to mono.
@@ -410,7 +414,7 @@ plt.show()`}
                 The resulting spectrogram will look something like this:
               </Text>
 
-              <Image mb={4} src="/images/spectrogram.png" alt="Spectrogram" />
+              <Image mx="auto" mb={4} src="/images/spectrogram.png" alt="Spectrogram" />
 
               <Heading size="md" pt="40px" pb="20px">Mel-Frequency Cepstral Coefficients (MFCCs)</Heading>
               <Text pb="40px">
@@ -443,7 +447,7 @@ plt.show()`}
                 The resulting MFCCs will look something like this:
               </Text>
 
-              <Image mb={4} src="/images/mfcc.png" alt="MFCCs" />
+              <Image mx="auto" mb={4} src="/images/mfcc.png" alt="MFCCs" />
 
               <Text pb="20px">
                 MFCCs are a great way to represent the frequency content of an audio signal and are often used in machine learning models. They are a more compact representation of the audio signal and are easier to work with than spectrograms.
@@ -481,7 +485,7 @@ plt.show()`}
                 The resulting Mel-Spectrogram will look something like this:
               </Text>
 
-              <Image mb={4} src="/images/mel_spectrogram.png" alt="mel_Spectrogram" />
+              <Image mx="auto" mb={4} src="/images/mel_spectrogram.png" alt="mel_Spectrogram" />
 
               <Text pb="20px"> 
                 Comparison of the three representations:
