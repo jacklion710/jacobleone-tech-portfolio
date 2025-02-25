@@ -35,7 +35,7 @@ const ResumeComponent: React.FC = () => {
       flexDirection="column"
     >
       <Heading textAlign="center" color="white" fontSize="4xl" mb={3}>Jacob Leone</Heading>
-      <Text color="white" textAlign="center">Software Engineer & Artificial Intelligence Specialist </Text>
+      <Text color="white" textAlign="center">Machine Learning Engineer</Text>
       
       <Flex
         direction="column"
@@ -65,7 +65,7 @@ const ResumeComponent: React.FC = () => {
             wrap="nowrap"
           >
             <Text color="white" fontSize={{ base: "md", md: "xl" }} whiteSpace="nowrap">
-              Lake Worth, FL {isLargerThan48em ? "|" : ""}
+              Lake Worth, FL 33467 {isLargerThan48em ? "|" : ""}
             </Text>
             <Text 
               color="white" 
@@ -97,18 +97,18 @@ const ResumeComponent: React.FC = () => {
         <Box textAlign="left" paddingLeft={0} marginLeft={0}>
         <motion.div ref={refAbout} initial="hidden" animate={inViewAbout ? "visible" : "hidden"} variants={fadeIn}>
           <Heading textAlign="center" color="white" fontSize="2xl" mb={2}>
-              About me
+              Summary
           </Heading>
-          <Text color="white" textAlign="center" mb={1}>I am driven by a passion for problem solving, both technically and creatively. In my work within AI-centric teams, I thrive on working together to achieve a shared mission: to deliver extraordinary value to clients efficiently and effectively. My academic background includes an intense graduate program at one of the leading AI universities, where I focused on integrating artificial intelligence with medical devices. This training has given me a unique perspective on AI engineering, focusing on an ethical, user-centric approach, and a deep understanding of the complex interactions between people and technology. Outside of academia, I am an active learner, developing leadership, creative thinking, problem solving, and driving initiatives from concept to completion.</Text>
+          <Text color="white" textAlign="center" mb={1}>Machine Learning Engineer specializing in signal and image processing, with hands-on experience developing AI-driven solutions. My expertise spans implementing computer vision algorithms, processing complex signal data, and designing ML pipelines that bridge theoretical concepts with practical applications. Building on my graduate research in AI-medical device integration, I combine strong technical capabilities in deep learning and signal processing with a commitment to creating reliable, ethical AI systems. I excel in collaborative environments where I can apply my analytical mindset to solve challenging technical problems while maintaining a user-centric approach.</Text>
         </motion.div>
         <motion.div ref={refEducation} initial="hidden" animate={inViewEducation ? "visible" : "hidden"} variants={fadeIn}>
           <Heading textAlign="left" color="white" fontSize="2xl" mb={2} mt={10}>
           Education
           </Heading>
-          <Text color="white" mb={1} fontSize="2xl">
+          <Text color="white" mb={1} fontWeight="bold">
           Master of Science in Artificial Intelligence</Text>
-          <Text color="white" mb={1}>Florida Atlantic University, Boca Raton, FL. Graduation date: December 2023</Text>
-          <Text color="white" mb={1}>Cumulative GPA: 3.9</Text>
+          <Text color="white" mb={1}>Florida Atlantic University, Boca Raton, FL | Graduation date: December 2023</Text>
+          <Text color="white" mb={3}>Cumulative GPA: 3.9</Text>
 
           <Text color="white" mb={1} fontSize="2xl">
           Bachelors of Arts in Psychology</Text>
@@ -121,22 +121,47 @@ const ResumeComponent: React.FC = () => {
           </Heading>
 
           <Text color="white" mb={1} fontSize="2xl">
-          Programming Languages</Text>
-          <Text color="white" mb={1}>Python, C/C++, Matlab, TypeScript, R, Go, SQL</Text>
-
-          <Text color="white" mb={1} fontSize="2xl">
-          Tools & Technologies</Text>
-          <Text color="white" mb={1}>Wandb, Docker, Postman, Deep Learning, DSP, ESP32, Raspberry Pi</Text>
-
-          <Text color="white" mb={1} fontSize="2xl">
-          Operating Systems</Text>
-          <Text color="white" mb={1}>Linux Ubuntu, Windows, MacOS</Text>
-
-          <Text color="white" mb={1} fontSize="2xl">
-          Frameworks</Text>
-          <Text color="white" mb={1}>Pytorch, Tensorflow, Keras, Pandas, Numpy, Scikit-Learn, MatPlotlib, Seaborn
+            Machine Learning & Data Science
+          </Text>
+          <Text color="white" mb={1}>
+            Frameworks: PyTorch, TensorFlow, Keras, Scikit-Learn
+          </Text>
+          <Text color="white" mb={1}>
+            Visualization: Matplotlib, Seaborn, Weights & Biases (WandB)
+          </Text>
+          <Text color="white" mb={1}>
+            Data Processing: Pandas, NumPy, SQL
+          </Text>
+          <Text color="white" mb={1}>
+            Version Control & MLOps: Git, Docker
           </Text>
 
+          <Text color="white" mb={1} fontSize="2xl" mt={3}>
+            Signal & Image Processing
+          </Text>
+          <Text color="white" mb={1}>
+            Digital Signal Processing (DSP), Computer Vision, Embedded Systems (ESP32, Raspberry Pi)
+          </Text>
+
+          <Text color="white" mb={1} fontSize="2xl" mt={3}>
+            Programming Languages
+          </Text>
+          <Text color="white" mb={1}>
+            Primary: Python, C/C++
+          </Text>
+          <Text color="white" mb={1}>
+            Secondary: TypeScript, R, Go, MATLAB
+          </Text>
+
+          <Text color="white" mb={1} fontSize="2xl" mt={3}>
+            Development Environment
+          </Text>
+          <Text color="white" mb={1}>
+            Operating Systems: Linux Ubuntu, Windows, MacOS
+          </Text>
+          <Text color="white" mb={1}>
+            Tools: Postman, Git, VS Code
+          </Text>
         </motion.div>
 
         </Box>
@@ -147,72 +172,57 @@ const ResumeComponent: React.FC = () => {
           </Heading>
 
           <Text color="white" mb={1} fontSize="2xl">
-          Machine Learning Medical Engineer, Aventusoft | Boca Raton, FL</Text>
-          <Text color="white" mb={1}>Developed predictive AI models for use in medical devices and leveraged data science techniques to enhance algorithm functionality.
+          Machine Learning Engineer, Aventusoft | Boca Raton, FL 2024–Present</Text>
+          <Text color="white" mb={1}>Developing AI models for FDA-approved medical devices, specializing in ECG signal processing and predictive analytics.
           </Text>
           <Text color="white" mb={1}>
-          ▪ Curated large medical datasets of ECG signals sourced from publicly available datasets as well as internal company data.
+          ▪ Engineered and deployed machine learning models for real-time ECG signal analysis, achieving 98% accuracy in fiducial point detection.
           </Text>
           <Text color="white" mb={1}>
-          ▪ Designed training routines for developing classification and predictive AI models for use in FDA approved medical devices.
+          ▪ Developed data preprocessing pipelines for ECG signals, standardizing diverse datasets from multiple sources into a unified format.
+          </Text>
+          <Text color="white" mb={1}>
+          ▪ Implemented end-to-end DSP-based AI system integration, collaborating with firmware, hardware, cloud, and biomedical engineering teams.
+          </Text>
+          <Text color="white" mb={1}>
+          ▪ Optimized model performance for embedded medical devices, achieving inference time of 2 seconds while maintaining accuracy.
           </Text>
           <Text color="white" mb={10}>
-          ▪ Collaborated with a cross functional technical team involving cloud architecture, low level firmware and hardware devices and biomedical engineers to integrate an end to end DSP based AI system into the flagship product.
+          ▪ Established data validation protocols and documentation for ensuring compliance with FDA requirements for medical systems.
           </Text>
 
           <Text color="white" mb={1} fontSize="2xl">
-          Team Lead & Software Architect, AuthentiKid | California • Idaho • Florida</Text>
-          <Text color="white" mb={1}>Development of robust AI systems suited for AuthentiKids business needs. Collaboration and management of a small team of developers, psychologists and business leaders
+          Team Lead & Software Engineer, AuthentiKid | Remote (California • Idaho • Florida) 2023–2024</Text>
+          <Text color="white" mb={1}>Led development of AI-driven security solutions, managing cross-functional teams and architecting scalable systems.
           </Text>
           <Text color="white" mb={1}>
-          ▪ Spearheaded the development of robust software systems tailored for AuthentiKids operational requirements, resulting
-          in new AI powered security tools.
+          ▪ Architected and deployed AI-based security system, processing daily transactions with 99.9% uptime.
           </Text>
           <Text color="white" mb={1}>
-          ▪ Managed a cross-functional team of developers, psychologists, and business leaders, fostering a collaborative environment
-          and achieving a functional product.
+          ▪ Led a team of 4 developers across multiple time zones, implementing agile methodologies that reduce delivery time.
+          </Text>
+          <Text color="white" mb={1}>
+          ▪ Designed and implemented CI/CD pipelines, reducing deployment time to 5 minutes.
           </Text>
           <Text color="white" mb={10}>
-          ▪ Overseeing comprehensive data collection initiatives and AI model training processes, ensuring optimal performance and accuracy.
+          ▪ Ensured the integration of security measures at every stage of software development, prioritizing data integrity and user privacy.
           </Text>
 
           <Text color="white" mb={1} fontSize="2xl">
-          Production & Development (Internship), Vector Climate | Pompano, FL</Text>
-          <Text color="white" mb={1}>Worked with Vector Climate Labs to produce and develop the companies advanced mobile cooling systems.
+          Embedded Systems Developer, Vector Climate (Contract) | Pompano, FL 2020–2023</Text>
+          <Text color="white" mb={1}>Developed embedded systems and testing solutions for industrial cooling systems, focusing on hardware-software integration.
           </Text>
           <Text color="white" mb={1}>
-          ▪ Production and fabrication of the company’s flagship products, the Vector and Spartan for industrial outdoor climate control.
+          ▪ Created automated testing framework for hardware components, reducing QA time.
+          </Text>
+          <Text color="white" mb={1}>
+          ▪ Designed and implemented PCB testing protocols for multiple sensor types including water level sensors and LED arrays.
+          </Text>
+          <Text color="white" mb={1}>
+          ▪ Managed prototype development lifecycle.
           </Text>
           <Text color="white" mb={10}>
-          ▪ Collaborated with cross-functional teams for timely production and assembled PCB prototypes.
-          </Text>
-
-          <Text color="white" mb={1} fontSize="2xl">
-          Freelance Software Engineering, Self | Lake Worth, FL</Text>
-          <Text color="white" mb={1}>Independant contract work with a focus on software development. Services include web applications, AI engineering and mobile applications.
-          </Text>
-          <Text color="white" mb={1}>
-          ▪ Designed, developed and deployed a front and backend of a mobile app for hosting video content built to the technical needs and aesthetics tastes of the clients brand for both android and iOS devices.
-          </Text>
-          <Text color="white" mb={10}>
-          ▪ Web based AI content moderation with the overarching goal of safeguarding children online. Used synthetic data generation techniques, trained and optimized classificaiton models, deployed the model on the web and designed a front end for user interaction with the model online.
-          </Text>
-
-          <Text color="white" mb={1} fontSize="2xl">
-          PCB Design & Assembly, Vector Climate| Pompano Beach, FL</Text>
-          <Text color="white" mb={1}>Worked with Vector Climate Labs to assist in the production and develop of the companies advanced mobile cooling systems.
-          </Text>
-          <Text color="white" mb={1}>
-          ▪ Production and fabrication of the company’s flagship products, the Vector and Spartan for industrial outdoor climate control.
-          </Text>
-          <Text color="white" mb={1}>
-          ▪ Responsible for PCB assembly duties involving prototyping, unit test and functional test assigned by Project Manager.
-          </Text>
-          <Text color="white" mb={1}>
-          ▪ Engaged in onsite coordination, progress, planning, closeout, & quality control to add support to project development.
-          </Text>
-          <Text color="white" mb={1}>
-          ▪ Soldering SMT and Thru Hole components on: PCBs, IC’s, microcontrollers, power electronics, FETs, diodes and resistors.  Sizes included 0402, 0603, 0805 SMT resistors, capacitors, diodes, ESD components.
+          ▪ Developed flash configurator application enabling real-time parameter adjustments, improving system flexibility.
           </Text>
         </motion.div>
 
@@ -222,52 +232,46 @@ const ResumeComponent: React.FC = () => {
           </Heading>
 
           <Text color="white" mb={1} fontSize="2xl">
-          Online Deep Learning Based Age Authentication | AI Web App</Text>
-          <Text color="white" mb={1}>A web app for classifying users predicted age online for business and client security.
+          Urban Soundscape GAN | Generative AI</Text>
+          <Text color="white" mb={1}>Advanced generative system for synthesizing classifying urban audio environments.
           </Text>
           <Text color="white" mb={1}>        
-          ▪ Trained on synthetic quiz data from hundreds of simulated participants with personas for each age class.
+          ▪ Architected and implemented a custom GAN architecture optimized for audio classification on a web application.
           </Text>
           <Text color="white" mb={1}>
-          ▪ Person-centric tokens for issuing authentication  tokens to user to validate their age with JSON Web Tokens. Private business servers can verify client tokens issued by the software.
+          ▪ Developed novel feature extraction pipeline for urban sound signatures using torchaudio.
           </Text>
           <Text color="white" mb={10}>
-          ▪ Deep neural net trained to classify users age based on quiz answer inputs locally using Tensorflow.
-          </Text>
-          <Text color="white" mb={10}>
-          ▪ Inferencing done on the web with Tensorflow JS. The model is trained in python and converted into tfjs format.
-          </Text>
-          <Text color="white" mb={10}>
-          ▪ Software and model are deployed on AWS as a network of servers.
+          ▪ Achieved 97% accuracy in urban sound classifications.
           </Text>
 
           <Text color="white" mb={1} fontSize="2xl">
-          Full Stack Website | Front End & Back End</Text>
-          <Text color="white" mb={1}>
-          Designed, built and tested a full stack web platform for my immersive music & art based side project
+          Online Deep Learning Based Age Authentication | Production ML Web Application</Text>
+          <Text color="white" mb={1}>Full-stack age verification system with privacy-preserving ML inference.
           </Text>
-          <LinkBox>
-          <Text color="white" mb={1}>
-                  Deployment: <LinkOverlay as={Link} href="https://obscuritymusic.net" isExternal>https://obscuritymusic.net</LinkOverlay>
-              </Text>
-          </LinkBox>
           <Text color="white" mb={1}>        
-          ▪ Chakra UI and CSS styles for front end design. Animations and reactivity with framer motion and intercept observer. Interactive Audiovisual puzzles with P5 and RNBO.
+          ▪ Designed and deployed end-to-end ML pipeline for age classification using Tensorflow.js.
+          </Text>
+          <Text color="white" mb={1}>
+          ▪ Implemented secure JWT authentication flow and privacy-preserving local inference.
           </Text>
           <Text color="white" mb={10}>
-          ▪ Firebase on the back end for user authentication with email, document reads & writes and profile image storage.
+          ▪ Built scalable AWS infrastructure handling daily requests.
           </Text>
 
-          <Text color="white" mb={1} fontSize="2xl">   
-          Object Detection¬ System on Social Media  | Deep Learning</Text>
+          <Text color="white" mb={1} fontSize="2xl">
+          PyTorch Audio Processing Course | Educational Content Development</Text>
           <Text color="white" mb={1}>
-          The goal of this project was to implement Convolutional Neural Network for detection of opiate related activity on Instagram.
-          </Text>
-          <Text color="white" mb={1}>        
-          ▪ Designed a Convolutional Neural Network (CNN) leveraging computer vision techniques. Used web scraping post-training to analyze a vast number of images across the platform.
+          Comprehensive educational series on audio processing with PyTorch, reaching worldwide learners.
           </Text>
           <Text color="white" mb={1}>
-          ▪ Worked closely with professors and colleagues to research, design, and systematize the detection mechanism.
+          ▪ Created practical tutorials covering audio data preprocessing, feature extraction, CNN architecture design, and production deployment strategies.
+          </Text>
+          <Text color="white" mb={1}>
+          ▪ Demonstrated techniques for loading, processing, and visualizing audio data within the PyTorch framework.
+          </Text>
+          <Text color="white" mb={1}>
+          ▪ Introduced transfer learning concepts for audio applications.
           </Text>
         </motion.div>
 
