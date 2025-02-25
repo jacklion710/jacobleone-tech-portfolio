@@ -153,7 +153,7 @@ export default function TorchaudioTutorialP2() {
 
             <Heading size="lg" pt="60px" pb="20px">Overview</Heading>
             <Text pb="10px">
-              We'll be continuing our work on the UrbanSound8K dataset, but this time we will be using transfer learning to improve our model. If you missed part 1, you can get caught up <Link href="/Torchaudio-Tutorial-P1">here</Link>.
+              We&apos;ll be continuing our work on the UrbanSound8K dataset, but this time we will be using transfer learning to improve our model. If you missed part 1, you can get caught up <Link href="/Torchaudio-Tutorial-P1">here</Link>.
             </Text>
 
             <Heading size="lg" pt="60px" pb="20px">Lesson 5: Advanced Audio Processing Techniques</Heading>
