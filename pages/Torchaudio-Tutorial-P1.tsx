@@ -606,7 +606,7 @@ root_dir = '../../data/audio/'`}
                 The model architecture is illustrated below.
               </Text>
 
-              <Image mb={4} src="/images/model_architecture.png" alt="Model Architecture" />
+              <Image mx="auto" mb={4} src="/images/model_architecture.png" alt="Model Architecture" />
 
               <Text pb="40px">
                 The model is a simple CNN model with two convolutional layers for feature extraction followed by max pooling layers, an adaptive average pooling layer to standardize the output size, and a fully connected layer for classification. Model architecture design is often thought of as an art form and is a topic of much research. For this tutorial we will be using a simple model architecture to keep the focus on the audio processing and machine learning techniques.
@@ -676,7 +676,7 @@ root_dir = '../../data/audio/'`}
 
               <Text as="ul" pb="40px" pl={6}>
                 <Text as="li"><Code>model.eval()</Code>: Prepares the model for evaluation, affecting certain layers like dropout.</Text>
-                <Text as="li"><Code>torch.no_grad()</Code>: Indicates that we don't need to compute gradients, which reduces memory consumption and speeds up computation.</Text>
+                <Text as="li"><Code>torch.no_grad()</Code>: Indicates that we don&apos;t need to compute gradients, which reduces memory consumption and speeds up computation.</Text>
               </Text>
 
               <Heading size="md" pt="40px" pb="20px">Understanding the <Code>pad_collate</Code> Function</Heading>
