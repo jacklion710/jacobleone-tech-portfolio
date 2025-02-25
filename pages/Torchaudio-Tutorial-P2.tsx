@@ -151,6 +151,11 @@ export default function TorchaudioTutorialP2() {
               This project provides a structured approach to learning audio processing and classification using PyTorch and torchaudio. Through a series of lessons, you&apos;ll progress from basic audio handling to deploying audio models for real-world applications.
             </Text>
 
+            <Heading size="lg" pt="60px" pb="20px">Overview</Heading>
+            <Text pb="10px">
+              We'll be continuing our work on the UrbanSound8K dataset, but this time we will be using transfer learning to improve our model. If you missed part 1, you can get caught up <Link href="/Torchaudio-Tutorial-P1">here</Link>.
+            </Text>
+
             <Heading size="lg" pt="60px" pb="20px">Lesson 5: Advanced Audio Processing Techniques</Heading>
             <Text pb="40px">
               In this lesson, we delve into advanced techniques for enhancing audio model performance, including data augmentation and feature engineering. These strategies are vital for improving the robustness and accuracy of audio classification models.
