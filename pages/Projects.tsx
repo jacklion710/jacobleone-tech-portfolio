@@ -19,9 +19,21 @@ import {
   import { Helmet } from "react-helmet";
   import { motion } from 'framer-motion';
   import { useInView } from 'react-intersection-observer';
-  import React, { useRef } from 'react';
+  import React from 'react';
 
   const projects = [
+    {
+        title: "Kronos",
+        description: "Audio plugin for musicians to track time spent on projects",
+        imageUrl: "/images/kronos-screenshot-dark.png",
+        githubUrl: "https://github.com/jacklion710/Kronos",
+    },
+    {
+        title: "Crash Dummy Plugin",
+        description: "A plugin for Ableton Live designed for stress testing other plugins by crashing the host application",
+        imageUrl: "/images/crash-dummy-ui.png",
+        githubUrl: "https://github.com/jacklion710/crash-dummy",
+    },
     {
         title: "Generative Adversarial Network",
         description: "System design for a GAN model used for generating novel audio.",
@@ -167,6 +179,9 @@ import {
     const bgColor = useColorModeValue("white", "gray.800");
     const color = useColorModeValue("gray.700", "gray.50");
     const borderColor = useColorModeValue("gray.200", "gray.600");
+    const cardBgColor = useColorModeValue("rgba(255, 255, 255, 0.9)", "rgba(45, 55, 72, 0.9)");
+    const titleColor = useColorModeValue("teal.600", "teal.200");
+    const descriptionColor = useColorModeValue("gray.700", "gray.300");
 
     const fadeIn = {
       hidden: { opacity: 0 },
@@ -238,15 +253,34 @@ import {
                                     borderWidth="1px" 
                                     borderRadius="md" 
                                     borderColor={borderColor} 
-                                    shadow="lg" 
-                                    transition="transform .2s" 
-                                    _hover={{ transform: 'scale(1.05)' }}
+                                    shadow="2xl"
+                                    bg={cardBgColor}
+                                    backdropFilter="blur(10px)"
+                                    transition="all 0.3s" 
+                                    _hover={{ 
+                                        transform: 'scale(1.05)',
+                                        shadow: 'dark-lg',
+                                        borderColor: 'teal.300',
+                                    }}
                                 >
                                     <AspectRatio ratio={4 / 3}>
                                     <Image src={project.imageUrl} alt={project.title} borderRadius="md" mb={4} objectFit="cover" />
                                     </AspectRatio>
-                                    <Heading size="md" my={2} textAlign="center">{project.title}</Heading>
-                                    <Text mb={4} noOfLines={2}>{project.description}</Text>
+                                    <Heading 
+                                        size="md" 
+                                        my={2} 
+                                        textAlign="center"
+                                        color={titleColor}
+                                    >
+                                        {project.title}
+                                    </Heading>
+                                    <Text 
+                                        mb={4} 
+                                        noOfLines={2}
+                                        color={descriptionColor}
+                                    >
+                                        {project.description}
+                                    </Text>
                                     {project.title !== "Flash Configurator" && (
                                     <Flex justifyContent="center" mt={3} wrap="wrap" direction={{ base: "column", md: "row" }}>
                                         {project.githubUrl && (
