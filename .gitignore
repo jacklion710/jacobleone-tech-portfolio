@@ -36,3 +36,9 @@ next-env.d.ts
 
 # local notes
 notes.txt
+
+# Ignore all files in public/images
+public/images/*
+
+# Don't ignore the .gitkeep file
+!public/images/.gitkeep
