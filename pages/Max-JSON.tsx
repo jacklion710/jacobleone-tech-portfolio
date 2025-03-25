@@ -154,7 +154,7 @@ export default function MaxPatchVisualizer() {
               Even though Max is a visual node based patcher environment when a section of a patch is copied to the clipboard it is stored in the form of a JSON object which contains information thats used for reconstructing the copied patch when pasted back into max. However, if we copy and paste this into a text editor we can see the JSON object that represents the patch. Matter of fact, if you copy and paste the JSON snippets from this article and paste them into your own patch then you will see the objects appear in your environment.
             </Text>
             <Heading size="md"  pb="20px">Single Max Object in JSON</Heading>
-            <Image pb="20px" src="/images/max-json-article/single-cycle~.png" alt="Single cycle~ object" />
+            <Image pb="20px" src="/images/single-cycle~.png" alt="Single cycle~ object" />
             <Text>
               In max we have access to a vast library for DSP and realtime control systems. One of the most fundamental things one can do with any digital audio system is to play a sine wave. In max we have the <Code>cycle~</Code> object for generating sine wave signals. Objects with the <Code>~</Code> are denoted as <strong>signal</strong> objects which means it is an object that deals with audio data.
             </Text>
@@ -214,7 +214,7 @@ export default function MaxPatchVisualizer() {
               </li>
             </ul>
             <Heading size="md"  pt="40px" pb="20px">Simple Patch Connection in JSON</Heading>
-            <Image pb="40px" src="/images/max-json-article/simple-connection.png" alt="Simple patch connection" />
+            <Image pb="40px" src="/images/simple-connection.png" alt="Simple patch connection" />
             <Text pb="40px">
               If we create a second object and make a single patch connection from one object to another, we can observe some changes in our JSON. The <Code>dac~</Code> object uses your computers digital audio converter if available to play audio aloud.
             </Text>
@@ -289,7 +289,7 @@ export default function MaxPatchVisualizer() {
             <Text pb="40px">
               Max has a special category of objects for UI and interactivity. We usually just call them widgets. We have many different kinds at our disposal but some common ones include <Code>slider</Code>, <Code>number</Code>, <Code>button</Code> and <Code>live.dial</Code> all pictured below.
             </Text>
-            <Image pb="40px" src="/images/max-json-article/widgets.png" alt="Widget objects" />
+            <Image pb="40px" src="/images/widgets.png" alt="Widget objects" />
             <Text pb="40px">
               These objects do not look that different from our usual JSON representation save for a few minor differences which we will now go over.
             </Text>
@@ -369,7 +369,7 @@ export default function MaxPatchVisualizer() {
             <Text pb="40px">
               Now we are ready to see a patch we might be more likely to encounter in the wild. Although not as extensive as most devices in production, it is a snippet that represents a realistic scenario with multiple objects and patch connections.
             </Text>
-            <Image pb="40px" src="/images/max-json-article/widget+complex-patch.png" alt="Complex patch with widgets" />
+            <Image pb="40px" src="/images/widget+complex-patch.png" alt="Complex patch with widgets" />
             <Text pb="40px">
               In the image above we connect the outlet of <Code>live.dial</Code> (which sends lets users select a number to output with a dial) to the left inlet of a <Code>+</Code> object with an argument of **50** and the left inlet of a <Code>cycle~</Code> object as well. The outlet of <Code>+</Code> connects to the left inlet of a second <Code>cycle~</Code> object. Both <Code>cycle~</Code> objects finally connect to each the left and right inlets of <Code>~dac</Code> respectively. It is just a simple pitchable oscillator where the right speaker always plays a sine wave 50 hz above the left as determined by the dials value. Its not a very realistic patch in a sound designers sense but is still valid and realistic enough that it will help us gain insight into the JSON structure of a patch that features multiple objects and connections.
             </Text>
@@ -498,7 +498,7 @@ export default function MaxPatchVisualizer() {
             <Text pb="40px">
               Sometimes we will encounter nested structures in a max patch. The most basic kind is the <Code>subpatcher</Code> aka <Code>p</Code>, an object which encapsulates portions of a patch. There are other similar ones, the closest relative being <Code>bpatcher</Code>, a subpatcher which features a see through window for encapsulating UI components as opposed to simply raw objects. There are also <Code>poly~</Code>, <Code>fft~</Code>, <Code>~rnbo</Code> and more but these complicate things so for now we do not care about them.
             </Text>
-            <Image pb="40px" src="/images/max-json-article/subpatcher.png" alt="Subpatcher" />
+            <Image pb="40px" src="/images/subpatcher.png" alt="Subpatcher" />
             <Text pb="40px">
               In this example, we have a simple subpatcher <Code>p</Code> called *subpatcher* which contains a single <Code>cycle~</Code> object inside. Below we can see the <Code>patcher</Code> field which contains more information about the patch including its enclosed JSON subpatch objects and their connections. Since we are only rendering the <Code>p</Code> object and its text we do not care about the contents of <Code>patcher</Code> for now. It is worth checking the <Code>numinlet</Code> and <Code>numoutlet</Code> attributes because subpatchers can have a varied number of inlets and outlets for connecting encapsulated patches with their parent patches depending on the user&apos;s design. There are a handful of objects whose behavior, display and expected inputs are versatile.
             </Text>
