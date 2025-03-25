@@ -1,4 +1,0 @@
-public/images/*.png filter=lfs diff=lfs merge=lfs -text
-public/images/*.jpg filter=lfs diff=lfs merge=lfs -text
-public/images/*.jpeg filter=lfs diff=lfs merge=lfs -text
-public/images/max-json-article/*.png filter=lfs diff=lfs merge=lfs -text
