@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import './navbarStyles.css';
 import { FaGithub, FaLinkedin, FaEnvelope, FaYoutube } from 'react-icons/fa'; 
 
-const MotionBox = chakra(motion.div);
+const MotionBox = motion(Box);
 
 const navItemVariants = {
   hidden: { opacity: 0, y: 50 },

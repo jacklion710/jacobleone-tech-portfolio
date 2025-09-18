@@ -138,7 +138,7 @@ import { useState, useRef } from 'react';
             <meta property="og:description" content="Reach out to Jacob Leone for collaboration, inquiries, or any questions. Connect through multiple platforms or send a direct email." />
             <meta property="og:url" content="https://jacobleone.tech/Contact" />
             <link rel="canonical" href="https://jacobleone.tech/Contact" />
-            <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet"/>
+            
         </Helmet>
         <Flex direction="column" minHeight="100vh" bgImage={`/images/Circuit.jpeg`} bgRepeat="no-repeat" bgSize="cover" style={{ fontFamily: '"Roboto Mono", monospace', color: 'black' }}>
         <Navbar />
